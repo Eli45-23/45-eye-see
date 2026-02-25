@@ -1,0 +1,44 @@
+.wrapper {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0.9rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  background: #eef4ff;
+}
+
+.panel {
+  padding: 0 0.9rem 0.9rem;
+  color: var(--muted);
+}
+
+.panel p {
+  margin: 0;
+}

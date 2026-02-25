@@ -1,8 +1,11 @@
 import { business } from "@/src/content/business";
 import { serviceBuckets } from "@/src/content/services";
+import { CallCTA } from "@/src/components/CallCTA";
+import { Container } from "@/src/components/Container";
+import { Section } from "@/src/components/Section";
+import { ServiceCard } from "@/src/components/ServiceCard";
 import { createPageMetadata } from "@/src/lib/seo";
-
-const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
+import styles from "../site.module.css";
 
 export const metadata = createPageMetadata({
   page: "Services",
@@ -13,37 +16,23 @@ export const metadata = createPageMetadata({
 
 export default function ServicesPage() {
   return (
-    <div className="page wrap">
-      <section className="panel">
-        <h1>Electrical Services</h1>
-        <p>
-          {business.publicName} handles residential and commercial electrical work
-          across {business.serviceAreas.join(", ")}.
-        </p>
-        <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
-          Call for Same-Day Service
-        </a>
-      </section>
+    <Container as="div" className={styles.page}>
+      <Section>
+        <h1 className={styles.heroTitle}>Electrical Services</h1>
+        <div className={styles.stack}>
+          <p className={styles.copy}>
+            {business.publicName} handles residential and commercial electrical work across{" "}
+            {business.serviceAreas.join(", ")}.
+          </p>
+          <CallCTA label="Call for Same-Day Service" />
+        </div>
+      </Section>
 
-      <section className="service-grid">
+      <section className={styles.grid2} aria-label="Service list">
         {serviceBuckets.map((service) => (
-          <article className="panel" key={service.name}>
-            <h2>{service.name}</h2>
-            <p>{service.description}</p>
-            <ul>
-              {service.commonJobs.map((job) => (
-                <li key={job}>{job}</li>
-              ))}
-            </ul>
-            <p>
-              <strong>Related searches:</strong> {service.keywords.join(", ")}
-            </p>
-            <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
-              {service.cta}
-            </a>
-          </article>
+          <ServiceCard key={service.name} service={service} />
         ))}
       </section>
-    </div>
+    </Container>
   );
 }

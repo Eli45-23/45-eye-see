@@ -1,0 +1,138 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 4.2rem;
+  padding-block: 0.45rem 0.25rem;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logoMark {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  background: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.brandText {
+  display: grid;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+.brand {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.nav {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--brand-strong);
+}
+
+.callDesktop {
+  display: inline-flex;
+}
+
+.main {
+  padding-block: 1rem 2rem;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: #fff;
+  margin-top: 1.5rem;
+  padding-block: 1rem 1.4rem;
+}
+
+.footerGrid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.footerTitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footerMeta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.footerList {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.inlineLink {
+  color: var(--brand-strong);
+  text-underline-offset: 0.13em;
+}
+
+@media (min-width: 860px) {
+  .headerRow {
+    grid-template-columns: auto 1fr auto;
+    min-height: 4.4rem;
+    padding-block: 0;
+  }
+
+  .nav {
+    grid-column: auto;
+    justify-self: center;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .callDesktop {
+    display: inline-flex;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}

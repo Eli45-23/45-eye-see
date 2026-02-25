@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { business } from "@/src/content/business";
+import { CallCTA } from "@/src/components/CallCTA";
+import { Container } from "@/src/components/Container";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
+import styles from "./layout.module.css";
 import "./globals.css";
-
-const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,37 +43,59 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="site-header">
-          <div className="wrap header-inner">
-            <div>
-              <p className="eyebrow">{business.businessNameLegal}</p>
-              <p className="brand">{business.publicName}</p>
+        <header className={styles.header}>
+          <Container>
+            <div className={styles.headerRow}>
+              <div className={styles.brandGroup}>
+                <div className={styles.logoMark} aria-hidden="true">
+                  45
+                </div>
+                <div className={styles.brandText}>
+                  <p className={styles.eyebrow}>{business.businessNameLegal}</p>
+                  <p className={styles.brand}>{business.publicName}</p>
+                </div>
+              </div>
+
+              <nav aria-label="Primary" className={styles.nav}>
+                <Link className={styles.navLink} href="/">
+                  Home
+                </Link>
+                <Link className={styles.navLink} href="/services">
+                  Services
+                </Link>
+                <Link className={styles.navLink} href="/contact">
+                  Contact
+                </Link>
+              </nav>
+
+              <CallCTA className={styles.callDesktop} label={`Call ${business.phone}`} />
             </div>
-            <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
-              Call {business.phone}
-            </a>
-          </div>
-          <nav className="wrap site-nav" aria-label="Main">
-            <Link href="/">Home</Link>
-            <Link href="/services">Services</Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
+          </Container>
         </header>
 
-        <main>{children}</main>
+        <main className={styles.main}>{children}</main>
 
-        <footer className="site-footer">
-          <div className="wrap footer-inner">
-            <p>
-              {business.locationLabel} service across {business.mustMentionNeighborhoods[1]}
-              , {business.mustMentionNeighborhoods[2]}, {business.mustMentionNeighborhoods[0]}
-              , {business.serviceAreas[1]}, {business.serviceAreas[2]}, {business.serviceAreas[3]}
-              , and select Long Island towns.
-            </p>
-            <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
-              Call Now: {business.phone}
-            </a>
-          </div>
+        <footer className={styles.footer}>
+          <Container>
+            <div className={styles.footerGrid}>
+              <div>
+                <h2 className={styles.footerTitle}>{business.locationLabel} Electrician</h2>
+                <p className={styles.footerMeta}>
+                  Phone: {business.phone} · Email:{" "}
+                  <a className={styles.inlineLink} href={`mailto:${business.email}`}>
+                    {business.email}
+                  </a>
+                </p>
+                <ul className={styles.footerList}>
+                  <li>Manhattan</li>
+                  <li>Queens</li>
+                  <li>Brooklyn</li>
+                  <li>Staten Island + select Long Island areas</li>
+                </ul>
+              </div>
+              <CallCTA label="Call for Service Today" />
+            </div>
+          </Container>
         </footer>
       </body>
     </html>
