@@ -1,5 +1,6 @@
-const phoneDisplay = "(646) 710-0134";
-const phoneHref = "tel:+16467100134";
+import { business } from "@/src/content/business";
+
+const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
 
 export default function HomePage() {
   return (
@@ -7,35 +8,36 @@ export default function HomePage() {
       <section className="panel">
         <h1>Fast, Reliable Electrical Service Across NYC</h1>
         <p>
-          45 EYE Electrical Solutions LLC is led by Eli the Electrician, delivering
+          {business.businessNameLegal} is led by {business.publicName}, delivering
           same-day electrical service for homes and businesses.
         </p>
         <p>
-          We are licensed and insured with 10+ years of hands-on experience.
-          Service areas include Lower and Midtown Manhattan, Williamsburg,
-          Queens, Brooklyn, Staten Island, and select Long Island locations.
+          We are {business.differentiators[0].toLowerCase()} with{" "}
+          {business.differentiators[1].toLowerCase()}.
+          Service areas include {business.mustMentionNeighborhoods[1]},{" "}
+          {business.mustMentionNeighborhoods[2]}, {business.mustMentionNeighborhoods[0]},{" "}
+          {business.serviceAreas[1]}, {business.serviceAreas[2]}, {business.serviceAreas[3]},
+          and select Long Island locations.
         </p>
         <div className="cta-row">
-          <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
-            Call Eli: {phoneDisplay}
+          <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
+            Call {business.publicName}: {business.phone}
           </a>
-          <a className="alt-link" href="mailto:eli.the.electrician@gmail.com">
-            eli.the.electrician@gmail.com
+          <a className="alt-link" href={`mailto:${business.email}`}>
+            {business.email}
           </a>
         </div>
       </section>
 
       <section className="panel">
-        <h2>Why Property Owners Choose Eli</h2>
+        <h2>Why Property Owners Choose {business.publicName}</h2>
         <ul>
-          <li>Licensed and insured electrical contractor</li>
-          <li>10+ years of field experience</li>
-          <li>Same-day service when available</li>
-          <li>Competitive pricing</li>
-          <li>All payment types accepted</li>
+          {business.differentiators.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
         </ul>
-        <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
-          Speak With Eli Now
+        <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
+          Speak With {business.publicName} Now
         </a>
       </section>
     </div>

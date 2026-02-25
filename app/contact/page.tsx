@@ -1,23 +1,25 @@
-const phoneDisplay = "(646) 710-0134";
-const phoneHref = "tel:+16467100134";
-const email = "eli.the.electrician@gmail.com";
+import { business } from "@/src/content/business";
+import { faqs } from "@/src/content/faqs";
+
+const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
 
 export default function ContactPage() {
   return (
     <div className="page wrap">
       <section className="panel">
-        <h1>Contact Eli the Electrician</h1>
+        <h1>Contact {business.publicName}</h1>
         <p>
-          Need electrical help in Manhattan, Queens, Brooklyn, Staten Island,
-          Williamsburg, or select Long Island neighborhoods? Call now for
-          availability.
+          Need electrical help in {business.mustMentionNeighborhoods[1]},{" "}
+          {business.mustMentionNeighborhoods[2]}, {business.mustMentionNeighborhoods[0]},{" "}
+          {business.serviceAreas[1]}, {business.serviceAreas[2]}, or{" "}
+          {business.serviceAreas[3]}? Call now for availability.
         </p>
         <div className="cta-row">
-          <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
-            Call {phoneDisplay}
+          <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
+            Call {business.phone}
           </a>
-          <a className="alt-link" href={`mailto:${email}`}>
-            {email}
+          <a className="alt-link" href={`mailto:${business.email}`}>
+            {business.email}
           </a>
         </div>
       </section>
@@ -31,12 +33,25 @@ export default function ContactPage() {
           <li>Your preferred callback window</li>
         </ul>
         <p>
-          45 EYE Electrical Solutions LLC is licensed and insured, with 10+ years
-          of experience and all payment types accepted.
+          {business.businessNameLegal} is {business.differentiators[0].toLowerCase()}
+          , with {business.differentiators[1].toLowerCase()}, and{" "}
+          {business.differentiators[4].toLowerCase()}.
         </p>
-        <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
+        <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
           Call to Book Service
         </a>
+      </section>
+
+      <section className="panel">
+        <h2>Frequently Asked Questions</h2>
+        {faqs.map((faq) => (
+          <article key={faq.question}>
+            <p>
+              <strong>{faq.question}</strong>
+            </p>
+            <p>{faq.answer}</p>
+          </article>
+        ))}
       </section>
     </div>
   );

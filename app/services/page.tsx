@@ -1,5 +1,7 @@
-const phoneDisplay = "(646) 710-0134";
-const phoneHref = "tel:+16467100134";
+import { business } from "@/src/content/business";
+import { serviceBuckets } from "@/src/content/services";
+
+const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
 
 export default function ServicesPage() {
   return (
@@ -7,47 +9,32 @@ export default function ServicesPage() {
       <section className="panel">
         <h1>Electrical Services</h1>
         <p>
-          Eli the Electrician handles residential and commercial electrical work
-          across Manhattan, Queens, Brooklyn, Staten Island, Williamsburg, and
-          nearby Long Island communities.
+          {business.publicName} handles residential and commercial electrical work
+          across {business.serviceAreas.join(", ")}.
         </p>
-        <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
+        <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
           Call for Same-Day Service
         </a>
       </section>
 
       <section className="service-grid">
-        <article className="panel">
-          <h2>Troubleshooting and Repairs</h2>
-          <p>
-            Fast diagnosis and repair for outages, flickering lights, tripped
-            breakers, and other power issues.
-          </p>
-        </article>
-
-        <article className="panel">
-          <h2>Panel and Circuit Upgrades</h2>
-          <p>
-            Safe panel improvements, dedicated lines, and circuit planning to
-            support modern appliances and equipment.
-          </p>
-        </article>
-
-        <article className="panel">
-          <h2>Lighting and Fixture Installation</h2>
-          <p>
-            Interior and exterior lighting, recessed lights, and fixture swaps
-            with clean, code-aware installation.
-          </p>
-        </article>
-
-        <article className="panel">
-          <h2>Outlet, Switch, and Safety Updates</h2>
-          <p>
-            New outlets, switch replacements, GFCI updates, and electrical safety
-            improvements for older properties.
-          </p>
-        </article>
+        {serviceBuckets.map((service) => (
+          <article className="panel" key={service.name}>
+            <h2>{service.name}</h2>
+            <p>{service.description}</p>
+            <ul>
+              {service.commonJobs.map((job) => (
+                <li key={job}>{job}</li>
+              ))}
+            </ul>
+            <p>
+              <strong>Related searches:</strong> {service.keywords.join(", ")}
+            </p>
+            <a className="call-button" href={phoneHref} aria-label={`Call ${business.phone}`}>
+              {service.cta}
+            </a>
+          </article>
+        ))}
       </section>
     </div>
   );
