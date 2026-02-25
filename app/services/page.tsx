@@ -1,7 +1,15 @@
 import { business } from "@/src/content/business";
 import { serviceBuckets } from "@/src/content/services";
+import { createPageMetadata } from "@/src/lib/seo";
 
 const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
+
+export const metadata = createPageMetadata({
+  page: "Services",
+  path: "/services",
+  focus:
+    "Explore service buckets for troubleshooting, panel upgrades, outlet and lighting work, code corrections, and same-day electrical help.",
+});
 
 export default function ServicesPage() {
   return (

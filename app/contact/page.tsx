@@ -1,7 +1,15 @@
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
+import { createPageMetadata } from "@/src/lib/seo";
 
 const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
+
+export const metadata = createPageMetadata({
+  page: "Contact",
+  path: "/contact",
+  focus:
+    "Call now to request same-day availability, discuss your electrical issue, and schedule service in NYC and select Long Island areas.",
+});
 
 export default function ContactPage() {
   return (

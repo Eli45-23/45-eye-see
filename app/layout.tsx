@@ -1,14 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { business } from "@/src/content/business";
+import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
 import "./globals.css";
 
 const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
 
 export const metadata: Metadata = {
-  title: `${business.businessNameLegal} | ${business.publicName}`,
-  description:
-    `Licensed and insured ${business.locationLabel} electrical contractor serving ${business.serviceAreas.join(", ")}.`,
+  metadataBase: new URL(SITE_URL),
+  title: buildSeoTitle("Home"),
+  description: buildSeoDescription(
+    "Serving homes and businesses in Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas."
+  ),
+  alternates: {
+    canonical: SITE_URL,
+  },
+  openGraph: {
+    title: buildSeoTitle("Home"),
+    description: buildSeoDescription(
+      "NYC electrician for repairs, upgrades, and same-day service calls."
+    ),
+    url: SITE_URL,
+    siteName: business.brandName,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: buildSeoTitle("Home"),
+    description: buildSeoDescription(
+      "Call for licensed and insured electrical service across NYC."
+    ),
+  },
 };
 
 export default function RootLayout({

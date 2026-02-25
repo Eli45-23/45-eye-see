@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { business } from "@/src/content/business";
+
+export const SITE_URL = "https://45eyeelectricalsolutions.com";
+
+const titleSuffix = `${business.brandName} (${business.publicName}) | NYC Electrician`;
+
+export function buildSeoTitle(page: string): string {
+  return `${page} | ${titleSuffix}`;
+}
+
+export function buildSeoDescription(pageFocus: string): string {
+  return `${business.businessNameLegal} is licensed and insured, NYC-based, and offers same-day electrical service when available across ${business.serviceAreas.join(", ")}. Call ${business.phone} for service. ${pageFocus}`;
+}
+
+type PageSeoInput = {
+  page: string;
+  path: "/" | "/services" | "/contact";
+  focus: string;
+};
+
+export function createPageMetadata(input: PageSeoInput): Metadata {
+  const title = buildSeoTitle(input.page);
+  const description = buildSeoDescription(input.focus);
+  const url = new URL(input.path, SITE_URL).toString();
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: business.brandName,
+      type: "website",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}

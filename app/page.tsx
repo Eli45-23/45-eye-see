@@ -1,6 +1,14 @@
 import { business } from "@/src/content/business";
+import { createPageMetadata } from "@/src/lib/seo";
 
 const phoneHref = `tel:+1${business.phone.replace(/\D/g, "")}`;
+
+export const metadata = createPageMetadata({
+  page: "Home",
+  path: "/",
+  focus:
+    "Get dependable NYC electrician service for troubleshooting, panel upgrades, lighting, and urgent electrical issues.",
+});
 
 export default function HomePage() {
   return (
