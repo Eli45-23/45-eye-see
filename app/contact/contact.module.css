@@ -1,0 +1,81 @@
+.layout {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.topCta {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.topTitle {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2.2rem);
+}
+
+.topCopy {
+  margin: 0;
+  color: var(--muted);
+}
+
+.bigCall {
+  font-size: 1.08rem;
+  padding: 0.9rem 1.2rem;
+}
+
+.quickNote {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.contactGrid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contactMeta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.link {
+  color: var(--brand-strong);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.link:hover,
+.link:focus-visible {
+  text-decoration: underline;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.subheading {
+  margin: 0.75rem 0 0.45rem;
+  font-size: 1.02rem;
+}
+
+.grid3 {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faqWrap {
+  display: grid;
+  gap: 0.8rem;
+}
+
+@media (min-width: 980px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,4 +1,5 @@
 import { business } from "@/src/content/business";
+import { faqs } from "@/src/content/faqs";
 import { serviceBuckets } from "@/src/content/services";
 import { SITE_URL } from "@/src/lib/seo";
 
@@ -41,6 +42,21 @@ export function getServiceListSchema() {
           "@type": "AdministrativeArea",
           name: area,
         })),
+      },
+    })),
+  };
+}
+
+export function getFaqPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
     })),
   };
