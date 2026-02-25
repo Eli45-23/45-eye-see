@@ -5,11 +5,12 @@ type SectionProps = {
   title?: string;
   children: ReactNode;
   className?: string;
+  id?: string;
 };
 
-export function Section({ title, children, className }: SectionProps) {
+export function Section({ title, children, className, id }: SectionProps) {
   return (
-    <section className={`${styles.section}${className ? ` ${className}` : ""}`}>
+    <section id={id} className={`${styles.section}${className ? ` ${className}` : ""}`}>
       {title ? <h2 className={styles.title}>{title}</h2> : null}
       {children}
     </section>

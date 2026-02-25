@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <Container as="div" className={styles.page}>
-      <Section>
+      <Section id="contact-request">
         <h1 className={styles.heroTitle}>Contact {business.publicName}</h1>
         <div className={styles.stack}>
           <p className={styles.copy}>

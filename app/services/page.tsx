@@ -5,6 +5,7 @@ import { Container } from "@/src/components/Container";
 import { Section } from "@/src/components/Section";
 import { ServiceCard } from "@/src/components/ServiceCard";
 import { createPageMetadata } from "@/src/lib/seo";
+import { slugify } from "@/src/lib/slug";
 import styles from "../site.module.css";
 
 export const metadata = createPageMetadata({
@@ -30,7 +31,7 @@ export default function ServicesPage() {
 
       <section className={styles.grid2} aria-label="Service list">
         {serviceBuckets.map((service) => (
-          <ServiceCard key={service.name} service={service} />
+          <ServiceCard key={service.name} id={slugify(service.name)} service={service} />
         ))}
       </section>
     </Container>
