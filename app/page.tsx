@@ -1,66 +1,43 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+const phoneDisplay = "(646) 710-0134";
+const phoneHref = "tel:+16467100134";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <div className="page wrap">
+      <section className="panel">
+        <h1>Fast, Reliable Electrical Service Across NYC</h1>
+        <p>
+          45 EYE Electrical Solutions LLC is led by Eli the Electrician, delivering
+          same-day electrical service for homes and businesses.
+        </p>
+        <p>
+          We are licensed and insured with 10+ years of hands-on experience.
+          Service areas include Lower and Midtown Manhattan, Williamsburg,
+          Queens, Brooklyn, Staten Island, and select Long Island locations.
+        </p>
+        <div className="cta-row">
+          <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
+            Call Eli: {phoneDisplay}
           </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+          <a className="alt-link" href="mailto:eli.the.electrician@gmail.com">
+            eli.the.electrician@gmail.com
           </a>
         </div>
-      </main>
+      </section>
+
+      <section className="panel">
+        <h2>Why Property Owners Choose Eli</h2>
+        <ul>
+          <li>Licensed and insured electrical contractor</li>
+          <li>10+ years of field experience</li>
+          <li>Same-day service when available</li>
+          <li>Competitive pricing</li>
+          <li>All payment types accepted</li>
+        </ul>
+        <a className="call-button" href={phoneHref} aria-label={`Call ${phoneDisplay}`}>
+          Speak With Eli Now
+        </a>
+      </section>
     </div>
   );
 }
