@@ -23,15 +23,15 @@
 }
 
 .logoMark {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 5.8rem;
+  height: auto;
+  max-height: 2.9rem;
   border-radius: 0.6rem;
   border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
+  display: block;
   background: #fff;
-  font-weight: 800;
-  font-size: 0.95rem;
+  object-fit: contain;
+  padding: 0.12rem;
 }
 
 .brandText {

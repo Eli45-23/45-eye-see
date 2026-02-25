@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/src/content/business";
 import { CallCTA } from "@/src/components/CallCTA";
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  icons: {
+    icon: [
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+    shortcut: ["/icon-192.png"],
+  },
   openGraph: {
     title: buildSeoTitle("Home"),
     description: buildSeoDescription(
@@ -26,6 +35,7 @@ export const metadata: Metadata = {
     siteName: business.brandName,
     type: "website",
     locale: "en_US",
+    images: [{ url: "/logo.png", width: 1512, height: 1024, alt: business.brandName }],
   },
   twitter: {
     card: "summary_large_image",
@@ -50,9 +60,15 @@ export default function RootLayout({
           <Container>
             <div className={styles.headerRow}>
               <div className={styles.brandGroup}>
-                <div className={styles.logoMark} aria-hidden="true">
-                  45
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt={`${business.brandName} logo`}
+                  width={168}
+                  height={112}
+                  className={styles.logoMark}
+                  priority
+                  sizes="168px"
+                />
                 <div className={styles.brandText}>
                   <p className={styles.eyebrow}>{business.businessNameLegal}</p>
                   <p className={styles.brand}>{business.publicName}</p>

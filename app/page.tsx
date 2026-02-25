@@ -1,5 +1,6 @@
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
+import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { testimonials } from "@/src/content/testimonials";
 import { Button } from "@/src/components/Button";
@@ -9,6 +10,7 @@ import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { Section } from "@/src/components/Section";
 import { ServiceCard } from "@/src/components/ServiceCard";
 import { TestimonialCard } from "@/src/components/TestimonialCard";
+import { WorkGallery } from "@/src/components/WorkGallery";
 import { createPageMetadata } from "@/src/lib/seo";
 import { slugify } from "@/src/lib/slug";
 import styles from "./site.module.css";
@@ -65,6 +67,14 @@ export default function HomePage() {
             />
           ))}
         </div>
+      </Section>
+
+      <Section title="Work Gallery">
+        <WorkGallery items={workGallery} />
+        <p className={styles.galleryNote}>
+          Recent project highlights from field work in NYC. Additional galleries are
+          updated as new job photos are published.
+        </p>
       </Section>
 
       <Section title="Service Areas">

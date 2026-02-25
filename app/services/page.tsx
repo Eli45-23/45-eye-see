@@ -1,8 +1,10 @@
 import { business } from "@/src/content/business";
+import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { CallCTA } from "@/src/components/CallCTA";
 import { Container } from "@/src/components/Container";
 import { Section } from "@/src/components/Section";
+import { WorkGallery } from "@/src/components/WorkGallery";
 import { createPageMetadata } from "@/src/lib/seo";
 import { getServiceListSchema } from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
@@ -88,6 +90,10 @@ export default function ServicesPage() {
           })}
         </section>
       </div>
+
+      <Section title="Work Gallery">
+        <WorkGallery items={workGallery} />
+      </Section>
 
       <script
         type="application/ld+json"
