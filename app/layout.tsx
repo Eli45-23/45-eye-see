@@ -4,6 +4,7 @@ import { business } from "@/src/content/business";
 import { CallCTA } from "@/src/components/CallCTA";
 import { Container } from "@/src/components/Container";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
+import { getLocalBusinessSchema } from "@/src/lib/schema";
 import styles from "./layout.module.css";
 import "./globals.css";
 
@@ -40,6 +41,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localBusinessSchema = getLocalBusinessSchema();
+
   return (
     <html lang="en">
       <body>
@@ -74,6 +77,11 @@ export default function RootLayout({
         </header>
 
         <main className={styles.main}>{children}</main>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
 
         <footer className={styles.footer}>
           <Container>
