@@ -12,17 +12,17 @@
 - Test: `npm run test`
 
 ## Routing Rules
-- Do not add more than 3 routes/pages.
-- Allowed routes only:
+- Strict limit: only 3 routes/pages are allowed.
+- Allowed routes only (no new pages):
   - `/`
   - `/services`
   - `/contact`
 
 ## Content Rules
 - Do not publish placeholder copy.
-- Keep call-to-action for phone calls prominent and repeated.
-- Do not show pricing details.
-- Do not show a physical address.
+- Primary CTA must always be: `Call 646-710-0134`.
+- Do not show pricing details (no pricing anywhere).
+- Do not show a physical address (no address anywhere).
 - Keep service-area messaging aligned to NYC and nearby areas:
   - Manhattan (excluding Bronx)
   - Queens
@@ -35,4 +35,13 @@
 - Use clean TypeScript with minimal dependencies.
 - Prefer accessible semantic HTML and mobile-first CSS.
 - Keep styles simple in `app/globals.css` unless component-level complexity requires extraction.
+- Performance first:
+  - Use `next/image` for site images.
+  - Do not introduce heavy animation libraries.
 - Keep lint clean before finalizing work.
+
+## Workflow
+- For every step, make the smallest change possible.
+- Run `npm run lint`.
+- Run `npm run build`.
+- Stop after those checks complete.
