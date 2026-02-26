@@ -16,10 +16,12 @@ export function WorkGallery({ items }: WorkGalleryProps) {
             alt={item.alt}
             width={item.width}
             height={item.height}
-            sizes="(max-width: 860px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            quality={74}
             className={styles.image}
             loading="lazy"
           />
+          <figcaption className={styles.caption}>{item.alt}</figcaption>
         </figure>
       ))}
     </div>

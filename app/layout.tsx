@@ -20,11 +20,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.png", sizes: "64x64", type: "image/png" },
       { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
-    shortcut: ["/icon-192.png"],
+    shortcut: ["/favicon.png"],
   },
   openGraph: {
     title: buildSeoTitle("Home"),
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     siteName: business.brandName,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/logo.png", width: 1512, height: 1024, alt: business.brandName }],
+    images: [{ url: "/brand/logo-45-eye.jpg", width: 1200, height: 800, alt: business.brandName }],
   },
   twitter: {
     card: "summary_large_image",
@@ -61,13 +62,13 @@ export default function RootLayout({
             <div className={styles.headerRow}>
               <div className={styles.brandGroup}>
                 <Image
-                  src="/logo.png"
+                  src="/brand/logo-45-eye.jpg"
                   alt={`${business.brandName} logo`}
-                  width={168}
-                  height={112}
+                  width={180}
+                  height={120}
                   className={styles.logoMark}
                   priority
-                  sizes="168px"
+                  sizes="180px"
                 />
                 <div className={styles.brandText}>
                   <p className={styles.eyebrow}>{business.businessNameLegal}</p>
