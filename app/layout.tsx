@@ -64,33 +64,46 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-[#d6e4f8]/80 bg-white/92 backdrop-blur">
-          <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-50 border-b border-[#d6e4f8]/70 bg-white/78 backdrop-blur-xl">
+          <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.jpg"
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
-                className="h-12 w-[72px] rounded-md border border-[#dce6f4] bg-white object-contain p-0.5"
+                className="h-12 w-[72px] rounded-md border border-[#dce6f4] bg-white object-contain p-0.5 shadow-[0_10px_24px_-20px_rgba(1,31,75,0.45)]"
                 sizes="72px"
                 priority
               />
-              <div className="hidden min-w-0 sm:block">
-                <p className="truncate text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  {business.businessNameLegal}
+              <div className="min-w-0">
+                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.12em] text-[#11325a] sm:text-sm">
+                  45 EYE Electrical Solutions
                 </p>
-                <p className="truncate text-sm font-semibold text-[#112742]">{business.publicName}</p>
+                <p className="truncate text-[12px] font-medium text-slate-500 sm:text-[13px]">
+                  Eli the Electrician
+                </p>
               </div>
             </Link>
 
-            <nav className="ml-auto hidden items-center gap-6 text-sm font-semibold text-[#19304a] md:flex" aria-label="Primary">
+            <nav
+              className="col-span-2 row-start-2 flex items-center gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-[#19304a] lg:col-span-1 lg:row-start-1 lg:justify-center lg:overflow-visible lg:pb-0"
+              aria-label="Primary"
+            >
               <Link href="/" className="transition hover:text-[#0a66c2]">Home</Link>
               <Link href="/services" className="transition hover:text-[#0a66c2]">Services</Link>
               <Link href="/contact" className="transition hover:text-[#0a66c2]">Contact</Link>
             </nav>
 
-            <CallCTA className="ml-2" label={`Call ${business.phone}`} />
+            <div className="ml-auto flex items-center gap-3">
+              <CallCTA className="shadow-[0_16px_34px_-22px_rgba(10,102,194,0.7)]" label={`Call ${business.phone}`} />
+              <a
+                href={`mailto:${business.email}`}
+                className="hidden text-xs font-medium text-slate-500 transition hover:text-[#0a66c2] sm:inline"
+              >
+                {business.email}
+              </a>
+            </div>
           </div>
         </header>
 
@@ -101,19 +114,30 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
-        <footer className="mt-10 border-t border-[#dce7f8] bg-white/90">
-          <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
+        <footer className="mt-10 border-t border-[#1d3557] bg-[#0d1a2d] text-[#d9e6f8]">
+          <div className="mx-auto grid w-full max-w-6xl gap-7 px-4 py-10 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
             <div>
-              <h2 className="text-lg font-semibold text-[#10253f]">{business.locationLabel} Electrician</h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Serving Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas.
-              </p>
-              <p className="mt-2 text-sm text-slate-500">
-                Phone: {business.phone} · Email: {" "}
-                <a className="font-semibold text-[#0a66c2]" href={`mailto:${business.email}`}>
+              <h2 className="text-lg font-semibold text-white">45 EYE Electrical Solutions</h2>
+              <p className="mt-1 text-sm text-[#b8c8de]">Eli the Electrician</p>
+              <p className="mt-3 text-sm text-[#c1d1e8]">
+                Phone:{" "}
+                <a className="font-semibold text-[#74b7ff]" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
+                  {business.phone}
+                </a>
+                {" · "}
+                Email:{" "}
+                <a className="font-semibold text-[#74b7ff]" href={`mailto:${business.email}`}>
                   {business.email}
                 </a>
               </p>
+              <p className="mt-3 text-sm text-[#b8c8de]">Service areas:</p>
+              <ul className="mt-2 flex flex-wrap gap-2 text-xs text-[#d6e2f5]">
+                {business.serviceAreas.map((area) => (
+                  <li key={area} className="rounded-full border border-[#2a4365] bg-[#112640] px-3 py-1">
+                    {area}
+                  </li>
+                ))}
+              </ul>
             </div>
             <CallCTA label={`Call ${business.phone}`} />
           </div>
