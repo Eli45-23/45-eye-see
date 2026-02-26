@@ -19,7 +19,7 @@ export function HeroSection({ points }: HeroSectionProps) {
             High-standard electrical work for homes and businesses.
           </h1>
           <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-600">
-            {business.publicName} serves Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas with licensed, insured, and responsive electrical service.
+            45 EYE Electrical serves Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas with licensed, insured, and responsive electrical service.
           </p>
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
