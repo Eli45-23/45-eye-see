@@ -3,7 +3,6 @@
 import { FormEvent, useMemo, useState } from "react";
 import { business } from "@/src/content/business";
 import { Button } from "./Button";
-import styles from "./ContactForm.module.css";
 
 type FormValues = {
   name: string;
@@ -53,6 +52,9 @@ function validate(values: FormValues): FormErrors {
   return errors;
 }
 
+const inputClass =
+  "mt-1 w-full rounded-xl border border-[#d7e2f0] bg-white px-3 py-2 text-sm text-[#1b2b3d] shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-[#64aaff] focus:ring-2 focus:ring-[#bfe0ff]";
+
 export function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>({});
@@ -93,18 +95,19 @@ export function ContactForm() {
   return (
     <>
       <form
-        className={styles.form}
+        className="rounded-3xl border border-[#dbe8f8] bg-white p-5 shadow-[0_20px_60px_-40px_rgba(1,31,75,0.45)] sm:p-7"
         action={PLACEHOLDER_ENDPOINT}
         method="post"
         target="contact-submit-frame"
         onSubmit={onSubmit}
         noValidate
       >
-        <div className={styles.fieldGrid}>
-          <label className={styles.field} htmlFor="contact-name">
-            <span>Name</span>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-name">
+            Name
             <input
               id="contact-name"
+              className={inputClass}
               name="name"
               autoComplete="name"
               value={values.name}
@@ -115,16 +118,17 @@ export function ContactForm() {
               required
             />
             {touched.name && errors.name ? (
-              <span id="error-name" className={styles.error}>
+              <span id="error-name" className="mt-1 block text-xs font-medium text-red-600">
                 {errors.name}
               </span>
             ) : null}
           </label>
 
-          <label className={styles.field} htmlFor="contact-phone">
-            <span>Phone</span>
+          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-phone">
+            Phone
             <input
               id="contact-phone"
+              className={inputClass}
               name="phone"
               autoComplete="tel"
               value={values.phone}
@@ -135,16 +139,17 @@ export function ContactForm() {
               required
             />
             {touched.phone && errors.phone ? (
-              <span id="error-phone" className={styles.error}>
+              <span id="error-phone" className="mt-1 block text-xs font-medium text-red-600">
                 {errors.phone}
               </span>
             ) : null}
           </label>
 
-          <label className={styles.field} htmlFor="contact-email">
-            <span>Email</span>
+          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-email">
+            Email
             <input
               id="contact-email"
+              className={inputClass}
               name="email"
               type="email"
               autoComplete="email"
@@ -156,16 +161,17 @@ export function ContactForm() {
               required
             />
             {touched.email && errors.email ? (
-              <span id="error-email" className={styles.error}>
+              <span id="error-email" className="mt-1 block text-xs font-medium text-red-600">
                 {errors.email}
               </span>
             ) : null}
           </label>
 
-          <label className={styles.field} htmlFor="contact-area">
-            <span>Borough / Neighborhood</span>
+          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-area">
+            Borough / Neighborhood
             <input
               id="contact-area"
+              className={inputClass}
               name="boroughNeighborhood"
               value={values.boroughNeighborhood}
               onChange={(event) => setField("boroughNeighborhood", event.target.value)}
@@ -181,17 +187,21 @@ export function ContactForm() {
               required
             />
             {touched.boroughNeighborhood && errors.boroughNeighborhood ? (
-              <span id="error-boroughNeighborhood" className={styles.error}>
+              <span
+                id="error-boroughNeighborhood"
+                className="mt-1 block text-xs font-medium text-red-600"
+              >
                 {errors.boroughNeighborhood}
               </span>
             ) : null}
           </label>
         </div>
 
-        <label className={styles.field} htmlFor="contact-service-needed">
-          <span>Service needed</span>
+        <label className="mt-4 block text-sm font-medium text-[#22384f]" htmlFor="contact-service-needed">
+          Service needed
           <textarea
             id="contact-service-needed"
+            className={`${inputClass} min-h-28`}
             name="serviceNeeded"
             rows={4}
             value={values.serviceNeeded}
@@ -204,35 +214,45 @@ export function ContactForm() {
             required
           />
           {touched.serviceNeeded && errors.serviceNeeded ? (
-            <span id="error-serviceNeeded" className={styles.error}>
+            <span id="error-serviceNeeded" className="mt-1 block text-xs font-medium text-red-600">
               {errors.serviceNeeded}
             </span>
           ) : null}
         </label>
 
-        <label className={styles.field} htmlFor="contact-photos">
-          <span>Optional photos</span>
-          <input id="contact-photos" name="photos" type="file" accept="image/*" multiple />
-          <span className={styles.note}>
+        <label className="mt-4 block text-sm font-medium text-[#22384f]" htmlFor="contact-photos">
+          Optional photos
+          <input
+            id="contact-photos"
+            className={`${inputClass} file:mr-3 file:rounded-lg file:border-0 file:bg-[#0a66c2] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white hover:file:bg-[#0d79e8]`}
+            name="photos"
+            type="file"
+            accept="image/*"
+            multiple
+          />
+          <span className="mt-1 block text-xs text-slate-500">
             Optional upload field is included for now; backend file handling can be added later.
           </span>
         </label>
 
-        {submitNotice ? <p className={styles.notice}>{submitNotice}</p> : null}
+        {submitNotice ? (
+          <p className="mt-4 rounded-xl border border-[#d4e7ff] bg-[#f4f9ff] px-3 py-2 text-sm text-[#1d4770]">
+            {submitNotice}
+          </p>
+        ) : null}
 
-        <div className={styles.actions}>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <Button type="submit">Send Request</Button>
-          <a className={styles.callLink} href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
+          <a
+            className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline"
+            href={`tel:+1${business.phone.replace(/\D/g, "")}`}
+          >
             Or call {business.phone}
           </a>
         </div>
       </form>
 
-      <iframe
-        title="Contact form placeholder submission"
-        name="contact-submit-frame"
-        className={styles.hiddenFrame}
-      />
+      <iframe title="Contact form placeholder submission" name="contact-submit-frame" className="hidden" />
     </>
   );
 }

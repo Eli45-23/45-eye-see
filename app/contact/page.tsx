@@ -4,13 +4,11 @@ import { faqs } from "@/src/content/faqs";
 import { testimonials } from "@/src/content/testimonials";
 import { CallCTA } from "@/src/components/CallCTA";
 import { ContactForm } from "@/src/components/ContactForm";
-import { Container } from "@/src/components/Container";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
-import { Section } from "@/src/components/Section";
-import { TestimonialCard } from "@/src/components/TestimonialCard";
+import { SectionHeader } from "@/src/components/SectionHeader";
+import { TestimonialStrip } from "@/src/components/TestimonialStrip";
 import { createPageMetadata } from "@/src/lib/seo";
 import { getFaqPageSchema, getLocalBusinessSchema } from "@/src/lib/schema";
-import styles from "./contact.module.css";
 
 export const metadata = createPageMetadata({
   page: "Contact",
@@ -24,90 +22,86 @@ export default function ContactPage() {
   const localBusinessSchema = getLocalBusinessSchema();
 
   return (
-    <Container as="div" className={styles.layout}>
-      <Section id="contact-request">
-        <div className={styles.topCta}>
-          <h1 className={styles.topTitle}>Contact {business.publicName}</h1>
-          <p className={styles.topCopy}>
-            {business.locationLabel} electrical service for homes and businesses.
-            Call now for fast response and same-day availability when possible.
-          </p>
-          <CallCTA className={styles.bigCall} label={`Call ${business.phone}`} />
-          <p className={styles.quickNote}>Fast response / same-day available</p>
-        </div>
-      </Section>
+    <div className="space-y-8">
+      <section id="contact-request" className="rounded-3xl border border-[#dbe8f8] bg-gradient-to-br from-white to-[#f7fbff] p-6 shadow-[0_30px_72px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+        <SectionHeader
+          eyebrow="Contact"
+          title={`Talk to ${business.publicName}`}
+          description="Call now for fast response and same-day availability when possible."
+          action={<CallCTA label={`Call ${business.phone}`} />}
+        />
+      </section>
 
-      <Section title="Contact Options">
-        <div className={styles.contactGrid}>
-          <div>
-            <p className={styles.contactMeta}>
-              Call: <a className={styles.link} href={`tel:+1${business.phone.replace(/\D/g, "")}`}>{business.phone}</a>
+      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_24px_56px_-42px_rgba(1,31,75,0.48)]">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#12273f]">Contact options</h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+            Best for urgent service calls, troubleshooting, and scheduling updates across Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas.
+          </p>
+          <div className="mt-5 space-y-2 text-sm text-slate-600">
+            <p>
+              Call:{" "}
+              <a className="font-semibold text-[#0a66c2]" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
+                {business.phone}
+              </a>
             </p>
-            <p className={styles.contactMeta}>
+            <p>
               Email:{" "}
-              <a className={styles.link} href={`mailto:${business.email}`}>
+              <a className="font-semibold text-[#0a66c2]" href={`mailto:${business.email}`}>
                 {business.email}
               </a>
             </p>
-            <p className={styles.contactMeta}>
-              Best for urgent service calls, troubleshooting requests, and scheduling updates.
-            </p>
+          </div>
+          <div className="mt-6">
             <CallCTA label={`Call ${business.phone}`} />
           </div>
-
-          <ContactForm />
+          <ul className="mt-6 space-y-2 text-sm text-[#2c4b6b]">
+            {business.mustMentionNeighborhoods.map((area) => (
+              <li key={area} className="rounded-lg border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
+                Frequent service in {area}
+              </li>
+            ))}
+          </ul>
         </div>
-      </Section>
 
-      <Section title="Service Areas">
-        <p className={styles.contactMeta}>We are {business.locationLabel}.</p>
-        <ul className={styles.list}>
-          {business.serviceAreas.map((area) => (
-            <li key={area}>{area}</li>
-          ))}
-        </ul>
-        <h3 className={styles.subheading}>Featured neighborhoods</h3>
-        <ul className={styles.list}>
-          {business.mustMentionNeighborhoods.map((area) => (
-            <li key={area}>{area}</li>
-          ))}
-        </ul>
+        <ContactForm />
+      </section>
+
+      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+        <SectionHeader
+          eyebrow="Testimonials"
+          title="Customer feedback"
+          description="Representative comments from recent NYC service calls."
+          action={<CallCTA label={`Call ${business.phone}`} />}
+        />
+        <TestimonialStrip items={testimonials} />
+      </section>
+
+      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+        <SectionHeader
+          eyebrow="FAQs"
+          title="Questions before booking"
+          description="Answers about response times, service areas, and what to expect."
+        />
+        <FAQAccordion items={faqs} />
         <CallCTA label={`Call ${business.phone}`} />
-      </Section>
+      </section>
 
-      <Section title="Customer Testimonials">
-        <div className={styles.grid3}>
-          {testimonials.map((item) => (
-            <TestimonialCard key={`${item.name}-${item.area}`} item={item} />
-          ))}
-        </div>
-        <CallCTA label={`Call ${business.phone}`} />
-      </Section>
-
-      <Section title="Frequently Asked Questions">
-        <div className={styles.faqWrap}>
-          <FAQAccordion items={faqs} />
-          <CallCTA label={`Call ${business.phone}`} />
-        </div>
-      </Section>
-
-      <Section title="Helpful Navigation">
-        <p className={styles.contactMeta}>
-          Use these links to review service details before booking your electrical visit.
-        </p>
-        <ul className={styles.linkList}>
+      <section className="rounded-3xl border border-[#dce8f8] bg-gradient-to-r from-[#f8fbff] to-[#fff7e7] p-6 shadow-[0_26px_64px_-48px_rgba(1,31,75,0.45)] sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#12263f]">Before you call</h2>
+        <ul className="mt-4 space-y-2 text-sm">
           <li>
-            <Link className={styles.link} href="/services">
-              View full electrical service categories and common job scopes
+            <Link href="/services" className="font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
+              Review electrical services and common job scopes
             </Link>
           </li>
           <li>
-            <Link className={styles.link} href="/">
-              Return to the home page to review NYC coverage and project gallery highlights
+            <Link href="/" className="font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
+              Return to home for service area and trust details
             </Link>
           </li>
         </ul>
-      </Section>
+      </section>
 
       <script
         type="application/ld+json"
@@ -117,6 +111,6 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
-    </Container>
+    </div>
   );
 }

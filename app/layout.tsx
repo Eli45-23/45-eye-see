@@ -4,10 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/src/content/business";
 import { CallCTA } from "@/src/components/CallCTA";
-import { Container } from "@/src/components/Container";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
 import { getLocalBusinessSchema } from "@/src/lib/schema";
-import styles from "./layout.module.css";
 import "./globals.css";
 
 const geist = localFont({
@@ -64,72 +62,61 @@ export default function RootLayout({
   const localBusinessSchema = getLocalBusinessSchema();
 
   return (
-    <html lang="en">
-      <body className={geist.variable}>
-        <header className={styles.header}>
-          <Container>
-            <div className={styles.headerRow}>
-              <div className={styles.brandGroup}>
-                <Image
-                  src="/brand/logo-45-eye.jpg"
-                  alt={`${business.brandName} logo`}
-                  width={180}
-                  height={120}
-                  className={styles.logoMark}
-                  priority
-                  sizes="180px"
-                />
-                <div className={styles.brandText}>
-                  <p className={styles.eyebrow}>{business.businessNameLegal}</p>
-                  <p className={styles.brand}>{business.publicName}</p>
-                </div>
+    <html lang="en" className={geist.variable}>
+      <body className="font-[var(--font-sans)] antialiased">
+        <header className="sticky top-0 z-50 border-b border-[#d6e4f8]/80 bg-white/92 backdrop-blur">
+          <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
+            <Link href="/" className="flex min-w-0 items-center gap-3">
+              <Image
+                src="/brand/logo-45-eye.jpg"
+                alt={`${business.brandName} logo`}
+                width={180}
+                height={120}
+                className="h-12 w-[72px] rounded-md border border-[#dce6f4] bg-white object-contain p-0.5"
+                sizes="72px"
+                priority
+              />
+              <div className="hidden min-w-0 sm:block">
+                <p className="truncate text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {business.businessNameLegal}
+                </p>
+                <p className="truncate text-sm font-semibold text-[#112742]">{business.publicName}</p>
               </div>
+            </Link>
 
-              <nav aria-label="Primary" className={styles.nav}>
-                <Link className={styles.navLink} href="/">
-                  Home
-                </Link>
-                <Link className={styles.navLink} href="/services">
-                  Services
-                </Link>
-                <Link className={styles.navLink} href="/contact">
-                  Contact
-                </Link>
-              </nav>
+            <nav className="ml-auto hidden items-center gap-6 text-sm font-semibold text-[#19304a] md:flex" aria-label="Primary">
+              <Link href="/" className="transition hover:text-[#0a66c2]">Home</Link>
+              <Link href="/services" className="transition hover:text-[#0a66c2]">Services</Link>
+              <Link href="/contact" className="transition hover:text-[#0a66c2]">Contact</Link>
+            </nav>
 
-              <CallCTA className={styles.callDesktop} label={`Call ${business.phone}`} />
-            </div>
-          </Container>
+            <CallCTA className="ml-2" label={`Call ${business.phone}`} />
+          </div>
         </header>
 
-        <main className={styles.main}>{children}</main>
+        <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">{children}</main>
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
-        <footer className={styles.footer}>
-          <Container>
-            <div className={styles.footerGrid}>
-              <div>
-                <h2 className={styles.footerTitle}>{business.locationLabel} Electrician</h2>
-                <p className={styles.footerMeta}>
-                  Phone: {business.phone} · Email:{" "}
-                  <a className={styles.inlineLink} href={`mailto:${business.email}`}>
-                    {business.email}
-                  </a>
-                </p>
-                <ul className={styles.footerList}>
-                  <li>Manhattan</li>
-                  <li>Queens</li>
-                  <li>Brooklyn</li>
-                  <li>Staten Island + select Long Island areas</li>
-                </ul>
-              </div>
-              <CallCTA label={`Call ${business.phone}`} />
+        <footer className="mt-10 border-t border-[#dce7f8] bg-white/90">
+          <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
+            <div>
+              <h2 className="text-lg font-semibold text-[#10253f]">{business.locationLabel} Electrician</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                Serving Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas.
+              </p>
+              <p className="mt-2 text-sm text-slate-500">
+                Phone: {business.phone} · Email: {" "}
+                <a className="font-semibold text-[#0a66c2]" href={`mailto:${business.email}`}>
+                  {business.email}
+                </a>
+              </p>
             </div>
-          </Container>
+            <CallCTA label={`Call ${business.phone}`} />
+          </div>
         </footer>
       </body>
     </html>

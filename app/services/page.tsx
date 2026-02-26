@@ -3,13 +3,11 @@ import { business } from "@/src/content/business";
 import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { CallCTA } from "@/src/components/CallCTA";
-import { Container } from "@/src/components/Container";
-import { Section } from "@/src/components/Section";
-import { WorkGallery } from "@/src/components/WorkGallery";
+import { GalleryGrid } from "@/src/components/GalleryGrid";
+import { SectionHeader } from "@/src/components/SectionHeader";
 import { createPageMetadata } from "@/src/lib/seo";
 import { getServiceListSchema } from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
-import styles from "./services.module.css";
 
 export const metadata = createPageMetadata({
   page: "Services",
@@ -23,37 +21,33 @@ const neighborhoods = business.mustMentionNeighborhoods;
 function getAreaLine(index: number): string {
   const first = neighborhoods[index % neighborhoods.length];
   const second = neighborhoods[(index + 1) % neighborhoods.length];
-  return `Service areas we frequently work in include ${first}, ${second}, and nearby NYC neighborhoods.`;
+  return `Frequent service coverage includes ${first}, ${second}, and nearby NYC neighborhoods.`;
 }
 
 export default function ServicesPage() {
   const serviceListSchema = getServiceListSchema();
 
   return (
-    <Container as="div" className={styles.layout}>
-      <Section>
-        <div className={styles.intro}>
-          <h1 className={styles.introTitle}>Electrical Services in NYC</h1>
-          <p className={styles.introCopy}>
-            {business.publicName} provides licensed and insured electrical service with over
-            10 years of experience, same-day availability when possible, and coverage across
-            {" "}
-            {business.serviceAreas.join(", ")}. Call {business.phone} to schedule service.
-          </p>
-          <CallCTA label={`Call ${business.phone}`} />
-        </div>
-      </Section>
+    <div className="space-y-8">
+      <section className="rounded-3xl border border-[#dbe8f8] bg-white p-6 shadow-[0_30px_72px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+        <SectionHeader
+          eyebrow="Services"
+          title="Electrical services designed for NYC properties"
+          description="Troubleshooting, repairs, upgrades, and same-day service support when availability allows."
+          action={<CallCTA label={`Call ${business.phone}`} />}
+        />
+      </section>
 
-      <div className={styles.hub}>
-        <aside className={styles.sideNav} aria-label="Service section navigation">
-          <nav className={styles.sideNavPanel}>
-            <h2 className={styles.sideNavTitle}>Jump to a service</h2>
-            <ul className={styles.sideNavList}>
+      <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+        <aside className="hidden lg:block">
+          <nav className="sticky top-24 rounded-2xl border border-[#dbe7f8] bg-white p-4 shadow-[0_20px_54px_-44px_rgba(1,31,75,0.45)]" aria-label="Service section navigation">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0a66c2]">Jump to Service</h2>
+            <ul className="mt-3 space-y-2 text-sm">
               {serviceBuckets.map((service) => {
                 const anchor = slugify(service.name);
                 return (
                   <li key={anchor}>
-                    <a className={styles.sideNavLink} href={`#${anchor}`}>
+                    <a className="font-medium text-[#163456] hover:text-[#0a66c2]" href={`#${anchor}`}>
                       {service.name}
                     </a>
                   </li>
@@ -63,62 +57,71 @@ export default function ServicesPage() {
           </nav>
         </aside>
 
-        <section className={styles.serviceSections} aria-label="Electrical service hub sections">
+        <section className="space-y-4" aria-label="Electrical service hub sections">
           {serviceBuckets.map((service, index) => {
             const serviceAnchor = slugify(service.name);
-            const useCases =
-              service.name === "Commercial Electrical Service Calls"
-                ? "This service is a strong fit for retail spaces, offices, and mixed-use buildings where downtime needs to be minimized."
-                : "This service is commonly requested by homeowners, landlords, property managers, and small business operators across NYC.";
-
             return (
-              <Section key={service.name} id={serviceAnchor} className={styles.serviceSection}>
-                <h2>{service.name}</h2>
-                <p className={styles.sectionCopy}>{service.description}</p>
-                <p className={styles.sectionCopy}>
-                  {useCases} We perform full-service electrical work from troubleshooting to
-                  upgrades with safe, code-aware practices.
-                </p>
-                <ul className={styles.commonJobs}>
+              <article
+                key={service.name}
+                id={serviceAnchor}
+                className="scroll-mt-24 rounded-2xl border border-[#dce8f8] bg-white p-5 shadow-[0_24px_56px_-44px_rgba(1,31,75,0.5)] sm:p-6"
+              >
+                <h2 className="text-2xl font-semibold tracking-tight text-[#12273f]">{service.name}</h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-slate-600">{service.description}</p>
+                <ul className="mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
                   {service.commonJobs.map((job) => (
-                    <li key={job}>{job}</li>
+                    <li key={job} className="rounded-xl border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
+                      {job}
+                    </li>
                   ))}
                 </ul>
-                <p className={styles.areaLine}>{getAreaLine(index)}</p>
-                <CallCTA label={`Call ${business.phone}`} />
-              </Section>
+                <p className="mt-4 text-sm text-[#35506d]">{getAreaLine(index)}</p>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <CallCTA label={`Call ${business.phone}`} />
+                  <Link
+                    href="/contact#contact-request"
+                    className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline"
+                  >
+                    Request scheduling details
+                  </Link>
+                </div>
+              </article>
             );
           })}
         </section>
       </div>
 
-      <Section title="Work Gallery">
-        <WorkGallery items={workGallery} />
-        <CallCTA label={`Call ${business.phone}`} />
-      </Section>
+      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_30px_72px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+        <SectionHeader
+          eyebrow="Work Gallery"
+          title="Recent electrical project highlights"
+          description="Field photos from residential and commercial jobs across NYC service areas."
+          action={<CallCTA label={`Call ${business.phone}`} />}
+        />
+        <GalleryGrid items={workGallery} />
+      </section>
 
-      <Section title="Continue Your Service Request">
-        <p className={styles.sectionCopy}>
-          Navigate directly to the right page for scheduling details and service-area coverage.
-        </p>
-        <ul className={styles.linkList}>
+      <section className="rounded-3xl border border-[#dce8f8] bg-gradient-to-r from-[#f7fbff] to-[#fff7e7] p-6 shadow-[0_26px_64px_-48px_rgba(1,31,75,0.45)] sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[#10263f]">Continue your request</h2>
+        <p className="mt-3 text-slate-600">Use these quick links to move from service research to scheduling.</p>
+        <ul className="mt-4 space-y-2 text-sm">
           <li>
-            <Link className={styles.inlineLink} href="/contact#contact-request">
-              Contact the NYC electrician team to request scheduling and callback support
+            <Link href="/contact#contact-request" className="font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
+              Contact page for callback and service scheduling
             </Link>
           </li>
           <li>
-            <Link className={styles.inlineLink} href="/">
-              Return to the home page for neighborhood coverage and recent project highlights
+            <Link href="/" className="font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
+              Home page for service areas, trust points, and FAQs
             </Link>
           </li>
         </ul>
-      </Section>
+      </section>
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }}
       />
-    </Container>
+    </div>
   );
 }
