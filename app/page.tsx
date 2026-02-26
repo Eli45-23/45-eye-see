@@ -21,7 +21,7 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <div className="space-y-8">
-      <HeroSection points={business.differentiators} />
+      <HeroSection />
 
       <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_30px_70px_-52px_rgba(4,32,74,0.5)] sm:p-8">
         <SectionHeader
