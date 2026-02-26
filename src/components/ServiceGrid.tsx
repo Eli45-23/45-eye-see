@@ -8,22 +8,29 @@ type ServiceGridProps = {
   items: readonly ServiceBucket[];
 };
 
+function getPreviewSentence(text: string): string {
+  const [firstSentence] = text.split(". ");
+  return firstSentence.endsWith(".") ? firstSentence : `${firstSentence}.`;
+}
+
 export function ServiceGrid({ items }: ServiceGridProps) {
   return (
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {items.slice(0, 6).map((service, index) => (
         <article
           key={service.name}
-          className="group rounded-2xl border border-[#dce8f8] bg-gradient-to-b from-white to-[#f9fbff] p-5 shadow-[0_24px_54px_-46px_rgba(0,35,80,0.58)] transition hover:-translate-y-0.5 hover:border-[#c4dcfa]"
+          className="group rounded-3xl bg-gradient-to-b from-white via-white to-[#f8fbff] p-6 shadow-[0_24px_56px_-40px_rgba(1,31,75,0.35)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_30px_70px_-42px_rgba(1,31,75,0.45)]"
         >
-          <div className="inline-flex size-9 items-center justify-center rounded-lg bg-[#0a66c2]/10 text-lg text-[#0a66c2]">
+          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#0a66c2]/12 text-lg text-[#0a66c2] ring-1 ring-[#cde2fb]">
             {serviceIcons[index % serviceIcons.length]}
           </div>
-          <h3 className="mt-4 text-lg font-semibold text-[#142a44]">{service.name}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
+          <h3 className="mt-4 text-lg font-semibold leading-snug text-[#142a44]">{service.name}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            {getPreviewSentence(service.description)}
+          </p>
           <Link
             href={`/services#${slugify(service.name)}`}
-            className="mt-4 inline-flex text-sm font-semibold text-[#0a66c2] underline-offset-4 group-hover:underline"
+            className="mt-5 inline-flex text-sm font-semibold text-[#0a66c2] underline-offset-4 group-hover:underline"
           >
             View services
           </Link>
