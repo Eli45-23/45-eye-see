@@ -1,9 +1,9 @@
+import Link from "next/link";
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
 import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { testimonials } from "@/src/content/testimonials";
-import { Button } from "@/src/components/Button";
 import { CallCTA } from "@/src/components/CallCTA";
 import { Container } from "@/src/components/Container";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
@@ -34,9 +34,9 @@ export default function HomePage() {
           </p>
           <div className={styles.ctaRow}>
             <CallCTA label={`Call ${business.phone}`} />
-            <Button href="/contact#contact-request" variant="secondary">
-              Request a callback
-            </Button>
+            <Link className={styles.inlineLink} href="/contact#contact-request">
+              Request a callback through the contact page
+            </Link>
           </div>
         </div>
       </Section>
@@ -82,11 +82,7 @@ export default function HomePage() {
           We serve {business.serviceAreas.join(", ")}. Booking is available for service
           calls throughout NYC and nearby locations.
         </p>
-        <p className={styles.copy}>
-          <Button href="/contact#contact-request" variant="secondary">
-            Book your service call
-          </Button>
-        </p>
+        <CallCTA label={`Call ${business.phone}`} />
         <h3 className={styles.subheading}>Featured neighborhoods</h3>
         <ul className={styles.list}>
           {business.mustMentionNeighborhoods.map((area) => (
@@ -101,20 +97,35 @@ export default function HomePage() {
             <TestimonialCard item={item} key={`${item.name}-${item.area}`} />
           ))}
         </div>
-        <p>
-          <Button href="/contact#contact-request" variant="secondary">
-            Contact us for references and scheduling
-          </Button>
-        </p>
+        <CallCTA label={`Call ${business.phone}`} />
       </Section>
 
       <Section title="FAQs Preview">
         <FAQAccordion items={faqs.slice(0, 5)} />
-        <p>
-          <Button href="/contact#contact-request" variant="secondary">
-            Ask your question on the contact page
-          </Button>
+        <CallCTA label={`Call ${business.phone}`} />
+      </Section>
+
+      <Section title="Plan Your Service Request">
+        <p className={styles.copy}>
+          Use the pages below to review service scope, see recent work, and request scheduling.
         </p>
+        <ul className={styles.linkList}>
+          <li>
+            <Link className={styles.inlineLink} href="/services">
+              Explore electrical services in Manhattan, Queens, Brooklyn, and Staten Island
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.inlineLink} href="/services#commercial-electrical-service-calls">
+              Review commercial service call details and common project types
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.inlineLink} href="/contact#contact-request">
+              Request scheduling through the NYC electrician contact page
+            </Link>
+          </li>
+        </ul>
       </Section>
 
       <Section className={styles.finalCtaBand}>

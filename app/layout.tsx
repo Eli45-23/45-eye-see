@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/src/content/business";
@@ -8,6 +9,14 @@ import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
 import { getLocalBusinessSchema } from "@/src/lib/schema";
 import styles from "./layout.module.css";
 import "./globals.css";
+
+const geist = localFont({
+  src: "./fonts/GeistLatin.woff2",
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+  fallback: ["Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +65,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className={geist.variable}>
         <header className={styles.header}>
           <Container>
             <div className={styles.headerRow}>
@@ -118,7 +127,7 @@ export default function RootLayout({
                   <li>Staten Island + select Long Island areas</li>
                 </ul>
               </div>
-              <CallCTA label="Call for Service Today" />
+              <CallCTA label={`Call ${business.phone}`} />
             </div>
           </Container>
         </footer>

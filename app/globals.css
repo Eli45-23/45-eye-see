@@ -19,11 +19,16 @@ body {
   padding: 0;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans), "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   color: var(--ink);
   background: linear-gradient(180deg, #eef3fb 0%, #f9fbff 220px, var(--bg) 220px);
   line-height: 1.5;
+  text-rendering: optimizeLegibility;
 }
 
 a {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { business } from "@/src/content/business";
 import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
@@ -84,7 +85,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <p className={styles.areaLine}>{getAreaLine(index)}</p>
-                <CallCTA label={service.cta} />
+                <CallCTA label={`Call ${business.phone}`} />
               </Section>
             );
           })}
@@ -93,6 +94,25 @@ export default function ServicesPage() {
 
       <Section title="Work Gallery">
         <WorkGallery items={workGallery} />
+        <CallCTA label={`Call ${business.phone}`} />
+      </Section>
+
+      <Section title="Continue Your Service Request">
+        <p className={styles.sectionCopy}>
+          Navigate directly to the right page for scheduling details and service-area coverage.
+        </p>
+        <ul className={styles.linkList}>
+          <li>
+            <Link className={styles.inlineLink} href="/contact#contact-request">
+              Contact the NYC electrician team to request scheduling and callback support
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.inlineLink} href="/">
+              Return to the home page for neighborhood coverage and recent project highlights
+            </Link>
+          </li>
+        </ul>
       </Section>
 
       <script

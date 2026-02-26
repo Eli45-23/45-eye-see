@@ -24,8 +24,7 @@
 
 .logoMark {
   width: 5.8rem;
-  height: auto;
-  max-height: 2.9rem;
+  height: 2.9rem;
   border-radius: 0.6rem;
   border: 1px solid var(--line);
   display: block;

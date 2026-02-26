@@ -1,7 +1,7 @@
+import Link from "next/link";
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
 import { testimonials } from "@/src/content/testimonials";
-import { Button } from "@/src/components/Button";
 import { CallCTA } from "@/src/components/CallCTA";
 import { ContactForm } from "@/src/components/ContactForm";
 import { Container } from "@/src/components/Container";
@@ -52,7 +52,7 @@ export default function ContactPage() {
             <p className={styles.contactMeta}>
               Best for urgent service calls, troubleshooting requests, and scheduling updates.
             </p>
-            <CallCTA label={`Call ${business.phone} now`} />
+            <CallCTA label={`Call ${business.phone}`} />
           </div>
 
           <ContactForm />
@@ -72,22 +72,41 @@ export default function ContactPage() {
             <li key={area}>{area}</li>
           ))}
         </ul>
-        <Button href={`tel:+1${business.phone.replace(/\D/g, "")}`}>Call to book service</Button>
+        <CallCTA label={`Call ${business.phone}`} />
       </Section>
 
-      <Section title="Customer Testimonials (Placeholder)">
+      <Section title="Customer Testimonials">
         <div className={styles.grid3}>
           {testimonials.map((item) => (
             <TestimonialCard key={`${item.name}-${item.area}`} item={item} />
           ))}
         </div>
+        <CallCTA label={`Call ${business.phone}`} />
       </Section>
 
       <Section title="Frequently Asked Questions">
         <div className={styles.faqWrap}>
           <FAQAccordion items={faqs} />
-          <CallCTA label={`Call ${business.phone} with your question`} />
+          <CallCTA label={`Call ${business.phone}`} />
         </div>
+      </Section>
+
+      <Section title="Helpful Navigation">
+        <p className={styles.contactMeta}>
+          Use these links to review service details before booking your electrical visit.
+        </p>
+        <ul className={styles.linkList}>
+          <li>
+            <Link className={styles.link} href="/services">
+              View full electrical service categories and common job scopes
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} href="/">
+              Return to the home page to review NYC coverage and project gallery highlights
+            </Link>
+          </li>
+        </ul>
       </Section>
 
       <script
