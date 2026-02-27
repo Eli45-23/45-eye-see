@@ -22,7 +22,7 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
           <article
             className={
               mode === "home"
-                ? "section-elevated overflow-hidden rounded-2xl border border-[#2d435f] ui-shadow-sm"
+                ? "overflow-hidden rounded-2xl bg-[#111827] shadow-lg shadow-black/20"
                 : "section-elevated overflow-hidden rounded-2xl border border-[#2d435f] ui-shadow-sm"
             }
             key={item.question}
@@ -44,9 +44,9 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
                 <span
                   aria-hidden="true"
                   className={
-                    mode === "home"
-                      ? "inline-flex size-7 items-center justify-center rounded-full bg-[#1e3a5f] text-[#7ec3ff]"
-                      : "inline-flex size-7 items-center justify-center rounded-full border border-[#3b5d85] text-[#7ec3ff]"
+                  mode === "home"
+                    ? "inline-flex size-7 items-center justify-center rounded-full bg-[#1e3a5f] text-[#7ec3ff]"
+                    : "inline-flex size-7 items-center justify-center rounded-full border border-[#3b5d85] text-[#7ec3ff]"
                   }
                 >
                   {isOpen ? "-" : "+"}
@@ -63,7 +63,7 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
               <p
                 className={
                   mode === "home"
-                    ? "text-[15px] leading-relaxed text-muted"
+                    ? "text-[15px] leading-relaxed text-gray-300"
                     : "text-sm leading-relaxed text-muted sm:text-[15px]"
                 }
               >

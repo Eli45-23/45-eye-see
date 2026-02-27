@@ -13,9 +13,9 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
           {items.slice(0, 3).map((item) => (
             <article
               key={`${item.name}-${item.area}`}
-              className="section-elevated rounded-3xl border border-[#2d435f] p-6 ui-shadow-sm"
+              className="rounded-3xl bg-[#111827] p-6 shadow-lg shadow-black/20"
             >
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-sm leading-relaxed text-gray-300">
                 <span aria-hidden="true">&ldquo;</span>
                 {item.quote}
                 <span aria-hidden="true">&rdquo;</span>
@@ -30,9 +30,9 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
           {items.slice(0, 3).map((item) => (
             <article
               key={`${item.name}-${item.area}`}
-              className="section-elevated min-w-[85%] snap-start rounded-3xl border border-[#2d435f] p-5 ui-shadow-sm"
+              className="min-w-[85%] snap-start rounded-3xl bg-[#111827] p-5 shadow-lg shadow-black/20"
             >
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-sm leading-relaxed text-gray-300">
                 <span aria-hidden="true">&ldquo;</span>
                 {item.quote}
                 <span aria-hidden="true">&rdquo;</span>
