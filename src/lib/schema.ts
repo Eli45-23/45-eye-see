@@ -9,7 +9,7 @@ const normalizedPhone = `+1${business.phone.replace(/\D/g, "")}`;
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "Electrician"],
+    "@type": ["LocalBusiness", "Electrician", "Contractor"],
     "@id": `${SITE_URL}#business`,
     name: business.brandName,
     legalName: business.businessNameLegal,

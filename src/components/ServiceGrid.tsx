@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { SVGProps } from "react";
+import type { ReactElement, SVGProps } from "react";
 import type { ServiceBucket } from "@/src/content/services";
 import { slugify } from "@/src/lib/slug";
 
-type IconComponent = (props: SVGProps<SVGSVGElement>) => JSX.Element;
+type IconComponent = (props: SVGProps<SVGSVGElement>) => ReactElement;
 
 type ServiceIcon = {
   label: string;
