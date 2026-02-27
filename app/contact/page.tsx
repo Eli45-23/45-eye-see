@@ -26,45 +26,36 @@ export default function ContactPage() {
       <section id="contact-request" className="rounded-3xl border border-[#dbe8f8] bg-gradient-to-br from-white to-[#f7fbff] p-6 shadow-[0_30px_72px_-52px_rgba(1,31,75,0.5)] sm:p-8">
         <SectionHeader
           eyebrow="Contact"
-          title={`Talk to ${business.publicName}`}
-          description="Call now for fast response and same-day availability when possible."
-          action={<CallCTA label={`Call ${business.phone}`} />}
+          title="Book your NYC electrical service call"
+          description="Call first for fastest scheduling, then use email or the callback form if preferred."
         />
-      </section>
 
-      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_24px_56px_-42px_rgba(1,31,75,0.48)]">
-          <h2 className="text-2xl font-semibold tracking-tight text-[#12273f]">Contact options</h2>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">
-            Best for urgent service calls, troubleshooting, and scheduling updates across Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas.
-          </p>
-          <div className="mt-5 space-y-2 text-sm text-slate-600">
-            <p>
-              Call:{" "}
-              <a className="font-semibold text-[#0a66c2]" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
-                {business.phone}
-              </a>
-            </p>
-            <p>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="space-y-4">
+            <CallCTA label={`Call ${business.phone}`} />
+            <p className="text-sm text-slate-600">
               Email:{" "}
               <a className="font-semibold text-[#0a66c2]" href={`mailto:${business.email}`}>
                 {business.email}
               </a>
             </p>
+            <div className="rounded-2xl border border-[#d7e5f8] bg-white p-4 shadow-[0_18px_44px_-36px_rgba(1,31,75,0.35)]">
+              <p className="text-sm font-semibold text-[#1b3655]">Response time</p>
+              <p className="mt-1 text-sm text-slate-600">
+                Fast response during business hours. Same-day availability when possible.
+              </p>
+            </div>
+            <ul className="space-y-2 text-sm text-[#2c4b6b]">
+              {business.mustMentionNeighborhoods.map((area) => (
+                <li key={area} className="rounded-lg border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
+                  Frequent service in {area}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="mt-6">
-            <CallCTA label={`Call ${business.phone}`} />
-          </div>
-          <ul className="mt-6 space-y-2 text-sm text-[#2c4b6b]">
-            {business.mustMentionNeighborhoods.map((area) => (
-              <li key={area} className="rounded-lg border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
-                Frequent service in {area}
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <ContactForm />
+          <ContactForm />
+        </div>
       </section>
 
       <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
