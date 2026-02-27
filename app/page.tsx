@@ -33,7 +33,7 @@ export default function HomePage() {
         <ServiceGrid items={serviceBuckets} />
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
           <span>Need full scope details?</span>
-          <Link href="/services" className="font-semibold text-[#3b82f6] underline-offset-4 hover:underline">
+          <Link href="/services" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
             View all services on the services page
           </Link>
         </div>
@@ -85,7 +85,7 @@ export default function HomePage() {
         <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
         <div className="flex flex-wrap items-center gap-4">
           <CallCTA label={`Call ${business.phone}`} />
-          <Link href="/contact#contact-request" className="text-sm font-semibold text-[#3b82f6] underline-offset-4 hover:underline">
+          <Link href="/contact#contact-request" className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
             Contact page for callback request
           </Link>
         </div>

@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-[#23324a]/80 bg-[#0b1220]/78 backdrop-blur-xl">
+        <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/78 backdrop-blur-xl">
           <div className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
@@ -72,7 +72,7 @@ export default function RootLayout({
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
-                className="h-12 w-[72px] rounded-md border border-[#34435e] bg-[#111827] object-contain p-0.5 shadow-[0_10px_24px_-20px_rgba(0,0,0,0.6)]"
+                className="h-12 w-[72px] rounded-md border border-white/10 bg-[#111827] object-contain p-0.5 shadow-lg shadow-black/30"
                 sizes="72px"
                 priority
               />
@@ -90,16 +90,16 @@ export default function RootLayout({
               className="col-span-2 row-start-2 flex items-center gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-[#cbd5e1] lg:col-span-1 lg:row-start-1 lg:justify-center lg:overflow-visible lg:pb-0"
               aria-label="Primary"
             >
-              <Link href="/" className="transition hover:text-[#0a66c2]">Home</Link>
-              <Link href="/services" className="transition hover:text-[#0a66c2]">Services</Link>
-              <Link href="/contact" className="transition hover:text-[#0a66c2]">Contact</Link>
+              <Link href="/" className="transition hover:text-blue-300">Home</Link>
+              <Link href="/services" className="transition hover:text-blue-300">Services</Link>
+              <Link href="/contact" className="transition hover:text-blue-300">Contact</Link>
             </nav>
 
             <div className="ml-auto flex items-center gap-3">
               <CallCTA className="shadow-[0_16px_34px_-22px_rgba(10,102,194,0.7)]" label={`Call ${business.phone}`} />
               <a
                 href={`mailto:${business.email}`}
-                className="hidden text-xs font-medium text-slate-400 transition hover:text-[#7ec3ff] sm:inline"
+                className="hidden text-xs font-medium text-slate-400 transition hover:text-blue-300 sm:inline"
               >
                 {business.email}
               </a>
@@ -114,19 +114,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
-        <footer className="mt-10 border-t border-[#1d3557] bg-[#0d1a2d] text-[#d9e6f8]">
+        <footer className="mt-10 border-t border-white/10 bg-[#0d1a2d] text-[#d9e6f8]">
           <div className="mx-auto grid w-full max-w-6xl gap-7 px-4 py-10 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
             <div>
               <h2 className="text-lg font-semibold text-white">45 EYE Electrical Solutions</h2>
               <p className="mt-1 text-sm text-[#b8c8de]">Eli the Electrician</p>
               <p className="mt-3 text-sm text-[#c1d1e8]">
                 Phone:{" "}
-                <a className="font-semibold text-[#74b7ff]" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
+                <a className="font-semibold text-blue-400 hover:text-blue-300" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
                   {business.phone}
                 </a>
                 {" · "}
                 Email:{" "}
-                <a className="font-semibold text-[#74b7ff]" href={`mailto:${business.email}`}>
+                <a className="font-semibold text-blue-400 hover:text-blue-300" href={`mailto:${business.email}`}>
                   {business.email}
                 </a>
               </p>

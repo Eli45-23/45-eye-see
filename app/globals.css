@@ -2,7 +2,7 @@
 
 :root {
   color-scheme: dark;
-  --ui-bg: #0f172a;
+  --ui-bg: #0b1220;
   --ui-surface: #111827;
   --ui-surface-elevated: #1f2937;
   --ui-ink: #e5e7eb;
@@ -27,8 +27,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 10% 0%, rgba(38, 104, 173, 0.2), transparent 42%),
-    radial-gradient(circle at 90% 0%, rgba(196, 146, 47, 0.14), transparent 44%),
+    radial-gradient(circle at 10% 0%, rgba(37, 99, 164, 0.2), transparent 42%),
+    radial-gradient(circle at 90% 0%, rgba(180, 135, 43, 0.14), transparent 44%),
     var(--ui-bg);
   color: var(--ui-ink);
 }

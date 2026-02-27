@@ -4,7 +4,7 @@ import { CallCTA } from "./CallCTA";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-[#d7e5f8] shadow-[0_28px_80px_-48px_rgba(5,38,80,0.58)]">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-black/30">
       <div className="absolute inset-0">
         <Image
           src="/gallery/work-06.jpg"
@@ -15,7 +15,7 @@ export function HeroSection() {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#081a33]/90 via-[#0a2345]/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
       <div className="relative p-6 text-white sm:p-10 lg:max-w-3xl">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -38,7 +38,7 @@ export function HeroSection() {
           {["Licensed", "Insured", "10+ years", "Same-day", "All payments"].map((item) => (
             <li
               key={item}
-              className="rounded-full border border-white/25 bg-white/10 px-3 py-2 text-center font-medium text-[#e6efff] backdrop-blur-sm"
+              className="rounded-full border border-white/15 bg-black/25 px-3 py-2 text-center font-medium text-[#e6efff] backdrop-blur-sm"
             >
               {item}
             </li>

@@ -24,10 +24,10 @@ function getClassName(variant: "primary" | "secondary" | "ghost", className?: st
 
   const variantClass =
     variant === "primary"
-      ? "bg-[#0a66c2] text-white shadow-lg shadow-[#0a66c2]/35 hover:bg-[#1d8dff]"
+      ? "bg-blue-600 text-white shadow-lg shadow-black/30 hover:bg-blue-500"
       : variant === "secondary"
-        ? "border border-[#3b82f6] bg-transparent text-[#dbeafe] hover:border-[#60a5fa] hover:text-[#eff6ff]"
-        : "text-[#0a66c2] underline-offset-4 hover:underline";
+        ? "border border-white/15 bg-transparent text-gray-100 hover:bg-[rgba(255,255,255,0.05)]"
+        : "text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline";
 
   return `${baseClass} ${variantClass}${className ? ` ${className}` : ""}`;
 }

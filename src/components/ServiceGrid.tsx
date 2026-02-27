@@ -30,7 +30,7 @@ export function ServiceGrid({ items }: ServiceGridProps) {
           </p>
           <Link
             href={`/services#${slugify(service.name)}`}
-            className="mt-5 inline-flex text-sm font-semibold text-[#3b82f6] underline-offset-4 group-hover:underline"
+            className="mt-5 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
           >
             View services
           </Link>
