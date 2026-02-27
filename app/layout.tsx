@@ -72,6 +72,7 @@ export default function RootLayout({
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
+                unoptimized
                 className="h-12 w-[72px] rounded-md border border-white/10 bg-[#111827] object-contain p-0.5 shadow-lg shadow-black/30"
                 sizes="72px"
                 priority
@@ -139,8 +140,8 @@ export default function RootLayout({
                 ))}
               </ul>
               <p className="mt-3 text-xs text-[#9fb5d4]">
-                Licensed and insured NYC electrician serving Manhattan (excluding the Bronx),
-                Brooklyn, Queens, Staten Island, and select Long Island service calls.
+                Licensed and insured NYC electrician serving Manhattan, Brooklyn, Queens, Staten
+                Island, and select Long Island service calls.
               </p>
             </div>
             <CallCTA label={`Call ${business.phone}`} />

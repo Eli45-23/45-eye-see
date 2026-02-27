@@ -19,9 +19,9 @@ export const business: BusinessContent = {
   email: "eli.the.electrician@gmail.com",
   locationLabel: "NYC-based",
   serviceAreas: [
-    "Manhattan (excluding the Bronx)",
-    "Queens",
+    "Manhattan",
     "Brooklyn",
+    "Queens",
     "Staten Island",
     "Select Long Island areas",
   ],

@@ -9,7 +9,7 @@ export const faqs: readonly FaqItem[] = [
   {
     question: "Do you service all of NYC?",
     answer:
-      "Yes. We are NYC-based and regularly serve Manhattan (excluding the Bronx), Queens, Brooklyn, and Staten Island, plus select Long Island areas.",
+      "Yes. We are NYC-based and regularly serve Manhattan, Brooklyn, Queens, and Staten Island, plus select Long Island areas.",
   },
   {
     question: "Can I get same-day electrical service?",

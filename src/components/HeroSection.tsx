@@ -18,6 +18,7 @@ export function HeroSection() {
           src="/gallery/nyc-commercial-recessed-cove-lighting.jpg"
           alt="Commercial recessed and cove lighting installation in a bright NYC interior"
           fill
+          unoptimized
           priority
           sizes="(max-width: 1024px) 100vw, 1100px"
           className="object-cover"

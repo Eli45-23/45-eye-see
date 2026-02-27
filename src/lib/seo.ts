@@ -15,7 +15,7 @@ export function buildSeoDescription(pageFocus: string): string {
 
 type PageSeoInput = {
   page: string;
-  path: "/" | "/services" | "/contact";
+  path: `/${string}`;
   focus: string;
 };
 

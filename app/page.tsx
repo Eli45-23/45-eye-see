@@ -85,6 +85,25 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-sm text-[#c9d7ea]">
+            Explore borough service details:
+            {" "}
+            <Link href="/manhattan-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Manhattan
+            </Link>
+            {" · "}
+            <Link href="/brooklyn-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Brooklyn
+            </Link>
+            {" · "}
+            <Link href="/queens-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Queens
+            </Link>
+            {" · "}
+            <Link href="/staten-island-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Staten Island
+            </Link>
+          </p>
           <p className="mt-5 text-sm leading-relaxed text-[#c9d7ea]">
             We regularly work in NYC apartments, brownstones, co-ops, retail storefronts, and
             office spaces with different electrical demands and building constraints. That range of
@@ -217,8 +236,8 @@ export default function HomePage() {
               because nuisance outages, flickering circuits, and recurring trips can have multiple
               causes. A troubleshooting-first approach helps identify whether the right fix is
               targeted circuit breaker repair, a corrected connection, or a broader system update.
-              That method supports both residential electrician NYC calls and complex commercial
-              electrician NYC service visits where downtime and safety are critical concerns.
+              That method supports both residential service calls and complex light commercial
+              electrical work where downtime and safety are critical concerns.
             </p>
             <p>
               Service planning also accounts for borough-specific realities across Manhattan,
@@ -254,7 +273,7 @@ export default function HomePage() {
               avoidable surprises and supports better decisions on repair versus replacement.
             </p>
             <p>
-              When urgent issues appear, an emergency electrician NYC response should prioritize
+              When urgent issues appear, an emergency electrician response in NYC should prioritize
               immediate safety first, then controlled restoration of essential circuits. A reliable
               process means isolating hazards, documenting findings, and recommending next steps
               based on condition rather than assumptions. This is how 45 EYE Electrical Solutions
