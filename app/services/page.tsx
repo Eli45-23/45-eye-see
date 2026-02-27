@@ -28,8 +28,8 @@ export default function ServicesPage() {
   const serviceListSchema = getServiceListSchema();
 
   return (
-    <div className="space-y-8">
-      <section className="rounded-3xl border border-[#dbe8f8] bg-white p-6 shadow-[0_30px_72px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+    <div className="space-y-9">
+      <section className="rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_30px_70px_-52px_rgba(4,32,74,0.5)] sm:p-8">
         <SectionHeader
           eyebrow="Services"
           title="Electrical services designed for NYC properties"
@@ -40,7 +40,7 @@ export default function ServicesPage() {
 
       <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
-          <nav className="sticky top-24 rounded-2xl border border-[#dbe7f8] bg-white p-4 shadow-[0_20px_54px_-44px_rgba(1,31,75,0.45)]" aria-label="Service section navigation">
+          <nav className="sticky top-24 rounded-3xl border border-[#dbe7f8] bg-white p-5 shadow-[0_20px_54px_-44px_rgba(1,31,75,0.38)]" aria-label="Service section navigation">
             <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0a66c2]">Jump to Service</h2>
             <ul className="mt-3 space-y-2 text-sm">
               {serviceBuckets.map((service) => {
@@ -57,35 +57,47 @@ export default function ServicesPage() {
           </nav>
         </aside>
 
-        <section className="space-y-4" aria-label="Electrical service hub sections">
+        <section className="space-y-5" aria-label="Electrical service hub sections">
           {serviceBuckets.map((service, index) => {
             const serviceAnchor = slugify(service.name);
             return (
-              <article
-                key={service.name}
-                id={serviceAnchor}
-                className="scroll-mt-24 rounded-2xl border border-[#dce8f8] bg-white p-5 shadow-[0_24px_56px_-44px_rgba(1,31,75,0.5)] sm:p-6"
-              >
-                <h2 className="text-2xl font-semibold tracking-tight text-[#12273f]">{service.name}</h2>
-                <p className="mt-3 text-[15px] leading-relaxed text-slate-600">{service.description}</p>
-                <ul className="mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
-                  {service.commonJobs.map((job) => (
-                    <li key={job} className="rounded-xl border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
-                      {job}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm text-[#35506d]">{getAreaLine(index)}</p>
-                <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <CallCTA label={`Call ${business.phone}`} />
-                  <Link
-                    href="/contact#contact-request"
-                    className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline"
-                  >
-                    Request scheduling details
-                  </Link>
-                </div>
-              </article>
+              <div key={service.name} className="space-y-5">
+                <article
+                  id={serviceAnchor}
+                  className="scroll-mt-24 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_24px_56px_-44px_rgba(1,31,75,0.42)] sm:p-7"
+                >
+                  <h2 className="text-3xl font-semibold tracking-tight text-[#12273f]">{service.name}</h2>
+                  <p className="mt-3 text-[15px] leading-relaxed text-slate-600">{service.description}</p>
+                  <ul className="mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+                    {service.commonJobs.map((job) => (
+                      <li key={job} className="rounded-xl border border-[#e2ecf9] bg-[#f9fbff] px-3 py-2">
+                        {job}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-sm text-[#35506d]">{getAreaLine(index)}</p>
+                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                    <CallCTA label={`Call ${business.phone}`} />
+                    <Link
+                      href="/contact#contact-request"
+                      className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline"
+                    >
+                      Request scheduling details
+                    </Link>
+                  </div>
+                </article>
+
+                {(index + 1) % 3 === 0 && index !== serviceBuckets.length - 1 ? (
+                  <div className="rounded-2xl border border-[#d6e7fb] bg-gradient-to-r from-[#f8fbff] to-[#fff7e8] p-5 shadow-[0_22px_50px_-42px_rgba(1,31,75,0.3)]">
+                    <p className="text-sm font-medium text-[#1d395a]">
+                      Ready to schedule one of these services?
+                    </p>
+                    <div className="mt-3">
+                      <CallCTA label={`Call ${business.phone}`} />
+                    </div>
+                  </div>
+                ) : null}
+              </div>
             );
           })}
         </section>
