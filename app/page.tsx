@@ -73,7 +73,7 @@ export default function HomePage() {
           description="Recent reviews from homeowners and commercial clients across NYC neighborhoods."
           action={<CallCTA label={`Call ${business.phone}`} />}
         />
-        <TestimonialStrip items={testimonials} />
+        <TestimonialStrip items={testimonials} mode="home" />
       </section>
 
       <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
@@ -82,7 +82,7 @@ export default function HomePage() {
           title="Common questions before scheduling"
           description="Clear answers about service timing, coverage, and what to expect during your visit."
         />
-        <FAQAccordion items={faqs.slice(0, 6)} />
+        <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
         <div className="flex flex-wrap items-center gap-4">
           <CallCTA label={`Call ${business.phone}`} />
           <Link href="/contact#contact-request" className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
