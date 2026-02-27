@@ -67,6 +67,21 @@ const serviceIcons: readonly ServiceIcon[] = [
   { label: "Project support", Component: ToolboxIcon },
 ];
 
+const serviceMicrocopy: Partial<Record<ServiceBucket["name"], string>> = {
+  "Electrical Troubleshooting & Repairs":
+    "Includes breaker diagnostics, partial power-loss tracing, and targeted repair recommendations.",
+  "Panel Upgrades & Service Changes":
+    "Including 100-amp to 200-amp upgrades and load capacity planning.",
+  "Dedicated Circuits":
+    "Built for high-demand appliances, office equipment, and code-aware load distribution.",
+  "Outlet, Switch & GFCI Upgrades":
+    "Kitchen, bath, and living-area device updates with safer modern protection.",
+  "Lighting Installation & Upgrades":
+    "From recessed lighting layouts to fixture swaps and dimmer control improvements.",
+  "EV Charger Installation":
+    "Level 2 setup planning with panel capacity checks and dedicated circuit installation.",
+};
+
 type ServiceGridProps = {
   items: readonly ServiceBucket[];
 };
@@ -95,16 +110,19 @@ export function ServiceGrid({ items }: ServiceGridProps) {
             >
               <Icon className="size-5" />
             </div>
-          <h3 className="mt-4 text-lg font-semibold leading-snug text-[#f1f5f9]">{service.name}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-gray-300">
-            {getPreviewSentence(service.description)}
-          </p>
-          <Link
-            href={`/services#${slugify(service.name)}`}
-            className="mt-5 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
-          >
-            View services
-          </Link>
+            <h3 className="mt-4 text-lg font-semibold leading-snug text-[#f1f5f9]">{service.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-gray-300">
+              {getPreviewSentence(service.description)}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-[#b9cbe3]">
+              {serviceMicrocopy[service.name] ?? `${service.commonJobs[0]}.`}
+            </p>
+            <Link
+              href={`/services#${slugify(service.name)}`}
+              className="mt-5 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
+            >
+              View services
+            </Link>
           </article>
         );
       })}
