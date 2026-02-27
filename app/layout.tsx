@@ -138,6 +138,10 @@ export default function RootLayout({
                   </li>
                 ))}
               </ul>
+              <p className="mt-3 text-xs text-[#9fb5d4]">
+                Licensed and insured NYC electrician serving Manhattan (excluding the Bronx),
+                Brooklyn, Queens, Staten Island, and select Long Island service calls.
+              </p>
             </div>
             <CallCTA label={`Call ${business.phone}`} />
           </div>

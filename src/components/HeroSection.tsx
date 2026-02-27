@@ -30,9 +30,9 @@ export function HeroSection() {
           Licensed &amp; insured NYC electrician
         </h1>
         <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-[#dce8fa]">
-          10+ years of hands-on electrical experience, same-day availability when scheduling
-          allows, and reliable service across Williamsburg, Lower Manhattan, Midtown Manhattan,
-          Queens, and nearby NYC areas.
+          10+ years of hands-on electrical experience, dependable troubleshooting and installation
+          work, and same-day availability when scheduling allows. Every service call is handled
+          with clear communication, clean workmanship, and a safety-first approach.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">

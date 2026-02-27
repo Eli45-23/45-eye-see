@@ -10,6 +10,7 @@ import { SectionHeader } from "@/src/components/SectionHeader";
 import { ServiceGrid } from "@/src/components/ServiceGrid";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
 import { createPageMetadata } from "@/src/lib/seo";
+import { getFaqPageSchema, getHomeReviewsSchema } from "@/src/lib/schema";
 
 export const metadata = createPageMetadata({
   page: "Home",
@@ -19,70 +20,113 @@ export const metadata = createPageMetadata({
 });
 
 export default function HomePage() {
+  const homeReviewsSchema = getHomeReviewsSchema();
+  const homeFaqSchema = getFaqPageSchema(faqs.slice(0, 6));
+
   return (
-    <div className="space-y-8">
-      <HeroSection />
+    <>
+      <div className="space-y-8">
+        <HeroSection />
 
-      <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-        <SectionHeader
-          eyebrow="Services"
-          title="Electrical service categories"
-          description="From troubleshooting to upgrades, every service call is handled with a clean finish and safety-first process."
-          action={<CallCTA label={`Call ${business.phone}`} />}
-        />
-        <ServiceGrid items={serviceBuckets} />
-        <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
-          <span>Need full scope details?</span>
-          <Link href="/services" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
-            View all services on the services page
-          </Link>
-        </div>
-      </section>
+        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+          <SectionHeader
+            eyebrow="Services"
+            title="Electrical service categories"
+            description="From troubleshooting to upgrades, every service call is handled with a clean finish and safety-first process."
+            action={<CallCTA label={`Call ${business.phone}`} />}
+          />
+          <ServiceGrid items={serviceBuckets} />
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
+            <span>Need full scope details?</span>
+            <Link href="/services" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              View all services on the services page
+            </Link>
+          </div>
+        </section>
 
-      <section className="section-elevated rounded-3xl border border-gray-800/70 p-6 ui-shadow-lg sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Trusted electrical service across core NYC boroughs
-        </h2>
-        <ul className="mt-5 flex flex-wrap gap-2">
-          {business.serviceAreas.map((area) => (
-            <li
-              key={area}
-              className="rounded-full border border-[#2f4f78] bg-[#17345a] px-3 py-1 text-xs font-medium text-[#dbeaff]"
+        <section className="section-elevated rounded-3xl border border-gray-800/70 p-6 ui-shadow-lg sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            Trusted electrical service across core NYC boroughs
+          </h2>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {business.serviceAreas.map((area) => (
+              <li
+                key={area}
+                className="rounded-full border border-[#2f4f78] bg-[#17345a] px-3 py-1 text-xs font-medium text-[#dbeaff]"
+              >
+                {area}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <CallCTA label="Call now" />
+          </div>
+        </section>
+
+        <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+          <p className="text-sm leading-relaxed text-[#d2e3fa]">
+            If you need an NYC electrician for repair work, upgrades, or new installations, 45 EYE
+            Electrical Solutions provides responsive service for homes and businesses. As a licensed
+            electrician in NYC, Eli handles{" "}
+            <Link
+              href="/services#panel-upgrades-and-service-changes"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
             >
-              {area}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-6">
-          <CallCTA label="Call now" />
-        </div>
-      </section>
+              panel upgrade options
+            </Link>
+            ,{" "}
+            <Link
+              href="/services#ev-charger-installation"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            >
+              EV charger installation
+            </Link>
+            , and{" "}
+            <Link
+              href="/services#electrical-troubleshooting-and-repairs"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            >
+              electrical troubleshooting
+            </Link>{" "}
+            with a safety-first process and clean finish.
+          </p>
+        </section>
 
-      <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-        <SectionHeader
-          eyebrow="Testimonials"
-          title="What clients say about recent service calls"
-          description="Recent reviews from homeowners and commercial clients across NYC neighborhoods."
-          action={<CallCTA label={`Call ${business.phone}`} />}
-        />
-        <TestimonialStrip items={testimonials} mode="home" />
-      </section>
+        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+          <SectionHeader
+            eyebrow="Testimonials"
+            title="What clients say about recent service calls"
+            description="Recent reviews from homeowners and commercial clients across NYC neighborhoods."
+            action={<CallCTA label={`Call ${business.phone}`} />}
+          />
+          <TestimonialStrip items={testimonials} mode="home" />
+        </section>
 
-      <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-        <SectionHeader
-          eyebrow="FAQs"
-          title="Common questions before scheduling"
-          description="Clear answers about service timing, coverage, and what to expect during your visit."
-        />
-        <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
-        <div className="flex flex-wrap items-center gap-4">
-          <CallCTA label={`Call ${business.phone}`} />
-          <Link href="/contact#contact-request" className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
-            Contact page for callback request
-          </Link>
-        </div>
-      </section>
-    </div>
+        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+          <SectionHeader
+            eyebrow="FAQs"
+            title="Common questions before scheduling"
+            description="Clear answers about service timing, coverage, and what to expect during your visit."
+          />
+          <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
+          <div className="flex flex-wrap items-center gap-4">
+            <CallCTA label={`Call ${business.phone}`} />
+            <Link href="/contact#contact-request" className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Contact page for callback request
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeReviewsSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
+    </>
   );
 }

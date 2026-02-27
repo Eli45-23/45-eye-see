@@ -1,6 +1,7 @@
 import { business } from "@/src/content/business";
-import { faqs } from "@/src/content/faqs";
+import { faqs, type FaqItem } from "@/src/content/faqs";
 import { serviceBuckets } from "@/src/content/services";
+import { testimonials } from "@/src/content/testimonials";
 import { SITE_URL } from "@/src/lib/seo";
 
 const normalizedPhone = `+1${business.phone.replace(/\D/g, "")}`;
@@ -47,16 +48,40 @@ export function getServiceListSchema() {
   };
 }
 
-export function getFaqPageSchema() {
+export function getFaqPageSchema(items: readonly FaqItem[] = faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
+    mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
         text: item.answer,
+      },
+    })),
+  };
+}
+
+export function getHomeReviewsSchema() {
+  const featuredTestimonials = testimonials.slice(0, 3);
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": featuredTestimonials.map((item, index) => ({
+      "@type": "Review",
+      "@id": `${SITE_URL}#review-${index + 1}`,
+      author: {
+        "@type": "Person",
+        name: item.name,
+      },
+      reviewBody: item.quote,
+      itemReviewed: {
+        "@id": `${SITE_URL}#business`,
+      },
+      about: item.serviceType,
+      publisher: {
+        "@id": `${SITE_URL}#business`,
       },
     })),
   };
