@@ -23,7 +23,7 @@ export default function HomePage() {
     <div className="space-y-8">
       <HeroSection />
 
-      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_30px_70px_-52px_rgba(4,32,74,0.5)] sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Services"
           title="Electrical service categories"
@@ -31,7 +31,7 @@ export default function HomePage() {
           action={<CallCTA label={`Call ${business.phone}`} />}
         />
         <ServiceGrid items={serviceBuckets} />
-        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
           <span>Need full scope details?</span>
           <Link href="/services" className="font-semibold text-[#0a66c2] underline-offset-4 hover:underline">
             View all services on the services page
@@ -39,7 +39,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[#203a5f] bg-gradient-to-r from-[#0d1a2d] via-[#11233d] to-[#143056] p-6 shadow-[0_30px_76px_-50px_rgba(1,15,35,0.8)] sm:p-8">
+      <section className="section-elevated rounded-3xl border border-[#2a3d58] p-6 ui-shadow-lg sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Trusted electrical service coverage across core NYC boroughs
@@ -66,7 +66,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Testimonials"
           title="What clients say about recent service calls"
@@ -76,7 +76,7 @@ export default function HomePage() {
         <TestimonialStrip items={testimonials} mode="home" />
       </section>
 
-      <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="FAQs"
           title="Common questions before scheduling"

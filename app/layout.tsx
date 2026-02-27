@@ -64,30 +64,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-[#d6e4f8]/70 bg-white/78 backdrop-blur-xl">
-          <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
+        <header className="sticky top-0 z-50 border-b border-[#23324a]/80 bg-[#0b1220]/78 backdrop-blur-xl">
+          <div className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.jpg"
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
-                className="h-12 w-[72px] rounded-md border border-[#dce6f4] bg-white object-contain p-0.5 shadow-[0_10px_24px_-20px_rgba(1,31,75,0.45)]"
+                className="h-12 w-[72px] rounded-md border border-[#34435e] bg-[#111827] object-contain p-0.5 shadow-[0_10px_24px_-20px_rgba(0,0,0,0.6)]"
                 sizes="72px"
                 priority
               />
               <div className="min-w-0">
-                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.12em] text-[#11325a] sm:text-sm">
+                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.12em] text-[#dbeafe] sm:text-sm">
                   45 EYE Electrical Solutions
                 </p>
-                <p className="truncate text-[12px] font-medium text-slate-500 sm:text-[13px]">
+                <p className="truncate text-[12px] font-medium text-slate-400 sm:text-[13px]">
                   Eli the Electrician
                 </p>
               </div>
             </Link>
 
             <nav
-              className="col-span-2 row-start-2 flex items-center gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-[#19304a] lg:col-span-1 lg:row-start-1 lg:justify-center lg:overflow-visible lg:pb-0"
+              className="col-span-2 row-start-2 flex items-center gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-[#cbd5e1] lg:col-span-1 lg:row-start-1 lg:justify-center lg:overflow-visible lg:pb-0"
               aria-label="Primary"
             >
               <Link href="/" className="transition hover:text-[#0a66c2]">Home</Link>
@@ -99,7 +99,7 @@ export default function RootLayout({
               <CallCTA className="shadow-[0_16px_34px_-22px_rgba(10,102,194,0.7)]" label={`Call ${business.phone}`} />
               <a
                 href={`mailto:${business.email}`}
-                className="hidden text-xs font-medium text-slate-500 transition hover:text-[#0a66c2] sm:inline"
+                className="hidden text-xs font-medium text-slate-400 transition hover:text-[#7ec3ff] sm:inline"
               >
                 {business.email}
               </a>
@@ -107,7 +107,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">{children}</main>
+        <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">{children}</main>
 
         <script
           type="application/ld+json"

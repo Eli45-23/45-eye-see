@@ -53,7 +53,7 @@ function validate(values: FormValues): FormErrors {
 }
 
 const inputClass =
-  "mt-1 w-full rounded-xl border border-[#d7e2f0] bg-white px-3 py-2 text-sm text-[#1b2b3d] shadow-sm outline-none ring-0 placeholder:text-slate-400 focus:border-[#64aaff] focus:ring-2 focus:ring-[#bfe0ff]";
+  "mt-1 w-full rounded-xl border border-[#324965] bg-[#0f1b2d] px-3 py-2 text-sm text-[#e5e7eb] shadow-sm outline-none ring-0 placeholder:text-slate-500 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#1d4f87]";
 
 export function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues);
@@ -95,7 +95,7 @@ export function ContactForm() {
   return (
     <>
       <form
-        className="rounded-3xl border border-[#dbe8f8] bg-white p-5 shadow-[0_20px_60px_-40px_rgba(1,31,75,0.45)] sm:p-7"
+        className="section-elevated rounded-3xl border border-[#2d435f] p-5 ui-shadow-sm sm:p-7"
         action={PLACEHOLDER_ENDPOINT}
         method="post"
         target="contact-submit-frame"
@@ -103,7 +103,7 @@ export function ContactForm() {
         noValidate
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-name">
+          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-name">
             Name
             <input
               id="contact-name"
@@ -124,7 +124,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-phone">
+          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-phone">
             Phone
             <input
               id="contact-phone"
@@ -145,7 +145,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-email">
+          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-email">
             Email
             <input
               id="contact-email"
@@ -167,7 +167,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#22384f]" htmlFor="contact-area">
+          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-area">
             Borough / Neighborhood
             <input
               id="contact-area"
@@ -197,7 +197,7 @@ export function ContactForm() {
           </label>
         </div>
 
-        <label className="mt-4 block text-sm font-medium text-[#22384f]" htmlFor="contact-service-needed">
+        <label className="mt-4 block text-sm font-medium text-[#dbeafe]" htmlFor="contact-service-needed">
           Service needed
           <textarea
             id="contact-service-needed"
@@ -220,7 +220,7 @@ export function ContactForm() {
           ) : null}
         </label>
 
-        <label className="mt-4 block text-sm font-medium text-[#22384f]" htmlFor="contact-photos">
+        <label className="mt-4 block text-sm font-medium text-[#dbeafe]" htmlFor="contact-photos">
           Optional photos
           <input
             id="contact-photos"
@@ -230,13 +230,13 @@ export function ContactForm() {
             accept="image/*"
             multiple
           />
-          <span className="mt-1 block text-xs text-slate-500">
+          <span className="mt-1 block text-xs text-slate-400">
             Optional upload field is included for now; backend file handling can be added later.
           </span>
         </label>
 
         {submitNotice ? (
-          <p className="mt-4 rounded-xl border border-[#d4e7ff] bg-[#f4f9ff] px-3 py-2 text-sm text-[#1d4770]">
+          <p className="mt-4 rounded-xl border border-[#2f4f73] bg-[#0f1c2f] px-3 py-2 text-sm text-[#c8dcf5]">
             {submitNotice}
           </p>
         ) : null}
@@ -244,7 +244,7 @@ export function ContactForm() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Button type="submit">Send Request</Button>
           <a
-            className="text-sm font-semibold text-[#0a66c2] underline-offset-4 hover:underline"
+            className="text-sm font-semibold text-[#60a5fa] underline-offset-4 hover:underline"
             href={`tel:+1${business.phone.replace(/\D/g, "")}`}
           >
             Or call {business.phone}

@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  --ui-bg: #f4f8fd;
-  --ui-surface: #ffffff;
-  --ui-ink: #13233a;
-  --ui-ink-muted: #4a5f79;
+  color-scheme: dark;
+  --ui-bg: #0f172a;
+  --ui-surface: #111827;
+  --ui-surface-elevated: #1f2937;
+  --ui-ink: #e5e7eb;
+  --ui-ink-muted: #9ca3af;
   --ui-electric-blue: #0a66c2;
   --ui-subtle-gold: #c4922f;
-  --ui-border: #d7e4f6;
-  --ui-shadow-sm: 0 16px 40px -34px rgba(1, 31, 75, 0.55);
-  --ui-shadow-md: 0 28px 70px -52px rgba(1, 31, 75, 0.5);
-  --ui-shadow-lg: 0 34px 84px -58px rgba(1, 31, 75, 0.58);
+  --ui-border: #293548;
+  --ui-shadow-sm: 0 18px 42px -34px rgba(0, 0, 0, 0.7);
+  --ui-shadow-md: 0 30px 74px -52px rgba(0, 0, 0, 0.75);
+  --ui-shadow-lg: 0 40px 90px -58px rgba(0, 0, 0, 0.8);
 }
 
 html {
@@ -26,8 +27,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 10% 0%, rgba(88, 167, 255, 0.18), transparent 40%),
-    radial-gradient(circle at 90% 0%, rgba(227, 180, 82, 0.12), transparent 40%),
+    radial-gradient(circle at 10% 0%, rgba(38, 104, 173, 0.2), transparent 42%),
+    radial-gradient(circle at 90% 0%, rgba(196, 146, 47, 0.14), transparent 44%),
     var(--ui-bg);
   color: var(--ui-ink);
 }
@@ -38,6 +39,18 @@ body {
 }
 
 @layer utilities {
+  .section-light {
+    background: #111827;
+  }
+
+  .section-elevated {
+    background: #1f2937;
+  }
+
+  .text-muted {
+    color: #9ca3af;
+  }
+
   .ui-surface {
     background: var(--ui-surface);
   }
