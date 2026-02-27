@@ -42,24 +42,17 @@ export default function HomePage() {
       <section className="section-elevated rounded-3xl border border-gray-800/70 p-6 ui-shadow-lg sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
         <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Trusted electrical service coverage across core NYC boroughs
+          Trusted electrical service across core NYC boroughs
         </h2>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {["Williamsburg", "Lower Manhattan", "Midtown Manhattan", "Queens"].map((area) => (
-            <span
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {business.serviceAreas.map((area) => (
+            <li
               key={area}
               className="rounded-full border border-[#2f4f78] bg-[#17345a] px-3 py-1 text-xs font-medium text-[#dbeaff]"
             >
               {area}
-            </span>
+            </li>
           ))}
-        </div>
-        <ul className="mt-5 list-inside list-disc space-y-1 text-sm text-[#d2e3fa]">
-          <li>Manhattan (excluding the Bronx)</li>
-          <li>Queens</li>
-          <li>Brooklyn</li>
-          <li>Staten Island</li>
-          <li>Select Long Island areas</li>
         </ul>
         <div className="mt-6">
           <CallCTA label="Call now" />

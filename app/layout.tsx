@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: business.brandName,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/brand/logo-45-eye.jpg", width: 1200, height: 800, alt: business.brandName }],
+    images: [{ url: "/brand/logo-45-eye.png", width: 1200, height: 800, alt: business.brandName }],
   },
   twitter: {
     card: "summary_large_image",
@@ -68,7 +68,7 @@ export default function RootLayout({
           <div className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
-                src="/brand/logo-45-eye.jpg"
+                src="/brand/logo-45-eye.png"
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}

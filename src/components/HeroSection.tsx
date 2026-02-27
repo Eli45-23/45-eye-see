@@ -2,13 +2,21 @@ import Image from "next/image";
 import { Button } from "./Button";
 import { CallCTA } from "./CallCTA";
 
+const TRUST_BADGES = [
+  "Licensed",
+  "Insured",
+  "10+ years",
+  "Same-day",
+  "Payments accepted: Card / Zelle / Cash",
+] as const;
+
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-black/30">
+    <section className="relative min-h-[460px] overflow-hidden rounded-3xl border border-white/10 shadow-xl shadow-black/30">
       <div className="absolute inset-0">
         <Image
-          src="/gallery/work-06.jpg"
-          alt="Commercial lighting installation in a bright NYC interior"
+          src="/gallery/nyc-commercial-recessed-cove-lighting.jpg"
+          alt="Commercial recessed and cove lighting installation in a bright NYC interior"
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 1100px"
@@ -34,8 +42,8 @@ export function HeroSection() {
           </Button>
         </div>
 
-        <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2 lg:grid-cols-5">
-          {["Licensed", "Insured", "10+ years", "Same-day", "All payments"].map((item) => (
+        <ul className="mt-6 flex flex-wrap items-center gap-2 text-sm">
+          {TRUST_BADGES.map((item) => (
             <li
               key={item}
               className="rounded-full border border-white/15 bg-black/25 px-3 py-2 text-center font-medium text-[#e6efff] backdrop-blur-sm"
