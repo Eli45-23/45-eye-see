@@ -39,6 +39,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="rounded-3xl border border-[#203a5f] bg-gradient-to-r from-[#0d1a2d] via-[#11233d] to-[#143056] p-6 shadow-[0_30px_76px_-50px_rgba(1,15,35,0.8)] sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          Trusted electrical service coverage across core NYC boroughs
+        </h2>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {["Williamsburg", "Lower Manhattan", "Midtown Manhattan", "Queens"].map((area) => (
+            <span
+              key={area}
+              className="rounded-full border border-[#2f4f78] bg-[#17345a] px-3 py-1 text-xs font-medium text-[#dbeaff]"
+            >
+              {area}
+            </span>
+          ))}
+        </div>
+        <ul className="mt-5 list-inside list-disc space-y-1 text-sm text-[#d2e3fa]">
+          <li>Manhattan (excluding the Bronx)</li>
+          <li>Queens</li>
+          <li>Brooklyn</li>
+          <li>Staten Island</li>
+          <li>Select Long Island areas</li>
+        </ul>
+        <div className="mt-6">
+          <CallCTA label="Call now" />
+        </div>
+      </section>
+
       <section className="space-y-5 rounded-3xl border border-[#dce8f8] bg-white p-6 shadow-[0_28px_70px_-52px_rgba(1,31,75,0.5)] sm:p-8">
         <SectionHeader
           eyebrow="Testimonials"
