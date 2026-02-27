@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../src/styles/electric.css";
 
 :root {
   color-scheme: dark;
