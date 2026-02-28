@@ -1,11 +1,7 @@
 .section {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.1rem;
+  padding-block: var(--section-pad);
 }
 
 .title {
-  margin: 0 0 0.75rem;
-  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  margin: 0 0 1.25rem;
 }

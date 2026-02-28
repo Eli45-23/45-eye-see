@@ -22,7 +22,7 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
           <article
             className={
               mode === "home"
-                ? "overflow-hidden rounded-2xl border border-white/8 bg-[#0f1a2d] shadow-lg shadow-black/20 transition-colors duration-200"
+                ? "card-surface card-hover overflow-hidden rounded-2xl border border-white/8 bg-[#0f1a2d] transition-colors duration-200"
                 : "section-elevated overflow-hidden rounded-2xl border border-[#2d435f] ui-shadow-sm"
             }
             key={item.question}
@@ -63,7 +63,7 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
               <p
                 className={
                   mode === "home"
-                    ? "text-[15px] leading-relaxed text-[#c7d4ea]"
+                    ? "text-[15px] leading-relaxed text-muted-strong"
                     : "text-sm leading-relaxed text-muted sm:text-[15px]"
                 }
               >

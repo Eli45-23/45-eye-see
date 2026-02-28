@@ -93,15 +93,16 @@ function getPreviewSentence(text: string): string {
 
 export function ServiceGrid({ items }: ServiceGridProps) {
   return (
-    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
       {items.slice(0, 6).map((service, index) => {
         const icon = serviceIcons[index % serviceIcons.length];
         const Icon = icon.Component;
+        const includeBullets = service.commonJobs.slice(0, 2);
 
         return (
           <article
             key={service.name}
-            className="group rounded-3xl border border-white/8 bg-[#0e1727] p-6 shadow-lg shadow-black/20 transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:shadow-xl hover:shadow-black/30"
+            className="group flex h-full flex-col rounded-3xl border border-white/8 bg-[#0e1727] p-6 shadow-lg shadow-black/20 transition duration-200 hover:-translate-y-1 hover:border-white/20"
           >
             <div
               className="inline-flex size-10 items-center justify-center rounded-xl border border-white/12 bg-[#0f223b] text-[#95ceff]"
@@ -110,16 +111,24 @@ export function ServiceGrid({ items }: ServiceGridProps) {
             >
               <Icon className="size-5" />
             </div>
-            <h3 className="mt-5 text-lg font-semibold leading-snug text-[#f6f9ff]">{service.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[#c7d4ea]">
+            <h3 className="mt-5 text-lg font-semibold leading-snug text-[#f6f9ff] type-h3 text-balance">{service.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-strong">
               {getPreviewSentence(service.description)}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-[#adc1dd]">
+            <p className="mt-2 text-sm leading-relaxed text-muted-soft">
               {serviceMicrocopy[service.name] ?? `${service.commonJobs[0]}.`}
             </p>
+            <ul className="mt-4 space-y-2 text-sm text-[#b6c7df]">
+              {includeBullets.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-1 size-1.5 shrink-0 rounded-full bg-[#8dbdff]" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <Link
               href={`/services#${slugify(service.name)}`}
-              className="mt-5 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
+              className="mt-auto inline-flex pt-5 text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
             >
               View services
             </Link>

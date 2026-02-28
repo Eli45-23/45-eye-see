@@ -18,8 +18,9 @@ export function GalleryCard({ item }: GalleryCardProps) {
     : item.src;
 
   return (
-    <figure className="overflow-hidden rounded-2xl border border-white/10 bg-[#0f1a2d] shadow-lg shadow-black/20">
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+    <figure className="card-surface card-hover overflow-hidden rounded-2xl border border-white/10 bg-[#0f1a2d]">
+      <div className="rounded-xl border border-white/10 bg-[#0b1220] p-2">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-white/10">
         {showPlaceholder ? (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0f1b2d] to-[#1f2937]">
             <div className="text-center">
@@ -47,10 +48,11 @@ export function GalleryCard({ item }: GalleryCardProps) {
             }}
           />
         )}
+        </div>
       </div>
-      <figcaption className="px-4 pb-4 pt-3">
+      <figcaption className="px-4 pb-4 pt-4">
         <p className="text-sm font-semibold text-[#f1f5f9]">{item.title}</p>
-        <p className="mt-1 text-xs leading-relaxed text-[#adc1dd]">{item.description}</p>
+        <p className="mt-1 truncate text-xs text-[#adc1dd]">{item.description}</p>
       </figcaption>
     </figure>
   );

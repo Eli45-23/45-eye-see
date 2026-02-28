@@ -13,27 +13,30 @@ const TRUST_BADGES = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0f172a] via-[#101c31] to-[#0d1424] p-6 shadow-xl shadow-black/35 sm:p-8 lg:p-10">
-      <div className="grid items-stretch gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8">
+    <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-br from-[#0f172a] via-[#101c31] to-[#0d1424] px-6 py-8 shadow-xl shadow-black/35 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+      <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
         <div className="flex flex-col justify-center text-white">
-          <h1 className="text-4xl font-semibold tracking-tight text-[#f8fafc] sm:text-5xl lg:text-[3.45rem] lg:leading-[1.05]">
-          Licensed &amp; insured NYC electrician
+          <h1 className="type-h1">
+            Licensed &amp; insured NYC electrician
           </h1>
-          <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-[#d0ddf3] sm:text-[17px]">
+          <p className="mt-4 text-lg font-semibold tracking-tight text-[#e0ecff] sm:text-xl">
+            Trusted, owner-operated electrical service for NYC homes and businesses.
+          </p>
+          <p className="mt-4 text-measure text-[16px] leading-relaxed text-[#d0ddf3] sm:text-[17px]">
             10+ years of hands-on electrical experience, dependable troubleshooting and
             installation work, and same-day availability when scheduling allows. Every service
             call is handled with clear communication, clean workmanship, and a safety-first
             approach.
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <CallCTA label="Call 646-710-0134" />
             <Button href="/contact" variant="secondary">
               Request a callback
             </Button>
           </div>
 
-          <ul className="mt-7 flex max-w-2xl flex-wrap gap-2.5 text-sm">
+          <ul className="mt-8 flex max-w-2xl flex-wrap gap-2.5 text-sm">
             {TRUST_BADGES.map((item) => (
               <li
                 key={item}
@@ -58,6 +61,6 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
         </div>
       </div>
-    </section>
+    </div>
   );
 }

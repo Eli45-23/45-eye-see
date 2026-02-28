@@ -64,8 +64,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/78 backdrop-blur-xl">
-          <div className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 sm:px-6 lg:grid-cols-[auto_1fr_auto] lg:gap-6 lg:px-8">
+        <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/90 backdrop-blur-xl">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.png"
@@ -73,12 +73,12 @@ export default function RootLayout({
                 width={180}
                 height={120}
                 unoptimized
-                className="h-12 w-[72px] rounded-md border border-white/10 bg-[#111827] object-contain p-0.5 shadow-lg shadow-black/30"
+                className="h-12 w-[72px] rounded-md border border-white/10 bg-[#111827] object-contain p-0.5 shadow-lg shadow-black/35"
                 sizes="72px"
                 priority
               />
               <div className="min-w-0">
-                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.12em] text-[#dbeafe] sm:text-sm">
+                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.14em] text-[#e6f0ff] sm:text-sm">
                   45 EYE Electrical Solutions
                 </p>
                 <p className="truncate text-[12px] font-medium text-slate-400 sm:text-[13px]">
@@ -88,7 +88,7 @@ export default function RootLayout({
             </Link>
 
             <nav
-              className="col-span-2 row-start-2 flex items-center gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-semibold text-[#cbd5e1] lg:col-span-1 lg:row-start-1 lg:justify-center lg:overflow-visible lg:pb-0"
+              className="hidden items-center gap-6 text-sm font-semibold text-[#cbd5e1] md:flex"
               aria-label="Primary"
             >
               <Link href="/" className="transition hover:text-blue-300">Home</Link>
@@ -96,10 +96,18 @@ export default function RootLayout({
               <Link href="/contact" className="transition hover:text-blue-300">Contact</Link>
             </nav>
 
-            <div className="ml-auto flex items-center gap-3">
-              <CallCTA className="shadow-[0_16px_34px_-22px_rgba(10,102,194,0.7)]" label={`Call ${business.phone}`} />
+            <div className="flex items-center gap-3">
+              <CallCTA className="shadow-[0_18px_36px_-20px_rgba(10,102,194,0.8)]" label={`Call ${business.phone}`} />
             </div>
           </div>
+          <nav
+            className="flex items-center justify-center gap-6 border-t border-white/5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#9fb4d5] md:hidden"
+            aria-label="Primary"
+          >
+            <Link href="/" className="transition hover:text-blue-300">Home</Link>
+            <Link href="/services" className="transition hover:text-blue-300">Services</Link>
+            <Link href="/contact" className="transition hover:text-blue-300">Contact</Link>
+          </nav>
         </header>
 
         <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">{children}</main>

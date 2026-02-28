@@ -12,9 +12,9 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
         {items.slice(0, 3).map((item) => (
           <article
             key={`${item.name}-${item.area}`}
-            className="flex min-w-[85%] snap-start flex-col rounded-3xl border border-white/8 bg-[#0e1727] p-5 shadow-lg shadow-black/20 md:min-w-0 md:min-h-[220px] md:p-6"
+            className="card-surface card-hover flex min-w-[85%] snap-start flex-col md:min-w-0 md:min-h-[220px]"
           >
-            <p className="text-sm leading-relaxed text-[#c7d4ea]">
+            <p className="text-sm leading-relaxed text-muted-strong">
               <span aria-hidden="true">&ldquo;</span>
               {item.quote}
               <span aria-hidden="true">&rdquo;</span>

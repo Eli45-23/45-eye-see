@@ -16,12 +16,12 @@ export function SectionHeader({
   centered = false,
 }: SectionHeaderProps) {
   return (
-    <div className={centered ? "mx-auto max-w-3xl text-center" : ""}>
+    <div className={centered ? "mx-auto text-center text-measure" : "text-measure"}>
       {eyebrow ? (
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#60a5fa]">{eyebrow}</p>
+        <p className="eyebrow mb-3 text-[#7ec3ff]">{eyebrow}</p>
       ) : null}
-      <h2 className="text-3xl font-semibold tracking-tight text-[#f1f5f9] sm:text-4xl">{title}</h2>
-      {description ? <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted">{description}</p> : null}
+      <h2 className="type-h2">{title}</h2>
+      {description ? <p className="mt-3 text-[15px] leading-relaxed text-muted-soft">{description}</p> : null}
       {action ? <div className="mt-5">{action}</div> : null}
     </div>
   );
