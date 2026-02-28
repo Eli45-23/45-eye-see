@@ -19,8 +19,8 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
               {item.quote}
               <span aria-hidden="true">&rdquo;</span>
             </p>
-            <p className="mt-auto pt-5 text-sm font-semibold text-[#f1f5f9]">{item.name}</p>
-            <p className="text-xs uppercase tracking-[0.12em] text-[#60a5fa]">{item.area}</p>
+            <p className="mt-auto pt-5 text-sm font-semibold text-[var(--text)]">{item.name}</p>
+            <p className="text-xs uppercase tracking-[0.12em] text-[var(--accent)]">{item.area}</p>
           </article>
         ))}
       </div>
@@ -32,15 +32,15 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
       {items.slice(0, 3).map((item) => (
         <article
           key={`${item.name}-${item.area}`}
-          className="section-elevated rounded-2xl border border-[#2d435f] p-5 ui-shadow-sm"
+          className="section-elevated rounded-2xl border border-[var(--border)] p-5 ui-shadow-sm"
         >
           <p className="text-sm leading-relaxed text-muted">
             <span aria-hidden="true">&ldquo;</span>
             {item.quote}
             <span aria-hidden="true">&rdquo;</span>
           </p>
-          <p className="mt-4 text-sm font-semibold text-[#f1f5f9]">{item.name}</p>
-          <p className="text-xs uppercase tracking-[0.12em] text-[#60a5fa]">{item.area}</p>
+          <p className="mt-4 text-sm font-semibold text-[var(--text)]">{item.name}</p>
+          <p className="text-xs uppercase tracking-[0.12em] text-[var(--accent)]">{item.area}</p>
         </article>
       ))}
     </div>

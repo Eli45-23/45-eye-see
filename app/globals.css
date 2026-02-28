@@ -3,32 +3,19 @@
 
 :root {
   color-scheme: dark;
-  --ui-bg: #0b1220;
-  --ui-surface: #111827;
-  --ui-surface-elevated: #1f2937;
-  --ui-ink: #e5e7eb;
-  --ui-ink-muted: #9ca3af;
-  --ui-electric-blue: #0a66c2;
-  --ui-subtle-gold: #c4922f;
-  --ui-border: #293548;
-  --ui-shadow-sm: 0 18px 42px -34px rgba(0, 0, 0, 0.7);
-  --ui-shadow-md: 0 30px 74px -52px rgba(0, 0, 0, 0.75);
-  --ui-shadow-lg: 0 40px 90px -58px rgba(0, 0, 0, 0.8);
-
-  /* layout + card system tokens */
-  --surface-01: #0e1627;
-  --surface-02: #0f172a;
-  --surface-03: #101c31;
-  --border-soft: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --bg: #0b0d10;
+  --surface: #0f1217;
+  --card: #121722;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f2f4f7;
+  --muted: #a7afbd;
+  --accent: #3b82f6;
+  --copper: #c08a5a;
   --radius-md: 14px;
   --radius-lg: 18px;
   --radius-xl: 26px;
-  --shadow-soft: 0 30px 110px -72px rgba(5, 10, 26, 0.85);
-  --shadow-lift: 0 40px 120px -68px rgba(0, 0, 0, 0.9);
-  --text-strong: #eef3fc;
-  --text-subtle: #c9d7ea;
-  --text-muted: #9fb4d5;
+  --shadow-soft: 0 20px 60px -50px rgba(0, 0, 0, 0.65);
+  --shadow-lift: 0 24px 70px -48px rgba(0, 0, 0, 0.8);
   --section-pad: clamp(3.5rem, 4vw + 2.5rem, 5rem);
   --gutter: clamp(1.15rem, 2.4vw, 2.75rem);
 }
@@ -45,14 +32,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 10% 0%, rgba(37, 99, 164, 0.2), transparent 42%),
-    radial-gradient(circle at 90% 0%, rgba(180, 135, 43, 0.14), transparent 44%),
-    var(--ui-bg);
-  color: var(--ui-ink);
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.035), transparent 50%),
+    radial-gradient(circle at 88% 0%, rgba(255, 255, 255, 0.02), transparent 55%),
+    var(--bg);
+  color: var(--text);
 }
 
 ::selection {
-  background: var(--ui-electric-blue);
+  background: var(--accent);
   color: #fff;
 }
 
@@ -63,7 +50,7 @@ body {
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: 700;
-    color: var(--text-strong);
+    color: var(--text);
   }
 
   h2,
@@ -72,7 +59,7 @@ body {
     line-height: 1.12;
     letter-spacing: -0.015em;
     font-weight: 700;
-    color: var(--text-strong);
+    color: var(--text);
   }
 
   h3,
@@ -81,7 +68,7 @@ body {
     line-height: 1.2;
     letter-spacing: -0.01em;
     font-weight: 700;
-    color: var(--text-strong);
+    color: var(--text);
   }
 
   .eyebrow {
@@ -89,7 +76,7 @@ body {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     font-weight: 700;
-    color: #7ec3ff;
+    color: var(--accent);
   }
 
   .text-measure {
@@ -101,11 +88,11 @@ body {
   }
 
   .text-muted-strong {
-    color: var(--text-subtle);
+    color: var(--muted);
   }
 
   .text-muted-soft {
-    color: var(--text-muted);
+    color: rgba(167, 175, 189, 0.82);
   }
 }
 
@@ -121,16 +108,16 @@ body {
   }
 
   .card-surface {
-    background: var(--surface-02);
-    border: 1px solid var(--border-soft);
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
     padding: clamp(1.6rem, 1.8vw + 1.1rem, 2.5rem);
   }
 
   .card-muted {
-    background: var(--surface-01);
-    border-color: var(--border-strong);
+    background: var(--surface);
+    border-color: var(--border);
   }
 
   .card-hover {
@@ -139,41 +126,41 @@ body {
 
   .card-hover:hover {
     transform: translateY(-4px);
-    border-color: var(--border-strong);
+    border-color: rgba(255, 255, 255, 0.16);
     box-shadow: var(--shadow-lift);
   }
 }
 
 @layer utilities {
   .section-light {
-    background: #111827;
+    background: var(--surface);
   }
 
   .section-elevated {
-    background: #1f2937;
+    background: var(--card);
   }
 
   .text-muted {
-    color: #9ca3af;
+    color: var(--muted);
   }
 
   .ui-surface {
-    background: var(--ui-surface);
+    background: var(--surface);
   }
 
   .ui-border {
-    border-color: var(--ui-border);
+    border-color: var(--border);
   }
 
   .ui-shadow-sm {
-    box-shadow: var(--ui-shadow-sm);
+    box-shadow: var(--shadow-soft);
   }
 
   .ui-shadow-md {
-    box-shadow: var(--ui-shadow-md);
+    box-shadow: var(--shadow-soft);
   }
 
   .ui-shadow-lg {
-    box-shadow: var(--ui-shadow-lg);
+    box-shadow: var(--shadow-lift);
   }
 }

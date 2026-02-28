@@ -23,7 +23,7 @@ export default function ContactPage() {
 
   return (
     <div className="space-y-8">
-      <section id="contact-request" className="section-light rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
+      <section id="contact-request" className="section-light rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Contact"
           title="Book your NYC electrical service call"
@@ -34,15 +34,15 @@ export default function ContactPage() {
           <div className="space-y-4">
             <CallCTA label={`Call ${business.phone}`} />
             <p className="text-sm text-muted">Prefer not to call right away? Use the callback form.</p>
-            <div className="section-elevated rounded-2xl border border-[#2d435f] p-4 ui-shadow-sm">
-              <p className="text-sm font-semibold text-[#dbeafe]">Response time</p>
+            <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
+              <p className="text-sm font-semibold text-[var(--text)]">Response time</p>
               <p className="mt-1 text-sm text-muted">
                 Fast response during business hours. Same-day availability when possible.
               </p>
             </div>
-            <ul className="space-y-2 text-sm text-[#94a3b8]">
+            <ul className="space-y-2 text-sm text-[var(--muted)]">
               {business.mustMentionNeighborhoods.map((area) => (
-                <li key={area} className="section-elevated rounded-lg border border-[#2e435f] px-3 py-2">
+                <li key={area} className="section-elevated rounded-lg border border-[var(--border)] px-3 py-2">
                   Frequent service in {area}
                 </li>
               ))}
@@ -53,7 +53,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-light space-y-5 rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Testimonials"
           title="Customer feedback"
@@ -63,7 +63,7 @@ export default function ContactPage() {
         <TestimonialStrip items={testimonials} />
       </section>
 
-      <section className="section-light space-y-5 rounded-3xl border border-[#25354c] p-6 ui-shadow-md sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="FAQs"
           title="Questions before booking"
@@ -73,16 +73,16 @@ export default function ContactPage() {
         <CallCTA label={`Call ${business.phone}`} />
       </section>
 
-      <section className="section-elevated rounded-3xl border border-[#2a3d58] p-6 ui-shadow-md sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-[#f1f5f9]">Before you call</h2>
+      <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Before you call</h2>
         <ul className="mt-4 space-y-2 text-sm">
           <li>
-            <Link href="/services" className="font-semibold text-[#60a5fa] underline-offset-4 hover:underline">
+            <Link href="/services" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
               Review electrical services and common job scopes
             </Link>
           </li>
           <li>
-            <Link href="/" className="font-semibold text-[#60a5fa] underline-offset-4 hover:underline">
+            <Link href="/" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
               Return to home for service area and trust details
             </Link>
           </li>

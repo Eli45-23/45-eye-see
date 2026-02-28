@@ -48,11 +48,11 @@ export default function HomePage() {
 
   return (
     <>
-      <Section className="bg-[#0b1220] pt-4 pb-8">
+      <Section className="bg-[var(--bg)] pt-4 pb-8">
         <HeroSection />
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0f172a]">
+      <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
         <div className="card-surface card-muted space-y-7">
           <SectionHeader
             eyebrow="Services"
@@ -74,45 +74,45 @@ export default function HomePage() {
             electrician in NYC, Eli handles{" "}
             <Link
               href="/services#panel-upgrades-and-service-changes"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               panel upgrade options
             </Link>
             ,{" "}
             <Link
               href="/services#ev-charger-installation"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               EV charger installation
             </Link>
             , and{" "}
             <Link
               href="/services#electrical-troubleshooting-and-repairs"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               electrical troubleshooting
             </Link>{" "}
             with a safety-first process and clean finish.
           </p>
-          <div className="flex flex-wrap items-center gap-4 border-t border-white/10 pt-4 text-sm text-muted-soft">
+          <div className="flex flex-wrap items-center gap-4 border-t border-[var(--border)] pt-4 text-sm text-[var(--muted)]">
             <span>Need full scope details?</span>
-            <Link href="/services" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/services" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               View all services on the services page
             </Link>
           </div>
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0b1220]">
-        <div className="card-surface card-muted bg-[#0d1627]/70">
-          <div className="grid gap-3.5 text-sm text-[#d2e3fa] sm:grid-cols-2 lg:grid-cols-4">
+      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
+        <div className="card-surface card-muted">
+          <div className="grid gap-3.5 text-sm text-[var(--muted)] sm:grid-cols-2 lg:grid-cols-4">
             {[
               "Owner-operated (Eli)",
               "Licensed & insured",
               "Residential + light commercial",
               "Troubleshooting-first process",
             ].map((item) => (
-              <p key={item} className="text-center font-medium tracking-[0.01em] text-[#d9e5f8]">
+              <p key={item} className="text-center font-medium tracking-[0.01em] text-[var(--text)]">
                 {item}
               </p>
             ))}
@@ -120,14 +120,14 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0f172a]">
+      <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
         <div className="card-surface card-muted">
           <SectionHeader
             eyebrow="Process"
             title="A clear, code-aware service process"
             description="Every call follows a simple three-step workflow focused on safety, clarity, and clean workmanship."
           />
-          <div className="mt-6 grid gap-5 border-t border-white/10 pt-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-5 border-t border-[var(--border)] pt-6 md:grid-cols-3">
             {[
               {
                 title: "Diagnose",
@@ -143,52 +143,52 @@ export default function HomePage() {
               },
             ].map((step) => (
               <div key={step.title} className="space-y-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8cbff6]">{step.title}</p>
-                <p className="text-sm leading-relaxed text-muted-strong">{step.description}</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">{step.title}</p>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0b1220]">
+      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface card-muted space-y-6">
-          <p className="eyebrow text-[#8cbff6]">Service Areas</p>
+          <p className="eyebrow">Service Areas</p>
           <h2 className="type-h2">Trusted electrical service across core NYC boroughs</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {business.serviceAreas.map((area) => (
               <li
                 key={area}
-                className="rounded-full border border-[#2f4f78] bg-[#17345a] px-3 py-1 text-xs font-medium text-[#dbeaff]"
+                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium text-[var(--text)]"
               >
                 {area}
               </li>
             ))}
           </ul>
-          <p className="text-sm text-muted-strong">
+          <p className="text-sm text-[var(--muted)]">
             Explore borough service details:
             {" "}
-            <Link href="/service-areas" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/service-areas" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Service Areas Hub
             </Link>
             {" · "}
-            <Link href="/manhattan-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/manhattan-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Manhattan
             </Link>
             {" · "}
-            <Link href="/brooklyn-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/brooklyn-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Brooklyn
             </Link>
             {" · "}
-            <Link href="/queens-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/queens-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Queens
             </Link>
             {" · "}
-            <Link href="/staten-island-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/staten-island-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Staten Island
             </Link>
           </p>
-          <p className="text-measure-tight text-sm leading-relaxed text-muted-strong">
+          <p className="text-measure-tight text-sm leading-relaxed text-[var(--muted)]">
             We regularly work in NYC apartments, brownstones, co-ops, retail storefronts, and
             office spaces with different electrical demands and building constraints. That range of
             day-to-day service experience helps us diagnose issues quickly and plan upgrades that
@@ -201,7 +201,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0f172a]">
+      <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
         <div className="card-surface space-y-6">
           <SectionHeader
             eyebrow="Project Gallery"
@@ -212,7 +212,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0b1220]">
+      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface space-y-6">
           <SectionHeader
             eyebrow="Testimonials"
@@ -224,7 +224,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0f172a]">
+      <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
         <div className="card-surface space-y-6">
           <SectionHeader
             eyebrow="FAQs"
@@ -232,43 +232,43 @@ export default function HomePage() {
             description="Clear answers about service timing, coverage, and what to expect during your visit."
           />
           <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
-          <p className="text-measure-tight text-sm leading-relaxed text-muted-strong">
+          <p className="text-measure-tight text-sm leading-relaxed text-[var(--muted)]">
             In Manhattan and Brooklyn, clients often request{" "}
             <Link
               href="/services#electrical-troubleshooting-and-repairs"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               electrical troubleshooting
             </Link>
             , while Queens and Staten Island service calls frequently include{" "}
             <Link
               href="/services#panel-upgrades-and-service-changes"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               panel upgrades
             </Link>{" "}
             and{" "}
             <Link
               href="/services#ev-charger-installation"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               EV charger installation
             </Link>
             .
           </p>
-          <div className="flex flex-wrap items-center gap-4 border-t border-white/10 pt-4">
+          <div className="flex flex-wrap items-center gap-4 border-t border-[var(--border)] pt-4">
             <CallCTA label={`Call ${business.phone}`} />
-            <Link href="/contact#contact-request" className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+            <Link href="/contact#contact-request" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               Contact page for callback request
             </Link>
           </div>
         </div>
       </Section>
 
-      <Section className="border-t border-white/10 bg-[#0b1220]">
+      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface space-y-4">
           <h2 className="type-h2">Professional Electrical Services Across NYC</h2>
-          <div className="text-measure text-sm leading-relaxed text-muted-strong sm:text-[15px]">
+          <div className="text-measure text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
             <p>
               Finding the right NYC electrician is often about more than getting power back on.
               Property owners and managers usually need someone who can diagnose the root issue,
@@ -284,7 +284,7 @@ export default function HomePage() {
               Many requests start with{" "}
               <Link
                 href="/services#electrical-troubleshooting-and-repairs"
-                className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 electrical troubleshooting
               </Link>{" "}
@@ -303,7 +303,7 @@ export default function HomePage() {
               distribution strategy, including{" "}
               <Link
                 href="/services#panel-upgrades-and-service-changes"
-                className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 panel upgrades
               </Link>{" "}
@@ -314,7 +314,7 @@ export default function HomePage() {
               For property owners evaluating{" "}
               <Link
                 href="/services#ev-charger-installation"
-                className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 EV charger installation
               </Link>

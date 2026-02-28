@@ -20,14 +20,14 @@ export type ButtonProps = LinkButtonProps | NativeButtonProps;
 
 function getClassName(variant: "primary" | "secondary" | "ghost", className?: string): string {
   const baseClass =
-    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ca3ff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f172a]";
+    "inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]";
 
   const variantClass =
     variant === "primary"
-      ? "bg-blue-600 text-white shadow-lg shadow-black/30 hover:bg-blue-500"
+      ? "bg-[var(--accent)] text-[var(--text)] hover:bg-[#60a5fa]"
       : variant === "secondary"
-        ? "border border-white/15 bg-transparent text-gray-100 hover:bg-[rgba(255,255,255,0.05)]"
-        : "text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline";
+        ? "border border-[var(--border)] bg-transparent text-[var(--text)] hover:border-[rgba(255,255,255,0.16)] hover:bg-[rgba(255,255,255,0.04)]"
+        : "text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline";
 
   return `${baseClass} ${variantClass}${className ? ` ${className}` : ""}`;
 }

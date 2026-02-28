@@ -53,7 +53,7 @@ function validate(values: FormValues): FormErrors {
 }
 
 const inputClass =
-  "mt-1 w-full rounded-xl border border-[#324965] bg-[#0f1b2d] px-3 py-2 text-sm text-[#e5e7eb] shadow-sm outline-none ring-0 placeholder:text-slate-500 focus:border-[#3b82f6] focus:ring-2 focus:ring-[#1d4f87]";
+  "mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-sm text-[var(--text)] shadow-sm outline-none ring-0 placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:ring-2 focus:ring-[rgba(59,130,246,0.25)]";
 
 export function ContactForm() {
   const [values, setValues] = useState<FormValues>(initialValues);
@@ -95,7 +95,7 @@ export function ContactForm() {
   return (
     <>
       <form
-        className="section-elevated rounded-3xl border border-[#2d435f] p-5 ui-shadow-sm sm:p-7"
+        className="section-elevated rounded-3xl border border-[var(--border)] p-5 ui-shadow-sm sm:p-7"
         action={PLACEHOLDER_ENDPOINT}
         method="post"
         target="contact-submit-frame"
@@ -103,7 +103,7 @@ export function ContactForm() {
         noValidate
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-name">
+          <label className="text-sm font-medium text-[var(--text)]" htmlFor="contact-name">
             Name
             <input
               id="contact-name"
@@ -124,7 +124,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-phone">
+          <label className="text-sm font-medium text-[var(--text)]" htmlFor="contact-phone">
             Phone
             <input
               id="contact-phone"
@@ -145,7 +145,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-email">
+          <label className="text-sm font-medium text-[var(--text)]" htmlFor="contact-email">
             Email
             <input
               id="contact-email"
@@ -167,7 +167,7 @@ export function ContactForm() {
             ) : null}
           </label>
 
-          <label className="text-sm font-medium text-[#dbeafe]" htmlFor="contact-area">
+          <label className="text-sm font-medium text-[var(--text)]" htmlFor="contact-area">
             Borough / Neighborhood
             <input
               id="contact-area"
@@ -197,7 +197,7 @@ export function ContactForm() {
           </label>
         </div>
 
-        <label className="mt-4 block text-sm font-medium text-[#dbeafe]" htmlFor="contact-service-needed">
+        <label className="mt-4 block text-sm font-medium text-[var(--text)]" htmlFor="contact-service-needed">
           Service needed
           <textarea
             id="contact-service-needed"
@@ -220,23 +220,23 @@ export function ContactForm() {
           ) : null}
         </label>
 
-        <label className="mt-4 block text-sm font-medium text-[#dbeafe]" htmlFor="contact-photos">
+        <label className="mt-4 block text-sm font-medium text-[var(--text)]" htmlFor="contact-photos">
           Optional photos
           <input
             id="contact-photos"
-            className={`${inputClass} file:mr-3 file:rounded-lg file:border-0 file:bg-[#0a66c2] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white hover:file:bg-[#0d79e8]`}
+            className={`${inputClass} file:mr-3 file:rounded-lg file:border-0 file:bg-[var(--accent)] file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white hover:file:bg-[#60a5fa]`}
             name="photos"
             type="file"
             accept="image/*"
             multiple
           />
-          <span className="mt-1 block text-xs text-slate-400">
+          <span className="mt-1 block text-xs text-[var(--muted)]">
             Optional upload field is included for now; backend file handling can be added later.
           </span>
         </label>
 
         {submitNotice ? (
-          <p className="mt-4 rounded-xl border border-[#2f4f73] bg-[#0f1c2f] px-3 py-2 text-sm text-[#c8dcf5]">
+          <p className="mt-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--text)]">
             {submitNotice}
           </p>
         ) : null}
@@ -244,7 +244,7 @@ export function ContactForm() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Button type="submit">Send Request</Button>
           <a
-            className="text-sm font-semibold text-[#60a5fa] underline-offset-4 hover:underline"
+            className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
             href={`tel:+1${business.phone.replace(/\D/g, "")}`}
           >
             Or call {business.phone}

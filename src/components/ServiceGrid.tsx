@@ -102,33 +102,35 @@ export function ServiceGrid({ items }: ServiceGridProps) {
         return (
           <article
             key={service.name}
-            className="group flex h-full flex-col rounded-3xl border border-white/8 bg-[#0e1727] p-6 shadow-lg shadow-black/20 transition duration-200 hover:-translate-y-1 hover:border-white/20"
+            className="group flex h-full flex-col rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm shadow-black/20 transition duration-200 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.16)]"
           >
             <div
-              className="inline-flex size-10 items-center justify-center rounded-xl border border-white/12 bg-[#0f223b] text-[#95ceff]"
+              className="inline-flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(59,130,246,0.12)] text-[var(--accent)]"
               role="img"
               aria-label={icon.label}
             >
               <Icon className="size-5" />
             </div>
-            <h3 className="mt-5 text-lg font-semibold leading-snug text-[#f6f9ff] type-h3 text-balance">{service.name}</h3>
+            <h3 className="mt-5 text-lg font-semibold leading-snug text-[var(--text)] type-h3 text-balance">
+              {service.name}
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-strong">
               {getPreviewSentence(service.description)}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-muted-soft">
               {serviceMicrocopy[service.name] ?? `${service.commonJobs[0]}.`}
             </p>
-            <ul className="mt-4 space-y-2 text-sm text-[#b6c7df]">
+            <ul className="mt-4 space-y-2 text-sm text-[var(--muted)]">
               {includeBullets.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="mt-1 size-1.5 shrink-0 rounded-full bg-[#8dbdff]" aria-hidden="true" />
+                  <span className="mt-1 size-1.5 shrink-0 rounded-full bg-[var(--accent)]" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             <Link
               href={`/services#${slugify(service.name)}`}
-              className="mt-auto inline-flex pt-5 text-sm font-semibold text-blue-400 underline-offset-4 group-hover:text-blue-300 group-hover:underline"
+              className="mt-auto inline-flex pt-5 text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
             >
               View services
             </Link>

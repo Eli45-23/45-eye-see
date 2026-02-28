@@ -18,16 +18,16 @@ export function GalleryCard({ item }: GalleryCardProps) {
     : item.src;
 
   return (
-    <figure className="card-surface card-hover overflow-hidden rounded-2xl border border-white/10 bg-[#0f1a2d]">
-      <div className="rounded-xl border border-white/10 bg-[#0b1220] p-2">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-white/10">
+    <figure className="card-surface card-hover overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)]">
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg)] p-2">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-[var(--border)]">
         {showPlaceholder ? (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0f1b2d] to-[#1f2937]">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--surface)] to-[var(--card)]">
             <div className="text-center">
-              <div className="mx-auto flex size-12 items-center justify-center rounded-full border border-[#355172] bg-[#111827] text-[#60a5fa]">
+              <div className="mx-auto flex size-12 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] text-[var(--accent)]">
                 ⚡
               </div>
-              <p className="mt-3 text-sm font-semibold text-[#dbeafe]">Photo coming soon</p>
+              <p className="mt-3 text-sm font-semibold text-[var(--text)]">Photo coming soon</p>
             </div>
           </div>
         ) : (
@@ -51,8 +51,8 @@ export function GalleryCard({ item }: GalleryCardProps) {
         </div>
       </div>
       <figcaption className="px-4 pb-4 pt-4">
-        <p className="text-sm font-semibold text-[#f1f5f9]">{item.title}</p>
-        <p className="mt-1 truncate text-xs text-[#adc1dd]">{item.description}</p>
+        <p className="text-sm font-semibold text-[var(--text)]">{item.title}</p>
+        <p className="mt-1 truncate text-xs text-[var(--muted)]">{item.description}</p>
       </figcaption>
     </figure>
   );

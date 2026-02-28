@@ -39,7 +39,7 @@ export function ServiceAreasCoverage({ currentArea }: ServiceAreasCoverageProps)
         <h2 className="text-2xl font-semibold tracking-tight text-white">Service Areas Coverage</h2>
         <Link
           href="/service-areas"
-          className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+          className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
         >
           Open service areas hub
         </Link>
@@ -50,8 +50,8 @@ export function ServiceAreasCoverage({ currentArea }: ServiceAreasCoverageProps)
             key={group.title}
             className={`rounded-2xl border p-4 shadow-lg shadow-black/20 ${
               currentArea === group.title
-                ? "border-[#3e6798] bg-[#10243f]"
-                : "border-white/10 bg-[#0f172a]"
+                ? "border-[rgba(255,255,255,0.16)] bg-[var(--card)]"
+                : "border-[var(--border)] bg-[var(--surface)]"
             }`}
           >
             <Link
@@ -60,7 +60,7 @@ export function ServiceAreasCoverage({ currentArea }: ServiceAreasCoverageProps)
             >
               {group.title}
             </Link>
-            <ul className="mt-3 space-y-1 text-xs leading-relaxed text-[#c8d7eb]">
+            <ul className="mt-3 space-y-1 text-xs leading-relaxed text-[var(--muted)]">
               {group.areas.map((item) => (
                 <li key={item}>{item}</li>
               ))}

@@ -8,7 +8,7 @@ export function TrustSection({ areaName }: TrustSectionProps) {
       <h2 className="text-2xl font-semibold tracking-tight text-white">
         Licensed &amp; Insured NYC Electrician
       </h2>
-      <ul className="mt-4 grid gap-2 text-sm text-[#d2e3fa] sm:grid-cols-2">
+      <ul className="mt-4 grid gap-2 text-sm text-[var(--muted)] sm:grid-cols-2">
         <li className="section-elevated rounded-xl border border-white/10 px-3 py-2">
           Owner-operated service (Eli the Electrician)
         </li>
@@ -22,7 +22,7 @@ export function TrustSection({ areaName }: TrustSectionProps) {
           Clear communication &amp; scheduling updates
         </li>
       </ul>
-      <p className="mt-4 text-xs tracking-wide text-[#9fb5d4]">
+      <p className="mt-4 text-xs tracking-wide text-[var(--muted)]">
         {areaName} service calls are handled with code-aware scope, clean execution, and practical
         scheduling updates.
       </p>

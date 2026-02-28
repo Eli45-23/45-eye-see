@@ -9,7 +9,7 @@ export function FeaturePills({ items }: FeaturePillsProps) {
         {items.map((item) => (
           <div
             key={item}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#111827] px-4 py-2 text-sm font-medium text-gray-200"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--text)]"
           >
             <span className="inline-flex size-5 items-center justify-center rounded-full bg-blue-600/15 text-blue-300" aria-hidden="true">
               ✓

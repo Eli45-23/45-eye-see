@@ -64,8 +64,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b1220]/90 backdrop-blur-xl">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[color:var(--bg)]/92 backdrop-blur-xl">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.png"
@@ -73,40 +73,40 @@ export default function RootLayout({
                 width={180}
                 height={120}
                 unoptimized
-                className="h-12 w-[72px] rounded-md border border-white/10 bg-[#111827] object-contain p-0.5 shadow-lg shadow-black/35"
-                sizes="72px"
+                className="h-11 w-[72px] rounded-md border border-[var(--border)] bg-[var(--card)] object-contain p-0.5 shadow-lg shadow-black/35 sm:h-12 sm:w-[78px] lg:h-14 lg:w-[92px]"
+                sizes="(max-width: 640px) 72px, (max-width: 1024px) 78px, 92px"
                 priority
               />
               <div className="min-w-0">
-                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.14em] text-[#e6f0ff] sm:text-sm">
+                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.16em] text-[var(--text)] sm:text-sm">
                   45 EYE Electrical Solutions
                 </p>
-                <p className="truncate text-[12px] font-medium text-slate-400 sm:text-[13px]">
+                <p className="truncate text-[12px] font-medium text-[var(--muted)] sm:text-[13px]">
                   Eli the Electrician
                 </p>
               </div>
             </Link>
 
             <nav
-              className="hidden items-center gap-6 text-sm font-semibold text-[#cbd5e1] md:flex"
+              className="hidden items-center gap-6 text-sm font-semibold text-[var(--muted)] md:flex"
               aria-label="Primary"
             >
-              <Link href="/" className="transition hover:text-blue-300">Home</Link>
-              <Link href="/services" className="transition hover:text-blue-300">Services</Link>
-              <Link href="/contact" className="transition hover:text-blue-300">Contact</Link>
+              <Link href="/" className="transition hover:text-[var(--text)]">Home</Link>
+              <Link href="/services" className="transition hover:text-[var(--text)]">Services</Link>
+              <Link href="/contact" className="transition hover:text-[var(--text)]">Contact</Link>
             </nav>
 
             <div className="flex items-center gap-3">
-              <CallCTA className="shadow-[0_18px_36px_-20px_rgba(10,102,194,0.8)]" label={`Call ${business.phone}`} />
+              <CallCTA className="px-4 py-2.5 text-sm shadow-[0_18px_36px_-20px_rgba(10,102,194,0.8)]" label={`Call ${business.phone}`} />
             </div>
           </div>
           <nav
-            className="flex items-center justify-center gap-6 border-t border-white/5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#9fb4d5] md:hidden"
+            className="flex items-center justify-center gap-6 border-t border-[rgba(255,255,255,0.06)] py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)] md:hidden"
             aria-label="Primary"
           >
-            <Link href="/" className="transition hover:text-blue-300">Home</Link>
-            <Link href="/services" className="transition hover:text-blue-300">Services</Link>
-            <Link href="/contact" className="transition hover:text-blue-300">Contact</Link>
+            <Link href="/" className="transition hover:text-[var(--text)]">Home</Link>
+            <Link href="/services" className="transition hover:text-[var(--text)]">Services</Link>
+            <Link href="/contact" className="transition hover:text-[var(--text)]">Contact</Link>
           </nav>
         </header>
 
@@ -117,26 +117,26 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
 
-        <footer className="mt-10 border-t border-white/10 bg-[#0d1a2d] text-[#d9e6f8]">
+        <footer className="mt-10 border-t border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
           <div className="mx-auto grid w-full max-w-6xl gap-7 px-4 py-10 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
             <div>
-              <h2 className="text-lg font-semibold text-white">45 EYE Electrical Solutions</h2>
-              <p className="mt-1 text-sm text-[#b8c8de]">Eli the Electrician</p>
-              <p className="mt-3 text-sm text-[#c1d1e8]">
+              <h2 className="text-lg font-semibold text-[var(--text)]">45 EYE Electrical Solutions</h2>
+              <p className="mt-1 text-sm text-[var(--muted)]">Eli the Electrician</p>
+              <p className="mt-3 text-sm text-[var(--muted)]">
                 Phone:{" "}
-                <a className="font-semibold text-blue-400 hover:text-blue-300" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
+                <a className="font-semibold text-[var(--accent)] hover:text-[#60a5fa]" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
                   {business.phone}
                 </a>
               </p>
-              <p className="mt-3 text-sm text-[#b8c8de]">Service areas:</p>
-              <ul className="mt-2 flex flex-wrap gap-2 text-xs text-[#d6e2f5]">
+              <p className="mt-3 text-sm text-[var(--muted)]">Service areas:</p>
+              <ul className="mt-2 flex flex-wrap gap-2 text-xs text-[var(--muted)]">
                 {business.serviceAreas.map((area) => (
-                  <li key={area} className="rounded-full border border-[#2a4365] bg-[#112640] px-3 py-1">
+                  <li key={area} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
                     {area}
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 text-xs text-[#9fb5d4]">
+              <p className="mt-3 text-xs text-[var(--muted)]">
                 Licensed & insured NYC electrician providing residential and light commercial
                 electrical services across Manhattan, Brooklyn, Queens, and Staten Island.
               </p>

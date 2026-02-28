@@ -22,8 +22,8 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
           <article
             className={
               mode === "home"
-                ? "card-surface card-hover overflow-hidden rounded-2xl border border-white/8 bg-[#0f1a2d] transition-colors duration-200"
-                : "section-elevated overflow-hidden rounded-2xl border border-[#2d435f] ui-shadow-sm"
+                ? "card-surface card-hover overflow-hidden rounded-2xl border border-[var(--border)] transition-colors duration-200"
+                : "section-elevated overflow-hidden rounded-2xl border border-[var(--border)] ui-shadow-sm"
             }
             key={item.question}
           >
@@ -32,8 +32,8 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
                 id={buttonId}
                 className={
                   mode === "home"
-                    ? "flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-semibold tracking-tight text-[#f1f5f9] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ca3ff] focus-visible:ring-inset"
-                    : "flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[#f1f5f9] sm:text-base"
+                    ? "flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-semibold tracking-tight text-[var(--text)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-inset"
+                    : "flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-semibold text-[var(--text)] sm:text-base"
                 }
                 type="button"
                 aria-expanded={isOpen}
@@ -45,8 +45,8 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
                   aria-hidden="true"
                   className={
                   mode === "home"
-                    ? "inline-flex size-7 items-center justify-center rounded-full border border-white/12 bg-[#153053] text-[#9ad1ff]"
-                    : "inline-flex size-7 items-center justify-center rounded-full border border-[#3b5d85] text-[#7ec3ff]"
+                    ? "inline-flex size-7 items-center justify-center rounded-full border border-[var(--border)] bg-[rgba(59,130,246,0.12)] text-[var(--accent)]"
+                    : "inline-flex size-7 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent)]"
                   }
                 >
                   {isOpen ? "-" : "+"}
@@ -63,8 +63,8 @@ export function FAQAccordion({ items, mode = "default" }: FAQAccordionProps) {
               <p
                 className={
                   mode === "home"
-                    ? "text-[15px] leading-relaxed text-muted-strong"
-                    : "text-sm leading-relaxed text-muted sm:text-[15px]"
+                    ? "text-[15px] leading-relaxed text-[var(--muted)]"
+                    : "text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]"
                 }
               >
                 {item.answer}

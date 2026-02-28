@@ -41,12 +41,12 @@ export const metadata: Metadata = {
 export default function ServiceAreasPage() {
   return (
     <div className="space-y-8">
-      <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8cbff6]">Service Areas</p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+      <section className="section-light rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">Service Areas</p>
+        <h1 className="mt-2 text-4xl font-semibold tracking-tight text-[var(--text)] sm:text-5xl">
           NYC Electrician Service Areas
         </h1>
-        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#d2e3fa]">
+        <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[var(--muted)]">
           45 EYE Electrical Solutions provides licensed and insured electrical service across core
           NYC boroughs, with select Long Island project support based on scope and scheduling.
         </p>
@@ -56,15 +56,15 @@ export default function ServiceAreasPage() {
         {boroughCards.map((card) => (
           <article
             key={card.label}
-            className="section-elevated rounded-2xl border border-white/10 p-5 shadow-lg shadow-black/20"
+            className="section-elevated rounded-2xl border border-[var(--border)] p-5 ui-shadow-sm"
           >
-            <h2 className="text-lg font-semibold text-white">{card.label}</h2>
-            <p className="mt-2 text-sm text-[#c9d7ea]">
+            <h2 className="text-lg font-semibold text-[var(--text)]">{card.label}</h2>
+            <p className="mt-2 text-sm text-[var(--muted)]">
               View local service details, common property types, and internal service links.
             </p>
             <Link
               href={card.href}
-              className="mt-4 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               Open local page
             </Link>

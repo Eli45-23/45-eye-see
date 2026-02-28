@@ -9,7 +9,7 @@ export function CTASection({
   heading = "Need a Manhattan electrician today?",
 }: CTASectionProps) {
   return (
-    <section className="section-elevated rounded-3xl border border-[#2a3d58] p-6 ui-shadow-md sm:p-8">
+    <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
       <h2 className="text-2xl font-semibold tracking-tight text-white">{heading}</h2>
       <div className="mt-4 flex flex-wrap gap-3">
         <CallCTA label="Call 646-710-0134" />

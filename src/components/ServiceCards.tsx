@@ -61,14 +61,14 @@ export function ServiceCards() {
           key={card.title}
           className="section-light rounded-2xl border border-white/10 p-5 shadow-lg shadow-black/20"
         >
-          <div className="inline-flex size-10 items-center justify-center rounded-xl bg-[#0a66c2]/20 text-[#7ec3ff] ring-1 ring-[#2d4f73]">
+          <div className="inline-flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(59,130,246,0.12)] text-[var(--accent)]">
             {card.icon}
           </div>
           <h2 className="mt-3 text-lg font-semibold text-white">{card.title}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-[#c9d7ea]">{card.description}</p>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{card.description}</p>
           <Link
             href={card.href}
-            className="mt-4 inline-flex text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
           >
             View service details
           </Link>

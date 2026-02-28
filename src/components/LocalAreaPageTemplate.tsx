@@ -24,7 +24,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
 
       <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-white">Service Categories</h2>
-        <p className="mt-3 text-sm leading-relaxed text-[#d2e3fa]">{content.serviceCategoryIntro}</p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{content.serviceCategoryIntro}</p>
         <div className="mt-4">
           <ServiceCards />
         </div>
@@ -35,7 +35,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Electrical Troubleshooting in {content.areaName}
         </h2>
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
           {content.troubleshooting.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -44,7 +44,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
             {" "}
             <Link
               href="/services#electrical-troubleshooting-and-repairs"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               electrical troubleshooting service scope
             </Link>
@@ -60,7 +60,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Panel Upgrades &amp; Service Changes
         </h2>
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
           {content.panelUpgrades.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -69,7 +69,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
             {" "}
             <Link
               href="/services#panel-upgrades-and-service-changes"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               panel upgrades and service changes
             </Link>
@@ -83,7 +83,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           EV Charger Installation in {content.areaName}
         </h2>
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
           {content.evChargers.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -92,7 +92,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
             {" "}
             <Link
               href="/services#ev-charger-installation"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               EV charger installation section
             </Link>
@@ -106,7 +106,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Residential &amp; Commercial Electrical Services
         </h2>
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
           {content.residentialCommercial.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -117,7 +117,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Why Choose 45 EYE Electrical Solutions
         </h2>
-        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[#d2e3fa]">
+        <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[var(--muted)]">
           {content.whyChooseBullets.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -128,7 +128,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
         <h2 className="text-2xl font-semibold tracking-tight text-white">
           Professional Electrical Services in {content.areaName}
         </h2>
-        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+        <div className="mt-4 space-y-4 text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
           {content.longFormBlock.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
@@ -157,7 +157,7 @@ export function LocalAreaPageTemplate({ content }: LocalAreaPageTemplateProps) {
 
       <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-white">Reviews</h2>
-        <p className="mt-3 text-sm leading-relaxed text-[#d2e3fa]">
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
           Reviews available on Google. Ask for recent customer references.
         </p>
         {/* TODO: Add Google reviews embed here after profile embed policy is finalized. */}
