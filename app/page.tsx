@@ -2,11 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
+import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { testimonials } from "@/src/content/testimonials";
 import { CallCTA } from "@/src/components/CallCTA";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { HeroSection } from "@/src/components/HeroSection";
+import { GalleryGrid } from "@/src/components/GalleryGrid";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { ServiceGrid } from "@/src/components/ServiceGrid";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
@@ -41,13 +43,14 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const homeReviewsSchema = getHomeReviewsSchema();
   const homeFaqSchema = getFaqPageSchema(faqs.slice(0, 6));
+  const homeProjectGallery = workGallery.slice(0, 3);
 
   return (
     <>
-      <div className="space-y-8">
+      <div className="space-y-14 sm:space-y-16 lg:space-y-20">
         <HeroSection />
 
-        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+        <section className="section-light space-y-7 rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
           <SectionHeader
             eyebrow="Services"
             title="Electrical service categories"
@@ -55,14 +58,40 @@ export default function HomePage() {
             action={<CallCTA label={`Call ${business.phone}`} />}
           />
           <ServiceGrid items={serviceBuckets} />
-          <p className="text-sm leading-relaxed text-[#c9d7ea]">
+          <p className="max-w-2xl text-sm leading-relaxed text-[#c9d7ea]">
             For urgent issues, you can call for an emergency electrician NYC service visit when
             scheduling allows. We handle circuit breaker repair and fuse box replacement with a
             safety-first approach that fits older and modern systems. 45 EYE Electrical Solutions
             supports residential and light commercial electrician work, including electrical
             inspection requests and practical wiring upgrades.
           </p>
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
+          <p className="max-w-2xl text-sm leading-relaxed text-[#d2e3fa]">
+            If you need an NYC electrician for repair work, upgrades, or new installations, 45 EYE
+            Electrical Solutions provides responsive service for homes and businesses. As a licensed
+            electrician in NYC, Eli handles{" "}
+            <Link
+              href="/services#panel-upgrades-and-service-changes"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            >
+              panel upgrade options
+            </Link>
+            ,{" "}
+            <Link
+              href="/services#ev-charger-installation"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            >
+              EV charger installation
+            </Link>
+            , and{" "}
+            <Link
+              href="/services#electrical-troubleshooting-and-repairs"
+              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
+            >
+              electrical troubleshooting
+            </Link>{" "}
+            with a safety-first process and clean finish.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 border-t border-white/10 pt-4 text-sm text-muted">
             <span>Need full scope details?</span>
             <Link href="/services" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
               View all services on the services page
@@ -70,7 +99,22 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section-elevated rounded-3xl border border-gray-800/70 p-6 ui-shadow-lg sm:p-8">
+        <section className="border-y border-white/10 bg-[#0d1627]/80 px-4 py-6 sm:px-6 lg:px-8">
+          <div className="grid gap-3.5 text-sm text-[#d2e3fa] sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "Owner-operated (Eli)",
+              "Licensed & insured",
+              "Residential + light commercial",
+              "Troubleshooting-first process",
+            ].map((item) => (
+              <p key={item} className="text-center font-medium tracking-[0.01em] text-[#d9e5f8]">
+                {item}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-elevated space-y-6 rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8cbff6]">Service Areas</p>
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Trusted electrical service across core NYC boroughs
@@ -108,7 +152,7 @@ export default function HomePage() {
               Staten Island
             </Link>
           </p>
-          <p className="mt-5 text-sm leading-relaxed text-[#c9d7ea]">
+          <p className="max-w-2xl text-sm leading-relaxed text-[#c9d7ea]">
             We regularly work in NYC apartments, brownstones, co-ops, retail storefronts, and
             office spaces with different electrical demands and building constraints. That range of
             day-to-day service experience helps us diagnose issues quickly and plan upgrades that
@@ -120,49 +164,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-          <p className="text-sm leading-relaxed text-[#d2e3fa]">
-            If you need an NYC electrician for repair work, upgrades, or new installations, 45 EYE
-            Electrical Solutions provides responsive service for homes and businesses. As a licensed
-            electrician in NYC, Eli handles{" "}
-            <Link
-              href="/services#panel-upgrades-and-service-changes"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
-            >
-              panel upgrade options
-            </Link>
-            ,{" "}
-            <Link
-              href="/services#ev-charger-installation"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
-            >
-              EV charger installation
-            </Link>
-            , and{" "}
-            <Link
-              href="/services#electrical-troubleshooting-and-repairs"
-              className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline"
-            >
-              electrical troubleshooting
-            </Link>{" "}
-            with a safety-first process and clean finish.
-          </p>
+        <section className="section-light space-y-6 rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
+          <SectionHeader
+            eyebrow="Project Gallery"
+            title="Recent field work snapshots"
+            description="A quick look at panel, conduit, and lighting outcomes from recent jobs."
+          />
+          <GalleryGrid items={homeProjectGallery} />
         </section>
 
-        <section className="section-elevated rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
-          <h2 className="text-2xl font-semibold tracking-tight text-white">
-            Why Choose 45 EYE Electrical Solutions
-          </h2>
-          <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[#d2e3fa]">
-            <li>Licensed and insured service with code-aware electrical work.</li>
-            <li>Safety-first troubleshooting and installation on every service call.</li>
-            <li>Clean, organized finish work that respects occupied homes and businesses.</li>
-            <li>Clear communication on scope, findings, and next-step options.</li>
-            <li>Dependable scheduling with same-day availability when possible.</li>
-          </ul>
-        </section>
-
-        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+        <section className="section-light space-y-6 rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
           <SectionHeader
             eyebrow="Testimonials"
             title="What clients say about recent service calls"
@@ -172,7 +183,7 @@ export default function HomePage() {
           <TestimonialStrip items={testimonials} mode="home" />
         </section>
 
-        <section className="section-light space-y-5 rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+        <section className="section-light space-y-6 rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
           <SectionHeader
             eyebrow="FAQs"
             title="Common questions before scheduling"
@@ -203,7 +214,7 @@ export default function HomePage() {
             </Link>
             .
           </p>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4 border-t border-white/10 pt-4">
             <CallCTA label={`Call ${business.phone}`} />
             <Link href="/contact#contact-request" className="text-sm font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
               Contact page for callback request
@@ -211,11 +222,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="section-light rounded-3xl border border-gray-800/70 p-6 ui-shadow-md sm:p-8">
+        <section className="section-light rounded-3xl border border-white/8 p-6 shadow-xl shadow-black/25 sm:p-9 lg:p-11">
           <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             Professional Electrical Services Across NYC
           </h2>
-          <div className="mt-4 space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
+          <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-[#d2e3fa] sm:text-[15px]">
             <p>
               Finding the right NYC electrician is often about more than getting power back on.
               Property owners and managers usually need someone who can diagnose the root issue,

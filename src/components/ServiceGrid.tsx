@@ -101,20 +101,20 @@ export function ServiceGrid({ items }: ServiceGridProps) {
         return (
           <article
             key={service.name}
-            className="group rounded-3xl bg-[#111827] p-6 shadow-lg shadow-black/20 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/25"
+            className="group rounded-3xl border border-white/8 bg-[#0e1727] p-6 shadow-lg shadow-black/20 transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:shadow-xl hover:shadow-black/30"
           >
             <div
-              className="inline-flex size-10 items-center justify-center rounded-xl bg-[#0a66c2]/20 text-[#7ec3ff] ring-1 ring-[#2d4f73]"
+              className="inline-flex size-10 items-center justify-center rounded-xl border border-white/12 bg-[#0f223b] text-[#95ceff]"
               role="img"
               aria-label={icon.label}
             >
               <Icon className="size-5" />
             </div>
-            <h3 className="mt-4 text-lg font-semibold leading-snug text-[#f1f5f9]">{service.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-300">
+            <h3 className="mt-5 text-lg font-semibold leading-snug text-[#f6f9ff]">{service.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[#c7d4ea]">
               {getPreviewSentence(service.description)}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-[#b9cbe3]">
+            <p className="mt-2 text-sm leading-relaxed text-[#adc1dd]">
               {serviceMicrocopy[service.name] ?? `${service.commonJobs[0]}.`}
             </p>
             <Link

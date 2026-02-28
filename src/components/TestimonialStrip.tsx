@@ -12,14 +12,14 @@ export function TestimonialStrip({ items, mode = "default" }: TestimonialStripPr
         {items.slice(0, 3).map((item) => (
           <article
             key={`${item.name}-${item.area}`}
-            className="min-w-[85%] snap-start rounded-3xl bg-[#111827] p-5 shadow-lg shadow-black/20 md:min-w-0 md:p-6"
+            className="flex min-w-[85%] snap-start flex-col rounded-3xl border border-white/8 bg-[#0e1727] p-5 shadow-lg shadow-black/20 md:min-w-0 md:min-h-[220px] md:p-6"
           >
-            <p className="text-sm leading-relaxed text-gray-300">
+            <p className="text-sm leading-relaxed text-[#c7d4ea]">
               <span aria-hidden="true">&ldquo;</span>
               {item.quote}
               <span aria-hidden="true">&rdquo;</span>
             </p>
-            <p className="mt-4 text-sm font-semibold text-[#f1f5f9] md:mt-5">{item.name}</p>
+            <p className="mt-auto pt-5 text-sm font-semibold text-[#f1f5f9]">{item.name}</p>
             <p className="text-xs uppercase tracking-[0.12em] text-[#60a5fa]">{item.area}</p>
           </article>
         ))}
