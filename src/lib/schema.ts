@@ -6,18 +6,32 @@ import { SITE_URL } from "@/src/lib/seo";
 
 const normalizedPhone = `+1${business.phone.replace(/\D/g, "")}`;
 
-export function getLocalBusinessSchema() {
+type BreadcrumbItem = {
+  name: string;
+  path: `/${string}`;
+};
+
+export function getLocalBusinessSchema(path: `/${string}` = "/") {
+  const pageUrl = new URL(path, SITE_URL).toString();
+
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "Electrician", "Contractor"],
     "@id": `${SITE_URL}#business`,
     name: business.brandName,
     legalName: business.businessNameLegal,
-    url: SITE_URL,
+    url: pageUrl,
     telephone: normalizedPhone,
     email: business.email,
-    description: `${business.locationLabel} electrician offering licensed and insured electrical service with same-day availability when possible.`,
-    areaServed: business.serviceAreas.map((area) => ({
+    description:
+      "Licensed and insured, owner-operated by Eli, providing residential and light commercial electrical service across NYC.",
+    areaServed: [
+      "Manhattan",
+      "Brooklyn",
+      "Queens",
+      "Staten Island",
+      "Select Long Island areas",
+    ].map((area) => ({
       "@type": "AdministrativeArea",
       name: area,
     })),
@@ -83,6 +97,19 @@ export function getHomeReviewsSchema() {
       publisher: {
         "@id": `${SITE_URL}#business`,
       },
+    })),
+  };
+}
+
+export function getBreadcrumbSchema(items: readonly BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.path, SITE_URL).toString(),
     })),
   };
 }

@@ -4,9 +4,10 @@ import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { CallCTA } from "@/src/components/CallCTA";
 import { GalleryGrid } from "@/src/components/GalleryGrid";
+import { JsonLd } from "@/src/components/JsonLd";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { createPageMetadata } from "@/src/lib/seo";
-import { getServiceListSchema } from "@/src/lib/schema";
+import { getBreadcrumbSchema, getServiceListSchema } from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
 
 export const metadata = createPageMetadata({
@@ -32,6 +33,10 @@ function getAreaLine(index: number): string {
 
 export default function ServicesPage() {
   const serviceListSchema = getServiceListSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ]);
 
   return (
     <div className="space-y-9">
@@ -137,10 +142,8 @@ export default function ServicesPage() {
         </ul>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }}
-      />
+      <JsonLd id="schema-services-list" data={serviceListSchema} />
+      <JsonLd id="schema-services-breadcrumbs" data={breadcrumbSchema} />
     </div>
   );
 }

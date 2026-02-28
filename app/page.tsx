@@ -9,12 +9,18 @@ import { CallCTA } from "@/src/components/CallCTA";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { HeroSection } from "@/src/components/HeroSection";
 import { GalleryGrid } from "@/src/components/GalleryGrid";
+import { JsonLd } from "@/src/components/JsonLd";
 import { Section } from "@/src/components/Section";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { ServiceGrid } from "@/src/components/ServiceGrid";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
 import { createPageMetadata } from "@/src/lib/seo";
-import { getFaqPageSchema, getHomeReviewsSchema } from "@/src/lib/schema";
+import {
+  getBreadcrumbSchema,
+  getFaqPageSchema,
+  getHomeReviewsSchema,
+  getLocalBusinessSchema,
+} from "@/src/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "NYC Electrician Home",
@@ -32,6 +38,8 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   const homeReviewsSchema = getHomeReviewsSchema();
   const homeFaqSchema = getFaqPageSchema(faqs.slice(0, 6));
+  const homeBusinessSchema = getLocalBusinessSchema("/");
+  const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
 
   return (
@@ -319,14 +327,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeReviewsSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
-      />
+      <JsonLd id="schema-home-business" data={homeBusinessSchema} />
+      <JsonLd id="schema-home-faq" data={homeFaqSchema} />
+      <JsonLd id="schema-home-reviews" data={homeReviewsSchema} />
+      <JsonLd id="schema-home-breadcrumbs" data={homeBreadcrumbSchema} />
     </>
   );
 }

@@ -5,10 +5,11 @@ import { testimonials } from "@/src/content/testimonials";
 import { CallCTA } from "@/src/components/CallCTA";
 import { ContactForm } from "@/src/components/ContactForm";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
+import { JsonLd } from "@/src/components/JsonLd";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
 import { createPageMetadata } from "@/src/lib/seo";
-import { getFaqPageSchema, getLocalBusinessSchema } from "@/src/lib/schema";
+import { getBreadcrumbSchema, getFaqPageSchema, getLocalBusinessSchema } from "@/src/lib/schema";
 
 export const metadata = createPageMetadata({
   title: "Contact NYC Electrician",
@@ -25,7 +26,11 @@ export const metadata = createPageMetadata({
 
 export default function ContactPage() {
   const faqSchema = getFaqPageSchema();
-  const localBusinessSchema = getLocalBusinessSchema();
+  const localBusinessSchema = getLocalBusinessSchema("/contact");
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]);
 
   return (
     <div className="space-y-8">
@@ -96,14 +101,9 @@ export default function ContactPage() {
         </ul>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
+      <JsonLd id="schema-contact-faq" data={faqSchema} />
+      <JsonLd id="schema-contact-business" data={localBusinessSchema} />
+      <JsonLd id="schema-contact-breadcrumbs" data={breadcrumbSchema} />
     </div>
   );
 }

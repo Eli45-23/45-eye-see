@@ -5,7 +5,6 @@ import Link from "next/link";
 import { business } from "@/src/content/business";
 import { CallCTA } from "@/src/components/CallCTA";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
-import { getLocalBusinessSchema } from "@/src/lib/schema";
 import "./globals.css";
 
 const geist = localFont({
@@ -62,8 +61,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const localBusinessSchema = getLocalBusinessSchema();
-
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
@@ -114,11 +111,6 @@ export default function RootLayout({
         </header>
 
         <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">{children}</main>
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
 
         <footer className="mt-10 border-t border-[var(--border)] bg-[var(--surface)] text-[var(--text)]">
           <div className="mx-auto grid w-full max-w-6xl gap-7 px-4 py-10 sm:px-6 md:grid-cols-[1fr_auto] md:items-center lg:px-8">
