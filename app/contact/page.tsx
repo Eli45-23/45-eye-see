@@ -11,10 +11,16 @@ import { createPageMetadata } from "@/src/lib/seo";
 import { getFaqPageSchema, getLocalBusinessSchema } from "@/src/lib/schema";
 
 export const metadata = createPageMetadata({
-  page: "Contact",
+  title: "Contact NYC Electrician",
+  description:
+    "Contact Eli the Electrician for licensed electrician NYC service requests. Fast response, same-day availability when possible, and coverage across core NYC boroughs.",
   path: "/contact",
-  focus:
-    "Fast-response NYC electrician contact page with click-to-call service requests, borough coverage details, and FAQ answers.",
+  ogTitle: "Contact 45 EYE Electrical Solutions | NYC Electrician",
+  ogDescription:
+    "Book residential or commercial electrical service with an NYC-based licensed and insured electrician. Call 646-710-0134.",
+  twitterTitle: "Contact Eli the Electrician",
+  twitterDescription:
+    "Request NYC electrician service by phone or callback form. Licensed electrician NYC support across key boroughs.",
 });
 
 export default function ContactPage() {

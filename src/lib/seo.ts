@@ -17,15 +17,23 @@ export function buildSeoDescription(pageFocus: string): string {
 }
 
 type PageSeoInput = {
-  page: string;
+  title: string;
+  description: string;
   path: `/${string}`;
-  focus: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
 };
 
 export function createPageMetadata(input: PageSeoInput): Metadata {
-  const title = input.page;
-  const description = buildSeoDescription(input.focus);
+  const title = input.title;
+  const description = input.description;
   const url = new URL(input.path, SITE_URL).toString();
+  const ogTitle = input.ogTitle ?? title;
+  const ogDescription = input.ogDescription ?? description;
+  const twitterTitle = input.twitterTitle ?? ogTitle;
+  const twitterDescription = input.twitterDescription ?? ogDescription;
 
   return {
     title,
@@ -34,8 +42,8 @@ export function createPageMetadata(input: PageSeoInput): Metadata {
       canonical: url,
     },
     openGraph: {
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       url,
       siteName: business.brandName,
       type: "website",
@@ -43,8 +51,8 @@ export function createPageMetadata(input: PageSeoInput): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: twitterTitle,
+      description: twitterDescription,
     },
   };
 }

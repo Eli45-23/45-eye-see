@@ -10,10 +10,16 @@ import { getServiceListSchema } from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
 
 export const metadata = createPageMetadata({
-  page: "Services",
+  title: "Electrical Services NYC",
+  description:
+    "Explore NYC electrician services from troubleshooting and repairs to panel upgrades, lighting, and safety improvements from a licensed electrician NYC team.",
   path: "/services",
-  focus:
-    "Electrical services in NYC for troubleshooting, repairs, upgrades, safety updates, and same-day service calls across key boroughs.",
+  ogTitle: "Electrical Services in NYC | Licensed Electrician NYC",
+  ogDescription:
+    "Service hub for residential and light commercial electrical work across Manhattan, Queens, Brooklyn, and Staten Island. Same-day service when possible.",
+  twitterTitle: "Electrical Services NYC | 45 EYE",
+  twitterDescription:
+    "Licensed electrician NYC service categories with clear scope and rapid scheduling options.",
 });
 
 const neighborhoods = business.mustMentionNeighborhoods;

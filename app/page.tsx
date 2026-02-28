@@ -13,33 +13,21 @@ import { Section } from "@/src/components/Section";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { ServiceGrid } from "@/src/components/ServiceGrid";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
-import { SITE_URL } from "@/src/lib/seo";
+import { createPageMetadata } from "@/src/lib/seo";
 import { getFaqPageSchema, getHomeReviewsSchema } from "@/src/lib/schema";
 
-const homeTitle = "NYC Electrician | 45 EYE Electrical Solutions (Licensed & Insured)";
-const homeDescription =
-  "Need fast electrical service in NYC? Call 646-710-0134 for licensed, insured repairs, upgrades, and same-day availability when possible.";
-
-export const metadata: Metadata = {
-  title: homeTitle,
-  description: homeDescription,
-  alternates: {
-    canonical: SITE_URL,
-  },
-  openGraph: {
-    title: homeTitle,
-    description: homeDescription,
-    url: SITE_URL,
-    siteName: business.brandName,
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: homeTitle,
-    description: homeDescription,
-  },
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "NYC Electrician Home",
+  description:
+    "NYC electrician services from Eli the Electrician at 45 EYE Electrical Solutions. Licensed electrician NYC support for troubleshooting, upgrades, and same-day availability when possible.",
+  path: "/",
+  ogTitle: "NYC Electrician | Licensed Electrician NYC",
+  ogDescription:
+    "45 EYE Electrical Solutions delivers licensed, insured NYC electrician service for homes and businesses across Manhattan, Queens, Brooklyn, and Staten Island.",
+  twitterTitle: "NYC Electrician | 45 EYE Electrical Solutions",
+  twitterDescription:
+    "Call 646-710-0134 for licensed electrician NYC service and same-day scheduling when available.",
+});
 
 export default function HomePage() {
   const homeReviewsSchema = getHomeReviewsSchema();
