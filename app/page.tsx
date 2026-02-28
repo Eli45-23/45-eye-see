@@ -88,6 +88,10 @@ export default function HomePage() {
           <p className="mt-4 text-sm text-[#c9d7ea]">
             Explore borough service details:
             {" "}
+            <Link href="/service-areas" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+              Service Areas Hub
+            </Link>
+            {" · "}
             <Link href="/manhattan-electrician" className="font-semibold text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
               Manhattan
             </Link>

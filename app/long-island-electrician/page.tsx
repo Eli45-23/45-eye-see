@@ -3,18 +3,18 @@ import { getLocalAreaPage } from "@/src/content/localAreaPages";
 import { LocalAreaPageTemplate } from "@/src/components/LocalAreaPageTemplate";
 import { getLocalAreaElectricianSchema } from "@/src/lib/schema";
 
-const content = getLocalAreaPage("brooklyn-electrician");
+const content = getLocalAreaPage("long-island-electrician");
 
 export const metadata: Metadata = {
   title: content.title,
   description: content.description,
   alternates: {
-    canonical: "https://45eyeelectricalsolutions.com/brooklyn-electrician",
+    canonical: "https://45eyeelectricalsolutions.com/long-island-electrician",
   },
   openGraph: {
     title: content.title,
     description: content.description,
-    url: "https://45eyeelectricalsolutions.com/brooklyn-electrician",
+    url: "https://45eyeelectricalsolutions.com/long-island-electrician",
     siteName: "45 EYE Electrical Solutions",
     type: "website",
     locale: "en_US",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BrooklynElectricianPage() {
-  const schema = getLocalAreaElectricianSchema(content.areaName, "/brooklyn-electrician");
+export default function LongIslandElectricianPage() {
+  const schema = getLocalAreaElectricianSchema(content.areaName, "/long-island-electrician");
 
   return (
     <>

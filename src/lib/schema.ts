@@ -86,3 +86,15 @@ export function getHomeReviewsSchema() {
     })),
   };
 }
+
+export function getLocalAreaElectricianSchema(areaName: string, path: `/${string}`) {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Electrician"],
+    name: business.brandName,
+    telephone: normalizedPhone,
+    email: business.email,
+    url: new URL(path, SITE_URL).toString(),
+    areaServed: [areaName, "Manhattan", "Brooklyn", "Queens", "Staten Island", "Select Long Island areas"],
+  };
+}

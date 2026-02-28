@@ -6,18 +6,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/" |
     "/services" |
     "/contact" |
+    "/service-areas" |
     "/manhattan-electrician" |
     "/brooklyn-electrician" |
     "/queens-electrician" |
-    "/staten-island-electrician"
+    "/staten-island-electrician" |
+    "/long-island-electrician"
   > = [
     "/",
     "/services",
     "/contact",
+    "/service-areas",
     "/manhattan-electrician",
     "/brooklyn-electrician",
     "/queens-electrician",
     "/staten-island-electrician",
+    "/long-island-electrician",
   ];
 
   return routes.map((route) => ({
