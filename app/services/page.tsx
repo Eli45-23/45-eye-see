@@ -33,6 +33,7 @@ export default function ServicesPage() {
         <SectionHeader
           eyebrow="Services"
           title="Electrical services designed for NYC properties"
+          headingLevel={1}
           description="Troubleshooting, repairs, upgrades, and same-day service support when availability allows."
           action={<CallCTA label={`Call ${business.phone}`} />}
         />

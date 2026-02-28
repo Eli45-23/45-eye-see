@@ -27,6 +27,7 @@ export default function ContactPage() {
         <SectionHeader
           eyebrow="Contact"
           title="Book your NYC electrical service call"
+          headingLevel={1}
           description="Call first for fastest scheduling, then use the callback form if preferred."
         />
 

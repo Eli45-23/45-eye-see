@@ -166,27 +166,21 @@ export default function HomePage() {
             ))}
           </ul>
           <p className="text-sm text-[var(--muted)]">
-            Explore borough service details:
-            {" "}
-            <Link href="/service-areas" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
-              Service Areas Hub
+            Ready to book service in your area?{" "}
+            <Link
+              href="/contact#contact-request"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              Contact Eli now
+            </Link>{" "}
+            or review the{" "}
+            <Link
+              href="/services"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              full services page
             </Link>
-            {" · "}
-            <Link href="/manhattan-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
-              Manhattan
-            </Link>
-            {" · "}
-            <Link href="/brooklyn-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
-              Brooklyn
-            </Link>
-            {" · "}
-            <Link href="/queens-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
-              Queens
-            </Link>
-            {" · "}
-            <Link href="/staten-island-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
-              Staten Island
-            </Link>
+            .
           </p>
           <p className="text-measure-tight text-sm leading-relaxed text-[var(--muted)]">
             We regularly work in NYC apartments, brownstones, co-ops, retail storefronts, and

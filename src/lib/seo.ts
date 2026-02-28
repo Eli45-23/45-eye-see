@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { business } from "@/src/content/business";
 
-export const SITE_URL = "https://45eyeelectricalsolutions.com";
+const DEFAULT_SITE_URL = "https://45eyeelectricalsolutions.com";
+const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SITE_URL ?? DEFAULT_SITE_URL;
+
+export const SITE_URL = envSiteUrl.endsWith("/") ? envSiteUrl.slice(0, -1) : envSiteUrl;
 
 const titleSuffix = `${business.brandName} (${business.publicName}) | NYC Electrician`;
 
@@ -20,7 +23,7 @@ type PageSeoInput = {
 };
 
 export function createPageMetadata(input: PageSeoInput): Metadata {
-  const title = buildSeoTitle(input.page);
+  const title = input.page;
   const description = buildSeoDescription(input.focus);
   const url = new URL(input.path, SITE_URL).toString();
 

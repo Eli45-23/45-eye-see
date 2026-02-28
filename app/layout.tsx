@@ -18,7 +18,10 @@ const geist = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: buildSeoTitle("Home"),
+  title: {
+    default: buildSeoTitle("Home"),
+    template: `%s | ${business.brandName} (${business.publicName}) | NYC Electrician`,
+  },
   description: buildSeoDescription(
     "Serving homes and businesses in Manhattan, Queens, Brooklyn, Staten Island, and select Long Island areas."
   ),

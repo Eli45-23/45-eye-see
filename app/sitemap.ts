@@ -2,27 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/src/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes: Array<
-    "/" |
-    "/services" |
-    "/contact" |
-    "/service-areas" |
-    "/manhattan-electrician" |
-    "/brooklyn-electrician" |
-    "/queens-electrician" |
-    "/staten-island-electrician" |
-    "/long-island-electrician"
-  > = [
-    "/",
-    "/services",
-    "/contact",
-    "/service-areas",
-    "/manhattan-electrician",
-    "/brooklyn-electrician",
-    "/queens-electrician",
-    "/staten-island-electrician",
-    "/long-island-electrician",
-  ];
+  const routes: Array<"/" | "/services" | "/contact"> = ["/", "/services", "/contact"];
 
   return routes.map((route) => ({
     url: new URL(route, SITE_URL).toString(),
