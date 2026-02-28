@@ -27,18 +27,13 @@ export default function ContactPage() {
         <SectionHeader
           eyebrow="Contact"
           title="Book your NYC electrical service call"
-          description="Call first for fastest scheduling, then use email or the callback form if preferred."
+          description="Call first for fastest scheduling, then use the callback form if preferred."
         />
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="space-y-4">
             <CallCTA label={`Call ${business.phone}`} />
-            <p className="text-sm text-muted">
-              Email:{" "}
-              <a className="font-semibold text-[#60a5fa]" href={`mailto:${business.email}`}>
-                {business.email}
-              </a>
-            </p>
+            <p className="text-sm text-muted">Prefer not to call right away? Use the callback form.</p>
             <div className="section-elevated rounded-2xl border border-[#2d435f] p-4 ui-shadow-sm">
               <p className="text-sm font-semibold text-[#dbeafe]">Response time</p>
               <p className="mt-1 text-sm text-muted">

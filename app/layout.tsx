@@ -98,12 +98,6 @@ export default function RootLayout({
 
             <div className="ml-auto flex items-center gap-3">
               <CallCTA className="shadow-[0_16px_34px_-22px_rgba(10,102,194,0.7)]" label={`Call ${business.phone}`} />
-              <a
-                href={`mailto:${business.email}`}
-                className="hidden text-xs font-medium text-slate-400 transition hover:text-blue-300 sm:inline"
-              >
-                {business.email}
-              </a>
             </div>
           </div>
         </header>
@@ -124,11 +118,6 @@ export default function RootLayout({
                 Phone:{" "}
                 <a className="font-semibold text-blue-400 hover:text-blue-300" href={`tel:+1${business.phone.replace(/\D/g, "")}`}>
                   {business.phone}
-                </a>
-                {" · "}
-                Email:{" "}
-                <a className="font-semibold text-blue-400 hover:text-blue-300" href={`mailto:${business.email}`}>
-                  {business.email}
                 </a>
               </p>
               <p className="mt-3 text-sm text-[#b8c8de]">Service areas:</p>
