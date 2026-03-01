@@ -46,7 +46,6 @@ export function LocalHero({ areaName, supportingSentence, neighborhoodLine }: Lo
             src="/images/hero-emt.jpg"
             alt={`Clean EMT electrical installation in ${areaName}`}
             fill
-            unoptimized
             priority
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"

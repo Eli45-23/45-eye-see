@@ -72,10 +72,8 @@ export default function RootLayout({
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
-                unoptimized
                 className="h-11 w-[72px] rounded-md border border-[var(--border)] bg-[var(--card)] object-contain p-0.5 shadow-lg shadow-black/35 sm:h-12 sm:w-[78px] lg:h-14 lg:w-[92px]"
                 sizes="(max-width: 640px) 72px, (max-width: 1024px) 78px, 92px"
-                priority
               />
               <div className="min-w-0">
                 <p className="truncate text-[13px] font-semibold uppercase tracking-[0.16em] text-[var(--text)] sm:text-sm">

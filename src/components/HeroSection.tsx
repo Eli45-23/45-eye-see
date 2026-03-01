@@ -53,7 +53,6 @@ export function HeroSection() {
             src={HOME_HERO_IMAGE_SRC}
             alt="Commercial pendant and recessed lighting installation in progress at an NYC interior"
             fill
-            unoptimized
             priority
             sizes="(max-width: 1024px) 100vw, 42vw"
             className="object-cover"
