@@ -39,6 +39,25 @@ const areaPropertyTypes: Record<LocalAreaSlug, string[]> = {
   "long-island-electrician": ["detached homes", "mixed-use properties", "small commercial facilities"],
 };
 
+const neighborhoodLinks: Partial<Record<LocalAreaSlug, { label: string; slug: string }[]>> = {
+  "manhattan-electrician": [
+    { label: "Midtown Manhattan electrician", slug: "/electrician-midtown-manhattan" },
+    { label: "Upper East Side electrician", slug: "/electrician-upper-east-side" },
+    { label: "Lower Manhattan electrician", slug: "/electrician-lower-manhattan" },
+  ],
+  "brooklyn-electrician": [
+    { label: "Williamsburg electrician", slug: "/electrician-williamsburg" },
+    { label: "Park Slope electrician", slug: "/electrician-park-slope" },
+    { label: "Bed-Stuy electrician", slug: "/electrician-bed-stuy" },
+    { label: "Bay Ridge electrician", slug: "/electrician-bay-ridge" },
+  ],
+  "queens-electrician": [
+    { label: "Astoria electrician", slug: "/electrician-astoria" },
+    { label: "Long Island City electrician", slug: "/electrician-long-island-city" },
+    { label: "Forest Hills electrician", slug: "/electrician-forest-hills" },
+  ],
+};
+
 const commonServiceTypeLinks = [
   {
     label: "electrical troubleshooting NYC",
@@ -196,6 +215,23 @@ export default function ServiceAreasPage() {
                   ))}
                 </div>
               </section>
+
+              {neighborhoodLinks[area.slug] && (
+                <section className="mt-6 space-y-3">
+                  <h3 className="text-lg font-semibold text-[var(--text)]">Neighborhood coverage</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {neighborhoodLinks[area.slug]!.map((hood) => (
+                      <Link
+                        key={hood.slug}
+                        href={hood.slug}
+                        className="inline-flex items-center rounded-full border border-[var(--border)] px-3 py-1.5 text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                      >
+                        {hood.label}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <CallCTA label={`Call ${business.phone}`} />

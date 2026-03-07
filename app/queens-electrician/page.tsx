@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { Metadata } from "next";
+import { CallCTA } from "@/src/components/CallCTA";
 import { BoroughLandingPage } from "@/src/components/BoroughLandingPage";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { faqs } from "@/src/content/faqs";
@@ -118,6 +120,28 @@ export default function QueensElectricianPage() {
             for baths, kitchens, and exterior receptacles.
           </li>
         </ul>
+      </section>
+
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Neighborhood coverage in Queens</h2>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+          Dive into neighborhood pages for Queens to see building patterns, access notes, and service recommendations specific to each area.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[
+            { label: "Astoria electrician", href: "/electrician-astoria" },
+            { label: "Long Island City electrician", href: "/electrician-long-island-city" },
+            { label: "Forest Hills electrician", href: "/electrician-forest-hills" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex items-center rounded-full border border-[var(--border)] px-3 py-1.5 text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">

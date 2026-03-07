@@ -3,7 +3,26 @@ import { SITE_URL } from "@/src/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: Array<
-    "/" | "/services" | "/contact" | "/service-areas" | "/projects" | `/projects/${string}` | "/manhattan-electrician" | "/brooklyn-electrician" | "/queens-electrician" | "/staten-island-electrician"
+    | "/"
+    | "/services"
+    | "/contact"
+    | "/service-areas"
+    | "/projects"
+    | `/projects/${string}`
+    | "/manhattan-electrician"
+    | "/brooklyn-electrician"
+    | "/queens-electrician"
+    | "/staten-island-electrician"
+    | "/electrician-williamsburg"
+    | "/electrician-park-slope"
+    | "/electrician-bed-stuy"
+    | "/electrician-astoria"
+    | "/electrician-long-island-city"
+    | "/electrician-forest-hills"
+    | "/electrician-midtown-manhattan"
+    | "/electrician-upper-east-side"
+    | "/electrician-lower-manhattan"
+    | "/electrician-bay-ridge"
   > = [
     "/",
     "/services",
@@ -13,6 +32,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/brooklyn-electrician",
     "/queens-electrician",
     "/staten-island-electrician",
+    "/electrician-williamsburg",
+    "/electrician-park-slope",
+    "/electrician-bed-stuy",
+    "/electrician-astoria",
+    "/electrician-long-island-city",
+    "/electrician-forest-hills",
+    "/electrician-midtown-manhattan",
+    "/electrician-upper-east-side",
+    "/electrician-lower-manhattan",
+    "/electrician-bay-ridge",
     "/projects",
     "/projects/brooklyn-brownstone-200-amp-upgrade",
     "/projects/manhattan-office-partial-power-troubleshooting",

@@ -190,7 +190,7 @@ export function ContactForm() {
             required
           />
           <span id="helper-email" className={helperClass}>
-            We'll use this to send confirmation notes.
+            We will use this to send confirmation notes.
           </span>
           {touched.email && errors.email ? (
             <span id="error-email" className={errorClass}>

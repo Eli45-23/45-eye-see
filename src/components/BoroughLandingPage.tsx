@@ -172,7 +172,6 @@ export function BoroughLandingPage({
         </div>
       </section>
 
-      {content.landingSections.map((section) => (
       {displaySections.map((section) => (
         <section key={section.heading} className="rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">{section.heading}</h2>

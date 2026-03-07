@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { Metadata } from "next";
+import { CallCTA } from "@/src/components/CallCTA";
 import { BoroughLandingPage } from "@/src/components/BoroughLandingPage";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { faqs } from "@/src/content/faqs";
@@ -118,6 +120,28 @@ export default function ManhattanElectricianPage() {
             for retail and office fit-outs with tight uptime windows.
           </li>
         </ul>
+      </section>
+
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Neighborhood coverage in Manhattan</h2>
+        <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+          Use these focused pages to plan work with local context for building rules, access windows, and typical load patterns.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[
+            { label: "Midtown Manhattan electrician", href: "/electrician-midtown-manhattan" },
+            { label: "Upper East Side electrician", href: "/electrician-upper-east-side" },
+            { label: "Lower Manhattan electrician", href: "/electrician-lower-manhattan" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex items-center rounded-full border border-[var(--border)] px-3 py-1.5 text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">
