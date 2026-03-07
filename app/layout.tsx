@@ -166,6 +166,14 @@ export default function RootLayout({
               </p>
             </div>
             <CallCTA label={`Call ${business.phone}`} />
+            <Link
+              href="https://g.page/r/CWTdV7IkHlXoEAI/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[var(--accent-soft)] hover:underline"
+            >
+              Leave a Google Review
+            </Link>
           </div>
         </footer>
 

@@ -245,6 +245,17 @@ export default function HomePage() {
           <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-4 shadow-[0_16px_46px_-34px_rgba(0,0,0,0.8)]">
             <TestimonialStrip items={testimonials} mode="home" />
           </div>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <p className="text-[var(--muted)]">Happy with your service call? Share a quick note for others.</p>
+            <Link
+              href="https://g.page/r/CWTdV7IkHlXoEAI/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+            >
+              Read or Leave a Google Review
+            </Link>
+          </div>
         </div>
       </Section>
 

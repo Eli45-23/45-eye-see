@@ -99,6 +99,20 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
+            <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
+              <p className="text-sm font-semibold text-[var(--text)]">Share feedback</p>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                If we recently completed work for you, a short Google review helps other NYC clients compare options.
+              </p>
+              <Link
+                href="https://g.page/r/CWTdV7IkHlXoEAI/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+              >
+                Leave a Google Review
+              </Link>
+            </div>
             <ul className="space-y-2 text-sm text-[var(--muted)]">
               {business.mustMentionNeighborhoods.map((area) => {
                 const areaAnchor =
