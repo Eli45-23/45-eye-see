@@ -55,6 +55,16 @@ export default function ContactPage() {
                 Fast response during business hours. Same-day availability when possible.
               </p>
             </div>
+            <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
+              <p className="text-sm font-semibold text-[var(--text)]">What to include in your request</p>
+              <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
+                <li>Phone number and contact name</li>
+                <li>Borough or neighborhood, and building type</li>
+                <li>Which equipment has an issue and where it is located</li>
+                <li>Best callback window and any urgency notes</li>
+                <li>Any relevant photos (if possible)</li>
+              </ul>
+            </div>
             <ul className="space-y-2 text-sm text-[var(--muted)]">
               {business.mustMentionNeighborhoods.map((area) => (
                 <li key={area} className="section-elevated rounded-lg border border-[var(--border)] px-3 py-2">

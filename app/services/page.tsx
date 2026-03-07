@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 import { CallCTA } from "@/src/components/CallCTA";
 import { GalleryGrid } from "@/src/components/GalleryGrid";
 import { JsonLd } from "@/src/components/JsonLd";
+import { TrustBadges } from "@/src/components/TrustBadges";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { createPageMetadata } from "@/src/lib/seo";
 import { getBreadcrumbSchema, getServiceListSchema } from "@/src/lib/schema";
@@ -63,6 +64,9 @@ export default function ServicesPage() {
           description="Troubleshooting, repairs, upgrades, and same-day service support when availability allows."
           action={<CallCTA label={`Call ${business.phone}`} />}
         />
+      </section>
+      <section className="section-light rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <TrustBadges />
       </section>
 
       <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">

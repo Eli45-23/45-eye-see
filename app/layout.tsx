@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/src/content/business";
+import { Button } from "@/src/components/Button";
 import { CallCTA } from "@/src/components/CallCTA";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
 import "./globals.css";
@@ -94,17 +95,40 @@ export default function RootLayout({
               <Link href="/contact" className="transition hover:text-[var(--text)]">Contact</Link>
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-3 md:flex">
               <CallCTA className="px-4 py-2.5 text-sm shadow-[0_18px_36px_-20px_rgba(10,102,194,0.8)]" label={`Call ${business.phone}`} />
+              <Button href="/contact#contact-request" variant="secondary" className="text-sm">
+                Request callback
+              </Button>
             </div>
           </div>
           <nav
-            className="flex items-center justify-center gap-6 border-t border-[rgba(255,255,255,0.06)] py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)] md:hidden"
+            className="flex flex-col gap-2 border-t border-[rgba(255,255,255,0.06)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)] md:hidden"
             aria-label="Primary"
           >
-            <Link href="/" className="transition hover:text-[var(--text)]">Home</Link>
-            <Link href="/services" className="transition hover:text-[var(--text)]">Services</Link>
-            <Link href="/contact" className="transition hover:text-[var(--text)]">Contact</Link>
+            <div className="mx-auto flex flex-wrap justify-center gap-3">
+              <Link href="/" className="transition hover:text-[var(--text)]">
+                Home
+              </Link>
+              <Link href="/services" className="transition hover:text-[var(--text)]">
+                Services
+              </Link>
+              <Link href="/contact" className="transition hover:text-[var(--text)]">
+                Contact
+              </Link>
+            </div>
+            <div className="mx-auto flex flex-wrap justify-center gap-2">
+              <Link
+                href={`tel:+1${business.phone.replace(/\D/g, "")}`}
+                className="rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[12px] font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.06)]"
+                aria-label={`Call ${business.phone}`}
+              >
+                Call {business.phone}
+              </Link>
+              <Button href="/contact#contact-request" variant="secondary" className="px-3 py-2 text-[12px]">
+                Request callback
+              </Button>
+            </div>
           </nav>
         </header>
 

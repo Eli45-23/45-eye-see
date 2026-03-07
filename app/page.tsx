@@ -14,6 +14,7 @@ import { Section } from "@/src/components/Section";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { ServiceGrid } from "@/src/components/ServiceGrid";
 import { TestimonialStrip } from "@/src/components/TestimonialStrip";
+import { TrustBadges } from "@/src/components/TrustBadges";
 import { createPageMetadata } from "@/src/lib/seo";
 import {
   getBreadcrumbSchema,
@@ -53,6 +54,10 @@ export default function HomePage() {
     <>
       <Section className="bg-[var(--bg)] pt-4 pb-8">
         <HeroSection />
+      </Section>
+
+      <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
+        <TrustBadges />
       </Section>
 
       <Section className="border-t border-[var(--border)] bg-[var(--surface)]">
@@ -102,23 +107,6 @@ export default function HomePage() {
             <Link href="/services" className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline">
               View all services on the services page
             </Link>
-          </div>
-        </div>
-      </Section>
-
-      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
-        <div className="card-surface card-muted">
-          <div className="grid gap-3.5 text-sm text-[var(--muted)] sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              "Owner-operated (Eli)",
-              "Licensed & insured",
-              "Residential + light commercial",
-              "Troubleshooting-first process",
-            ].map((item) => (
-              <p key={item} className="text-center font-medium tracking-[0.01em] text-[var(--text)]">
-                {item}
-              </p>
-            ))}
           </div>
         </div>
       </Section>
