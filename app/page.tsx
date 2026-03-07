@@ -202,7 +202,7 @@ export default function HomePage() {
             >
               full services page
             </Link>
-            {" "}or the{" "}
+            or the{" "}
             <Link
               href="/service-areas"
               className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
@@ -379,13 +379,13 @@ export default function HomePage() {
               Older properties may still operate on legacy panels that were never designed for
               continuous modern loads. In practical terms, this is where a licensed electrician helps
               compare immediate repair options against longer-term reliability upgrades before any
-              major equipment commitment. Review the full scope in
+              major equipment commitment. Review the full scope in our{" "}
               <Link
                 href="/services#panel-upgrades-and-service-changes"
-                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 service change and panel upgrade
-              </Link>
+              </Link>{" "}
               planning before any equipment commitment.
             </p>
             <p className="mt-3">
@@ -440,14 +440,14 @@ export default function HomePage() {
             <p className="mt-3">
               In service-dense corridors where parking and mixed-use constraints are common, a clear
               plan avoids under-sized installs and future rework. Review the dedicated EV and load
-              planning paths:
+              planning paths:{" "}
               <Link
                 href="/services#ev-charger-installation"
-                className="ml-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 EV charger installation
-              </Link>
-              {" "} and{" "}
+              </Link>{" "}
+              and{" "}
               <Link
                 href="/services#dedicated-circuits"
                 className="ml-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"

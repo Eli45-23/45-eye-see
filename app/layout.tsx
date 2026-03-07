@@ -71,7 +71,7 @@ export default function RootLayout({
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.png"
-                alt={`${business.brandName} logo`}
+                alt="45 EYE Electrical Solutions licensed NYC electrician logo"
                 width={210}
                 height={140}
                 className="h-14 w-[98px] rounded-xl border border-[rgba(116,169,255,0.28)] bg-[#0d1320] object-contain p-1.5 shadow-[0_16px_38px_-22px_rgba(4,12,22,0.9)] transition will-change-[transform] sm:h-16 sm:w-[110px] lg:h-[4.3rem] lg:w-[122px]"
@@ -104,28 +104,24 @@ export default function RootLayout({
               </Button>
             </div>
           </div>
-          <nav
-            className="flex flex-col gap-2 border-t border-[rgba(148,163,184,0.14)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)] md:hidden"
-            aria-label="Primary"
-          >
-            <div className="mx-auto flex flex-wrap justify-center gap-3">
-              <Link href="/" className="transition hover:text-[var(--text)]">
-                Home
-              </Link>
-              <Link href="/services" className="transition hover:text-[var(--text)]">
-                Services
-              </Link>
-              <Link href="/contact" className="transition hover:text-[var(--text)]">
-                Contact
-              </Link>
-            </div>
-            <div className="mx-auto flex flex-wrap justify-center gap-2">
-              <CallCTA className="rounded-xl px-3 py-2.5 text-[12px] text-[var(--text)]" />
-              <Button href="/contact#contact-request" variant="secondary" className="px-3 py-2 text-[12px]">
-                Request callback
-              </Button>
-            </div>
-          </nav>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3 border-t border-[rgba(148,163,184,0.14)] px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)] md:hidden">
+            <Link href="/" className="transition hover:text-[var(--text)]">
+              Home
+            </Link>
+            <Link href="/services" className="transition hover:text-[var(--text)]">
+              Services
+            </Link>
+            <Link href="/projects" className="transition hover:text-[var(--text)]">
+              Projects
+            </Link>
+            <Link href="/contact" className="transition hover:text-[var(--text)]">
+              Contact
+            </Link>
+            <CallCTA className="rounded-xl px-3 py-2.5 text-[12px] text-[var(--text)]" />
+            <Button href="/contact#contact-request" variant="secondary" className="px-3 py-2 text-[12px]">
+              Request callback
+            </Button>
+          </div>
         </header>
 
         <main className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">{children}</main>
