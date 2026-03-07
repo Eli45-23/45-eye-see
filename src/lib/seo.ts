@@ -20,7 +20,7 @@ type PageSeoInput = {
   title: string;
   description: string;
   path: `/${string}`;
-  keywords?: readonly string[];
+  keywords?: string[];
   ogTitle?: string;
   ogDescription?: string;
   twitterTitle?: string;
@@ -47,7 +47,7 @@ export function createPageMetadata(input: PageSeoInput): Metadata {
   const ogDescription = input.ogDescription ?? description;
   const twitterTitle = input.twitterTitle ?? ogTitle;
   const twitterDescription = input.twitterDescription ?? ogDescription;
-  const keywords = input.keywords ?? [];
+  const keywords = input.keywords ? [...input.keywords] : [];
   const twitterCard = input.twitterCard ?? "summary_large_image";
 
   return {
@@ -80,7 +80,7 @@ export function createAreaMetadata(input: {
   path: `/${string}`;
   titlePrefix?: string;
   descriptionPrefix?: string;
-  keywords?: readonly string[];
+  keywords?: string[];
 }): Metadata {
   const area = input.area;
   const title = `${input.titlePrefix ?? `${area} Electrician`} | ${business.publicName} | NYC Electrician`;
@@ -108,7 +108,7 @@ export function createServiceAreaMetadata(input: {
   path: "/service-areas" | `/${string}` | `/${string}/${string}`;
   title?: string;
   description?: string;
-  keywords?: readonly string[];
+  keywords?: string[];
 }): Metadata {
   return createPageMetadata({
     title: input.title ?? "NYC Electrical Service Areas | 45 EYE Electrical Solutions",
@@ -138,7 +138,7 @@ export function createBoroughMetadata(input: {
   borough: "Manhattan" | "Brooklyn" | "Queens" | "Staten Island" | string;
   path: `/${string}`;
   description?: string;
-  keywords?: readonly string[];
+  keywords?: string[];
 }): Metadata {
   const borough = input.borough;
   const title = `${borough} Electrician | NYC | ${business.publicName}`;
