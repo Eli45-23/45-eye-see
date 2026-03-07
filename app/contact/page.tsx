@@ -148,7 +148,7 @@ export default function ContactPage() {
       </section>
 
       <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Before you call</h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Before you request service</h2>
         <ul className="mt-4 space-y-2 text-sm">
           <li>
             <Link href="/services" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">

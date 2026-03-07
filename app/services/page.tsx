@@ -216,7 +216,7 @@ export default function ServicesPage() {
               className="rounded-2xl border border-[var(--border)] p-5"
             >
               <Breadcrumbs items={boroughCrumbs} />
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">{area.areaName} electrician</h2>
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">NYC electrician in {area.areaName}</h2>
               <p className="mt-2 text-sm text-muted">{area.neighborhoodLine}</p>
               <p className="mt-3 text-sm text-muted">{area.supportingSentence}</p>
               <div className="mt-4 space-y-4 text-sm">
@@ -303,7 +303,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
-        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Continue your request</h2>
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Next step: schedule your request</h2>
         <p className="mt-3 text-muted">Use these quick links to move from service research to scheduling.</p>
         <ul className="mt-4 space-y-2 text-sm">
           <li>

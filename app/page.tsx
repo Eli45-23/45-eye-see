@@ -145,7 +145,7 @@ export default function HomePage() {
               },
             ].map((step) => (
               <div key={step.title} className="space-y-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">{step.title}</p>
+                <h3 className="text-base font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">{step.title}</h3>
                 <p className="text-sm leading-relaxed text-[var(--muted)]">{step.description}</p>
               </div>
             ))}
@@ -156,7 +156,7 @@ export default function HomePage() {
       <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface card-muted space-y-6">
           <p className="eyebrow">Service Areas</p>
-          <h2 className="type-h2">Trusted electrical service across core NYC boroughs</h2>
+          <h2 className="type-h2">NYC service areas we actively serve</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {business.serviceAreas.map((area) => {
               const areaHref =
@@ -284,7 +284,7 @@ export default function HomePage() {
 
       <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface space-y-4">
-          <h2 className="type-h2">Authority SEO Guide for NYC Electrical Service</h2>
+          <h2 className="type-h2">Authority guide: electrical service in NYC</h2>
           <div className="text-measure text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
             <p>
               Finding the right NYC electrician is less about “who has a fast response” and more

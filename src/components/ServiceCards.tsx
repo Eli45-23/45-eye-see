@@ -71,7 +71,7 @@ export function ServiceCards() {
           <div className="inline-flex size-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[rgba(59,130,246,0.12)] text-[var(--accent)]">
             {card.icon}
           </div>
-          <h2 className="mt-3 text-lg font-semibold text-white">{card.title}</h2>
+          <h3 className="mt-3 text-lg font-semibold text-white">{card.title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{card.description}</p>
           <div className="mt-4 space-y-2">
             <Link
