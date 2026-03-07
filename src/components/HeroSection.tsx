@@ -13,13 +13,15 @@ const TRUST_BADGES = [
 
 export function HeroSection() {
   return (
-    <div className="relative overflow-hidden rounded-[24px] border border-[var(--border)] bg-gradient-to-br from-[var(--surface)] via-[#141923] to-[var(--bg)] px-6 py-8 shadow-xl shadow-black/30 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+    <div className="relative overflow-hidden rounded-[24px] border border-[rgba(116,169,255,0.22)] electric-shell px-6 py-8 shadow-xl shadow-black/35 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+      <div className="pointer-events-none absolute -right-20 -top-28 h-72 w-72 rounded-full bg-[rgba(116,169,255,0.18)] blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 bottom-0 h-56 w-56 rounded-full bg-[rgba(116,169,255,0.14)] blur-3xl" />
       <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
         <div className="flex flex-col justify-center text-white">
           <h1 className="type-h1">
             Licensed &amp; insured NYC electrician
           </h1>
-          <p className="mt-4 text-lg font-semibold tracking-tight text-[var(--text)] sm:text-xl">
+          <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--text)] sm:text-xl">
             Trusted, owner-operated electrical service for NYC homes and businesses.
           </p>
           <p className="mt-4 text-measure text-[16px] leading-relaxed text-[var(--muted)] sm:text-[17px]">
@@ -31,7 +33,7 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <CallCTA label="Call 646-710-0134" />
-            <Button href="/contact" variant="secondary">
+            <Button href="/contact" variant="secondary" className="border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.02)]">
               Request a callback
             </Button>
           </div>
@@ -40,7 +42,7 @@ export function HeroSection() {
             {TRUST_BADGES.map((item) => (
               <li
                 key={item}
-                className="rounded-full border border-[var(--border)] bg-white/[0.04] px-3.5 py-1.5 text-center font-medium text-[var(--text)]"
+                className="rounded-full border border-[rgba(116,169,255,0.28)] bg-white/[0.06] px-3.5 py-1.5 text-center font-medium text-[var(--text)] backdrop-blur-sm"
               >
                 {item}
               </li>
@@ -48,16 +50,17 @@ export function HeroSection() {
           </ul>
         </div>
 
-        <div className="relative min-h-[260px] overflow-hidden rounded-2xl border border-[var(--border)] shadow-lg shadow-black/30 lg:min-h-[420px]">
+        <div className="relative min-h-[260px] overflow-hidden rounded-2xl border border-[rgba(116,169,255,0.28)] shadow-lg shadow-black/25 ring-1 ring-black/40 lg:min-h-[420px]">
           <Image
             src={HOME_HERO_IMAGE_SRC}
             alt="Commercial pendant and recessed lighting installation in progress at an NYC interior"
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 42vw"
-            className="object-cover"
+            className="scale-[1.02] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(116,169,255,0.08)] via-transparent to-transparent" />
         </div>
       </div>
     </div>

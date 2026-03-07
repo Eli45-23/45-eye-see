@@ -66,15 +66,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[color:var(--bg)]/92 backdrop-blur-xl">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <header className="sticky top-0 z-50 border-b border-[rgba(148,163,184,0.2)] bg-[color:var(--surface)]/92 backdrop-blur-xl">
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.png"
                 alt={`${business.brandName} logo`}
                 width={180}
                 height={120}
-                className="h-11 w-[72px] rounded-md border border-[var(--border)] bg-[var(--card)] object-contain p-0.5 shadow-lg shadow-black/35 sm:h-12 sm:w-[78px] lg:h-14 lg:w-[92px]"
+                className="h-12 w-[84px] rounded-lg border border-[rgba(116,169,255,0.22)] bg-[#0d1320] object-contain p-1 shadow-[0_12px_28px_-18px_rgba(4,12,22,0.95)] transition will-change-[transform] sm:h-14 sm:w-[92px] lg:h-[3.9rem] lg:w-[102px]"
                 sizes="(max-width: 640px) 72px, (max-width: 1024px) 78px, 92px"
               />
               <div className="min-w-0">
@@ -88,7 +88,7 @@ export default function RootLayout({
             </Link>
 
             <nav
-              className="hidden items-center gap-6 text-sm font-semibold text-[var(--muted)] md:flex"
+              className="hidden items-center gap-7 text-[13px] font-semibold tracking-[0.02em] text-[var(--muted)] md:flex"
               aria-label="Primary"
             >
               <Link href="/" className="transition hover:text-[var(--text)]">Home</Link>
@@ -97,14 +97,14 @@ export default function RootLayout({
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <CallCTA className="px-4 py-2.5 text-sm shadow-[0_18px_36px_-20px_rgba(10,102,194,0.8)]" label={`Call ${business.phone}`} />
+              <CallCTA className="px-4 py-2.5 text-sm" label={`Call ${business.phone}`} />
               <Button href="/contact#contact-request" variant="secondary" className="text-sm">
                 Request callback
               </Button>
             </div>
           </div>
           <nav
-            className="flex flex-col gap-2 border-t border-[rgba(255,255,255,0.06)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--muted)] md:hidden"
+            className="flex flex-col gap-2 border-t border-[rgba(148,163,184,0.14)] px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)] md:hidden"
             aria-label="Primary"
           >
             <div className="mx-auto flex flex-wrap justify-center gap-3">
@@ -119,13 +119,7 @@ export default function RootLayout({
               </Link>
             </div>
             <div className="mx-auto flex flex-wrap justify-center gap-2">
-              <Link
-                href={`tel:+1${business.phone.replace(/\D/g, "")}`}
-                className="rounded-xl border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-[12px] font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.06)]"
-                aria-label={`Call ${business.phone}`}
-              >
-                Call {business.phone}
-              </Link>
+              <CallCTA className="rounded-xl px-3 py-2.5 text-[12px] text-[var(--text)]" />
               <Button href="/contact#contact-request" variant="secondary" className="px-3 py-2 text-[12px]">
                 Request callback
               </Button>
