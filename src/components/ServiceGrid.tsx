@@ -82,6 +82,14 @@ const serviceMicrocopy: Partial<Record<ServiceBucket["name"], string>> = {
     "Level 2 setup planning with panel capacity checks and dedicated circuit installation.",
 };
 
+const serviceAreaLinks = [
+  { slug: "manhattan-electrician", label: "Manhattan" },
+  { slug: "brooklyn-electrician", label: "Brooklyn" },
+  { slug: "queens-electrician", label: "Queens" },
+  { slug: "staten-island-electrician", label: "Staten Island" },
+  { slug: "long-island-electrician", label: "Long Island" },
+] as const;
+
 type ServiceGridProps = {
   items: readonly ServiceBucket[];
 };
@@ -97,7 +105,9 @@ export function ServiceGrid({ items }: ServiceGridProps) {
       {items.slice(0, 6).map((service, index) => {
         const icon = serviceIcons[index % serviceIcons.length];
         const Icon = icon.Component;
+        const serviceAnchor = slugify(service.name);
         const includeBullets = service.commonJobs.slice(0, 2);
+        const areaLink = serviceAreaLinks[index % serviceAreaLinks.length];
 
         return (
           <article
@@ -128,12 +138,32 @@ export function ServiceGrid({ items }: ServiceGridProps) {
                 </li>
               ))}
             </ul>
-            <Link
-              href={`/services#${slugify(service.name)}`}
-              className="mt-auto inline-flex pt-5 text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
-            >
-              View services
-            </Link>
+            <div className="mt-auto space-y-2 pt-5">
+              <Link
+                href={`/services#${serviceAnchor}`}
+                className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
+              >
+                View this service scope
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
+              >
+                Service hub
+              </Link>
+              <Link
+                href="/contact#contact-request"
+                className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
+              >
+                Call and schedule
+              </Link>
+              <Link
+                href={`/services#${areaLink.slug}`}
+                className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
+              >
+                {areaLink.label} service coverage
+              </Link>
+            </div>
           </article>
         );
       })}

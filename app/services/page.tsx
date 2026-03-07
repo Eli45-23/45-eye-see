@@ -48,6 +48,13 @@ const serviceBreadCrumbs = [
   { name: "Services", path: "/services" },
 ] as const;
 const serviceAreasBreadCrumbs = [...serviceBreadCrumbs, { name: "Service Areas", path: "/services#service-areas" }] as const;
+const serviceAreaLinks = [
+  { slug: "manhattan-electrician", label: "Manhattan" },
+  { slug: "brooklyn-electrician", label: "Brooklyn" },
+  { slug: "queens-electrician", label: "Queens" },
+  { slug: "staten-island-electrician", label: "Staten Island" },
+  { slug: "long-island-electrician", label: "Long Island" },
+] as const;
 
 function getBoroughBreadcrumb(slug: string, name: string) {
   return [
@@ -111,9 +118,11 @@ export default function ServicesPage() {
           </nav>
         </aside>
 
-            <section className="space-y-5" aria-label="Electrical service hub sections">
+        <section className="space-y-5" aria-label="Electrical service hub sections">
           {serviceBuckets.map((service, index) => {
             const serviceAnchor = slugify(service.name);
+            const coverageArea = serviceAreaLinks[index % serviceAreaLinks.length];
+
             return (
               <div key={service.name} className="space-y-5">
                 <article
@@ -139,10 +148,22 @@ export default function ServicesPage() {
                       Request scheduling details
                     </Link>
                     <Link
+                      href="/services"
+                      className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                    >
+                      Service hub
+                    </Link>
+                    <Link
                       href={`/services#${slugify(serviceBuckets[(index + 1) % serviceBuckets.length].name)}`}
                       className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                     >
                       Next service section
+                    </Link>
+                    <Link
+                      href={`/services#${coverageArea.slug}`}
+                      className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                    >
+                      {coverageArea.label} coverage
                     </Link>
                   </div>
                 </article>
@@ -163,7 +184,7 @@ export default function ServicesPage() {
         </section>
       </div>
 
-          <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+      <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Work Gallery"
           title="Recent electrical project highlights"

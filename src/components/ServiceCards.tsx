@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 const serviceCards = [
   {
     title: "Electrical Troubleshooting",
@@ -53,6 +52,14 @@ const serviceCards = [
   },
 ] as const;
 
+const serviceAreaCoverage = {
+  "Electrical Troubleshooting": "manhattan-electrician",
+  "Panel Upgrades": "brooklyn-electrician",
+  "EV Charger Installation": "queens-electrician",
+  "Residential Electrical": "staten-island-electrician",
+  "Commercial Electrical": "staten-island-electrician",
+} as const;
+
 export function ServiceCards() {
   return (
     <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -66,12 +73,34 @@ export function ServiceCards() {
           </div>
           <h2 className="mt-3 text-lg font-semibold text-white">{card.title}</h2>
           <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{card.description}</p>
-          <Link
-            href={card.href}
-            className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
-          >
-            View service details
-          </Link>
+          <div className="mt-4 space-y-2">
+            <Link
+              href={card.href}
+              className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              View service details
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              Service hub
+            </Link>
+            <Link
+              href="/contact#contact-request"
+              className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              Request a callback
+            </Link>
+            <Link
+              href={`/services#${serviceAreaCoverage[card.title as keyof typeof serviceAreaCoverage]}`}
+              className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              {card.title.includes("Electrical")
+                ? "See area-specific support"
+                : "View area service profile"}
+            </Link>
+          </div>
         </article>
       ))}
     </section>

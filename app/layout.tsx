@@ -142,11 +142,22 @@ export default function RootLayout({
               </p>
               <p className="mt-3 text-sm text-[var(--muted)]">Service areas:</p>
               <ul className="mt-2 flex flex-wrap gap-2 text-xs text-[var(--muted)]">
-                {business.serviceAreas.map((area) => (
-                  <li key={area} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
-                    {area}
-                  </li>
-                ))}
+                {business.serviceAreas.map((area) => {
+                  const areaHref =
+                    area === "Select Long Island areas"
+                      ? "/services#long-island-electrician"
+                      : area === "Staten Island"
+                        ? "/services#staten-island-electrician"
+                        : `/services#${area.toLowerCase()}-electrician`;
+
+                  return (
+                    <li key={area} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
+                      <Link href={areaHref} className="hover:text-[var(--accent)] hover:underline hover:underline-offset-4">
+                        {area}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
               <p className="mt-3 text-xs text-[var(--muted)]">
                 Licensed & insured NYC electrician providing residential and light commercial

@@ -158,14 +158,25 @@ export default function HomePage() {
           <p className="eyebrow">Service Areas</p>
           <h2 className="type-h2">Trusted electrical service across core NYC boroughs</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
-            {business.serviceAreas.map((area) => (
-              <li
-                key={area}
-                className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium text-[var(--text)]"
-              >
-                {area}
-              </li>
-            ))}
+            {business.serviceAreas.map((area) => {
+              const areaHref =
+                area === "Select Long Island areas"
+                  ? "/services#long-island-electrician"
+                  : area === "Staten Island"
+                    ? "/services#staten-island-electrician"
+                    : `/services#${area.toLowerCase()}-electrician`;
+
+              return (
+                <li
+                  key={area}
+                  className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium text-[var(--text)]"
+                >
+                  <Link href={areaHref} className="hover:text-[var(--accent)] hover:underline hover:underline-offset-4">
+                    {area}
+                  </Link>
+                </li>
+              );
+            })}
             {serviceAreaLinks.map((area) => (
               <li key={area.name} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium">
                 <Link

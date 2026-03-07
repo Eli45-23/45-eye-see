@@ -77,11 +77,29 @@ export default function ContactPage() {
               </ul>
             </div>
             <ul className="space-y-2 text-sm text-[var(--muted)]">
-              {business.mustMentionNeighborhoods.map((area) => (
-                <li key={area} className="section-elevated rounded-lg border border-[var(--border)] px-3 py-2">
-                  Frequent service in {area}
-                </li>
-              ))}
+              {business.mustMentionNeighborhoods.map((area) => {
+                const areaAnchor =
+                  area === "Williamsburg"
+                    ? "brooklyn-electrician"
+                    : area === "Queens"
+                      ? "queens-electrician"
+                      : "manhattan-electrician";
+
+                return (
+                  <li
+                    key={area}
+                    className="section-elevated rounded-lg border border-[var(--border)] px-3 py-2"
+                  >
+                    Frequent service in{" "}
+                    <Link
+                      href={`/services#${areaAnchor}`}
+                      className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                    >
+                      {area}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -106,7 +124,27 @@ export default function ContactPage() {
           description="Answers about response times, service areas, and what to expect."
         />
         <FAQAccordion items={faqs} />
-        <CallCTA label={`Call ${business.phone}`} />
+        <div className="flex flex-wrap gap-3">
+          <CallCTA label={`Call ${business.phone}`} />
+          <Link
+            href="/services#electrical-troubleshooting-and-repairs"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Service scope guidance
+          </Link>
+          <Link
+            href="/services#panel-upgrades-and-service-changes"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Panel upgrade details
+          </Link>
+          <Link
+            href="/services#long-island-electrician"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            View service area options
+          </Link>
+        </div>
       </section>
 
       <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
