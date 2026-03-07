@@ -2,6 +2,7 @@ import Link from "next/link";
 import { business } from "@/src/content/business";
 import { faqs } from "@/src/content/faqs";
 import { testimonials } from "@/src/content/testimonials";
+import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 import { CallCTA } from "@/src/components/CallCTA";
 import { ContactForm } from "@/src/components/ContactForm";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
@@ -25,16 +26,18 @@ export const metadata = createPageMetadata({
 });
 
 export default function ContactPage() {
-  const faqSchema = getFaqPageSchema();
-  const localBusinessSchema = getLocalBusinessSchema("/contact");
-  const breadcrumbSchema = getBreadcrumbSchema([
+  const breadcrumbItems = [
     { name: "Home", path: "/" },
     { name: "Contact", path: "/contact" },
-  ]);
+  ] as const;
+  const faqSchema = getFaqPageSchema();
+  const localBusinessSchema = getLocalBusinessSchema("/contact");
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems);
 
   return (
     <div className="space-y-8">
       <section id="contact-request" className="section-light rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact", isCurrent: true }]} />
         <SectionHeader
           eyebrow="Contact"
           title="Book your NYC electrical service call"

@@ -41,6 +41,13 @@ export default function HomePage() {
   const homeBusinessSchema = getLocalBusinessSchema("/");
   const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
+  const serviceAreaLinks = [
+    { name: "Manhattan", href: "/services#manhattan-electrician" },
+    { name: "Brooklyn", href: "/services#brooklyn-electrician" },
+    { name: "Queens", href: "/services#queens-electrician" },
+    { name: "Staten Island", href: "/services#staten-island-electrician" },
+    { name: "Long Island", href: "/services#long-island-electrician" },
+  ];
 
   return (
     <>
@@ -158,6 +165,16 @@ export default function HomePage() {
                 className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium text-[var(--text)]"
               >
                 {area}
+              </li>
+            ))}
+            {serviceAreaLinks.map((area) => (
+              <li key={area.name} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1 text-xs font-medium">
+                <Link
+                  href={area.href}
+                  className="text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                >
+                  {area.name} electrician
+                </Link>
               </li>
             ))}
           </ul>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { business } from "@/src/content/business";
+import { localAreaPages } from "@/src/content/localAreaPages";
 import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
+import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 import { CallCTA } from "@/src/components/CallCTA";
 import { GalleryGrid } from "@/src/components/GalleryGrid";
 import { JsonLd } from "@/src/components/JsonLd";
@@ -24,6 +26,20 @@ export const metadata = createPageMetadata({
 });
 
 const neighborhoods = business.mustMentionNeighborhoods;
+const serviceBreadCrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+] as const;
+const serviceAreasBreadCrumbs = [...serviceBreadCrumbs, { name: "Service Areas", path: "/services#service-areas" }] as const;
+
+function getBoroughBreadcrumb(slug: string, name: string) {
+  return [
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Service Areas", path: "/services#service-areas" },
+    { name, path: `/services#${slug}` },
+  ] as const;
+}
 
 function getAreaLine(index: number): string {
   const first = neighborhoods[index % neighborhoods.length];
@@ -33,14 +49,13 @@ function getAreaLine(index: number): string {
 
 export default function ServicesPage() {
   const serviceListSchema = getServiceListSchema();
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-  ]);
+  const breadcrumbSchema = getBreadcrumbSchema(serviceBreadCrumbs);
+  const serviceAreasSchema = getBreadcrumbSchema(serviceAreasBreadCrumbs);
 
   return (
     <div className="space-y-9">
       <section className="section-light rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <Breadcrumbs items={serviceBreadCrumbs} />
         <SectionHeader
           eyebrow="Services"
           title="Electrical services designed for NYC properties"
@@ -69,7 +84,7 @@ export default function ServicesPage() {
           </nav>
         </aside>
 
-        <section className="space-y-5" aria-label="Electrical service hub sections">
+            <section className="space-y-5" aria-label="Electrical service hub sections">
           {serviceBuckets.map((service, index) => {
             const serviceAnchor = slugify(service.name);
             return (
@@ -96,6 +111,12 @@ export default function ServicesPage() {
                     >
                       Request scheduling details
                     </Link>
+                    <Link
+                      href={`/services#${slugify(serviceBuckets[(index + 1) % serviceBuckets.length].name)}`}
+                      className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                    >
+                      Next service section
+                    </Link>
                   </div>
                 </article>
 
@@ -115,7 +136,7 @@ export default function ServicesPage() {
         </section>
       </div>
 
-      <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+          <section className="section-light space-y-5 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
         <SectionHeader
           eyebrow="Work Gallery"
           title="Recent electrical project highlights"
@@ -123,6 +144,56 @@ export default function ServicesPage() {
           action={<CallCTA label={`Call ${business.phone}`} />}
         />
         <GalleryGrid items={workGallery} />
+      </section>
+
+      <section id="service-areas" className="section-light space-y-6 rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
+        <Breadcrumbs items={serviceAreasBreadCrumbs} />
+        <SectionHeader
+          eyebrow="Service Areas"
+          title="NYC service area hub"
+          description="Browse each borough and Long Island coverage section with links to high-traffic service scopes."
+          action={
+            <Link href="/contact#contact-request" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Contact for area availability
+            </Link>
+          }
+        />
+        {localAreaPages.map((area) => {
+          const boroughCrumbs = getBoroughBreadcrumb(area.slug, area.areaName);
+
+          return (
+            <article
+              id={area.slug}
+              key={area.slug}
+              className="rounded-2xl border border-[var(--border)] p-5"
+            >
+              <Breadcrumbs items={boroughCrumbs} />
+              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">{area.areaName} electrician</h2>
+              <p className="mt-2 text-sm text-muted">{area.neighborhoodLine}</p>
+              <p className="mt-3 text-sm text-muted">{area.supportingSentence}</p>
+              <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                <Link
+                  href="/services#electrical-troubleshooting-and-repairs"
+                  className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                >
+                  Electrical troubleshooting scope
+                </Link>
+                <Link
+                  href="/services#panel-upgrades-and-service-changes"
+                  className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                >
+                  Panel upgrades scope
+                </Link>
+                <Link
+                  href="/services#ev-charger-installation"
+                  className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                >
+                  EV charger installation
+                </Link>
+              </div>
+            </article>
+          );
+        })}
       </section>
 
       <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
@@ -144,6 +215,7 @@ export default function ServicesPage() {
 
       <JsonLd id="schema-services-list" data={serviceListSchema} />
       <JsonLd id="schema-services-breadcrumbs" data={breadcrumbSchema} />
+      <JsonLd id="schema-services-areas-breadcrumbs" data={serviceAreasSchema} />
     </div>
   );
 }
