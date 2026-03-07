@@ -171,6 +171,58 @@ export default function ServicesPage() {
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">{area.areaName} electrician</h2>
               <p className="mt-2 text-sm text-muted">{area.neighborhoodLine}</p>
               <p className="mt-3 text-sm text-muted">{area.supportingSentence}</p>
+              <div className="mt-4 space-y-4 text-sm">
+                {area.landingSections.map((section) => (
+                  <section key={section.heading} className="space-y-2">
+                    <h3 className="text-lg font-semibold text-[var(--text)]">{section.heading}</h3>
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="leading-relaxed text-[var(--muted)]">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </section>
+                ))}
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <CallCTA label={`Call ${business.phone}`} />
+                  <Link
+                    href="/contact#contact-request"
+                    className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+                  >
+                    Request a callback
+                  </Link>
+                  <CallCTA label={`Call ${business.phone}`} />
+                  <Link
+                    href="/contact#contact-request"
+                    className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+                  >
+                    Request callback details
+                  </Link>
+                </div>
+                <p className="text-sm text-[var(--muted)]">
+                  Continue with quick context links by comparing:
+                  <Link
+                    href="/services#electrical-troubleshooting-and-repairs"
+                    className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                  >
+                    electrical troubleshooting
+                  </Link>
+                  ,
+                  <Link
+                    href="/services#panel-upgrades-and-service-changes"
+                    className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                  >
+                    panel upgrades
+                  </Link>
+                  , and
+                  <Link
+                    href="/services#ev-charger-installation"
+                    className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                  >
+                    EV charger installation
+                  </Link>
+                  .
+                </p>
+              </div>
               <div className="mt-4 flex flex-wrap gap-3 text-sm">
                 <Link
                   href="/services#electrical-troubleshooting-and-repairs"
@@ -189,6 +241,12 @@ export default function ServicesPage() {
                   className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                 >
                   EV charger installation
+                </Link>
+                <Link
+                  href={`/services#${area.slug}`}
+                  className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                >
+                  {area.areaName} area section
                 </Link>
               </div>
             </article>
