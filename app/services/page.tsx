@@ -468,6 +468,15 @@ export default function ServicesPage() {
             </article>
           );
         })}
+        <div className="flex flex-wrap gap-3">
+          <CallCTA label={`Call ${business.phone}`} />
+          <Link
+            href="/contact#contact-request"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Request callback
+          </Link>
+        </div>
       </section>
 
       <section className="section-elevated rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">

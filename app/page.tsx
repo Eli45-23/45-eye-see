@@ -239,7 +239,7 @@ export default function HomePage() {
           <SectionHeader
             eyebrow="Testimonials"
             title="Client feedback from recent service calls"
-            description="Concise outcomes from homeowners and business owners across active NYC neighborhoods."
+            description="NYC homeowners and business owners cite clear communication, tidy work, and on-time follow-through."
             action={<CallCTA label={`Call ${business.phone}`} />}
           />
           <TestimonialStrip items={testimonials} mode="home" />
@@ -507,6 +507,9 @@ export default function HomePage() {
                 Contact Eli
               </Link>
             </p>
+            <div className="mt-5">
+              <CallCTA label={`Call ${business.phone}`} />
+            </div>
           </div>
         </div>
       </Section>

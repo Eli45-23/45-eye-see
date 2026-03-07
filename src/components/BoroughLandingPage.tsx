@@ -194,6 +194,12 @@ export function BoroughLandingPage({
           >
             Compare all services
           </Link>
+          <Link
+            href="/service-areas"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Service areas
+          </Link>
         </div>
       </section>
     </div>
