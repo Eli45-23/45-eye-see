@@ -49,7 +49,7 @@ const serviceBreadCrumbs = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
 ] as const;
-const serviceAreasBreadCrumbs = [...serviceBreadCrumbs, { name: "Service Areas", path: "/services#service-areas" }] as const;
+const serviceAreasBreadCrumbs = [...serviceBreadCrumbs, { name: "Service Areas", path: "/service-areas" }] as const;
 const serviceAreaLinks = [
   { slug: "manhattan-electrician", label: "Manhattan" },
   { slug: "brooklyn-electrician", label: "Brooklyn" },
@@ -103,7 +103,7 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
     relatedLinks: [
       { label: "Review dedicated circuits", href: "/services#dedicated-circuits" },
       { label: "Review safety-focused upgrades", href: "/services#code-corrections-and-safety-improvements" },
-      { label: "View NYC service areas", href: "/services#service-areas" },
+      { label: "View NYC service areas", href: "/service-areas" },
     ],
   },
   "Dedicated Circuits": {
@@ -121,7 +121,7 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
     relatedLinks: [
       { label: "Pair with EV charger planning", href: "/services#ev-charger-installation" },
       { label: "Review commercial service responses", href: "/services#commercial-electrical-service-calls" },
-      { label: "Choose a service area", href: "/services#service-areas" },
+      { label: "Choose a service area", href: "/service-areas" },
     ],
   },
   "Outlet, Switch & GFCI Upgrades": {
@@ -139,7 +139,7 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
     relatedLinks: [
       { label: "See troubleshooting flow", href: "/services#electrical-troubleshooting-and-repairs" },
       { label: "Review code and safety updates", href: "/services#code-corrections-and-safety-improvements" },
-      { label: "Find your borough service details", href: "/services#service-areas" },
+      { label: "Find your borough service details", href: "/service-areas" },
     ],
   },
   "Lighting Installation & Upgrades": {
@@ -157,7 +157,7 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
     relatedLinks: [
       { label: "Need targeted troubleshooting first?", href: "/services#electrical-troubleshooting-and-repairs" },
       { label: "Explore service hub on EV-ready installs", href: "/services#ev-charger-installation" },
-      { label: "Review recent projects", href: "/services#service-areas" },
+      { label: "Review recent projects", href: "/service-areas" },
     ],
   },
   "EV Charger Installation": {
@@ -175,7 +175,7 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
     relatedLinks: [
       { label: "Review dedicated circuits options", href: "/services#dedicated-circuits" },
       { label: "Confirm panel and service capacity", href: "/services#panel-upgrades-and-service-changes" },
-      { label: "Check electrical service areas", href: "/services#service-areas" },
+      { label: "Check electrical service areas", href: "/service-areas" },
     ],
   },
 };
@@ -184,8 +184,8 @@ function getBoroughBreadcrumb(slug: string, name: string) {
   return [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Service Areas", path: "/services#service-areas" },
-    { name, path: `/services#${slug}` },
+    { name: "Service Areas", path: "/service-areas" },
+    { name, path: `/service-areas#${slug}` },
   ] as const;
 }
 
@@ -201,7 +201,7 @@ export default function ServicesPage() {
   const serviceAreasSchema = getBreadcrumbSchema(serviceAreasBreadCrumbs);
   const serviceBusinessSchema = getLocalBusinessSchema("/services");
   const serviceAreaBusinessSchemas = localAreaPages.map((area) =>
-    getLocalAreaElectricianSchema(area.areaName, `/services#${area.slug}`)
+    getLocalAreaElectricianSchema(area.areaName, `/service-areas#${area.slug}`)
   );
   const serviceAreaBreadcrumbSchemas = localAreaPages.map((area) =>
     getBreadcrumbSchema(getBoroughBreadcrumb(area.slug, area.areaName))
@@ -307,7 +307,7 @@ export default function ServicesPage() {
                       Request scheduling details
                     </Link>
                     <Link
-                      href="/services"
+                      href="/service-areas"
                       className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                     >
                       Service hub
@@ -319,7 +319,7 @@ export default function ServicesPage() {
                       Next service section
                     </Link>
                     <Link
-                      href={`/services#${coverageArea.slug}`}
+                      href={`/service-areas#${coverageArea.slug}`}
                       className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                     >
                       {coverageArea.label} coverage
@@ -459,7 +459,7 @@ export default function ServicesPage() {
                   EV charger installation
                 </Link>
                 <Link
-                  href={`/services#${area.slug}`}
+                  href={`/service-areas#${area.slug}`}
                   className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                 >
                   {area.areaName} area section

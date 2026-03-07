@@ -80,10 +80,10 @@ export default function ContactPage() {
               {business.mustMentionNeighborhoods.map((area) => {
                 const areaAnchor =
                   area === "Williamsburg"
-                    ? "brooklyn-electrician"
+                    ? "service-areas#brooklyn-electrician"
                     : area === "Queens"
-                      ? "queens-electrician"
-                      : "manhattan-electrician";
+                      ? "service-areas#queens-electrician"
+                      : "service-areas#manhattan-electrician";
 
                 return (
                   <li
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   >
                     Frequent service in{" "}
                     <Link
-                      href={`/services#${areaAnchor}`}
+                      href={`/${areaAnchor}`}
                       className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
                     >
                       {area}
@@ -139,7 +139,7 @@ export default function ContactPage() {
             Panel upgrade details
           </Link>
           <Link
-            href="/services#long-island-electrician"
+            href="/service-areas#long-island-electrician"
             className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
           >
             View service area options
@@ -153,6 +153,11 @@ export default function ContactPage() {
           <li>
             <Link href="/services" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
               Review electrical services and common job scopes
+            </Link>
+          </li>
+          <li>
+            <Link href="/service-areas" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Review local service areas
             </Link>
           </li>
           <li>

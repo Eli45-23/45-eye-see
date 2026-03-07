@@ -145,10 +145,10 @@ export default function RootLayout({
                 {business.serviceAreas.map((area) => {
                   const areaHref =
                     area === "Select Long Island areas"
-                      ? "/services#long-island-electrician"
+                      ? "/service-areas#long-island-electrician"
                       : area === "Staten Island"
-                        ? "/services#staten-island-electrician"
-                        : `/services#${area.toLowerCase()}-electrician`;
+                        ? "/service-areas#staten-island-electrician"
+                        : `/service-areas#${area.toLowerCase()}-electrician`;
 
                   return (
                     <li key={area} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">

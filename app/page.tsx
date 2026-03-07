@@ -54,11 +54,11 @@ export default function HomePage() {
   const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
   const serviceAreaLinks = [
-    { name: "Manhattan", href: "/services#manhattan-electrician" },
-    { name: "Brooklyn", href: "/services#brooklyn-electrician" },
-    { name: "Queens", href: "/services#queens-electrician" },
-    { name: "Staten Island", href: "/services#staten-island-electrician" },
-    { name: "Long Island", href: "/services#long-island-electrician" },
+    { name: "Manhattan", href: "/service-areas#manhattan-electrician" },
+    { name: "Brooklyn", href: "/service-areas#brooklyn-electrician" },
+    { name: "Queens", href: "/service-areas#queens-electrician" },
+    { name: "Staten Island", href: "/service-areas#staten-island-electrician" },
+    { name: "Long Island", href: "/service-areas#long-island-electrician" },
   ];
 
   return (
@@ -160,10 +160,10 @@ export default function HomePage() {
             {business.serviceAreas.map((area) => {
               const areaHref =
                 area === "Select Long Island areas"
-                  ? "/services#long-island-electrician"
+                  ? "/service-areas#long-island-electrician"
                   : area === "Staten Island"
-                    ? "/services#staten-island-electrician"
-                    : `/services#${area.toLowerCase()}-electrician`;
+                    ? "/service-areas#staten-island-electrician"
+                    : `/service-areas#${area.toLowerCase()}-electrician`;
 
               return (
                 <li
@@ -201,6 +201,13 @@ export default function HomePage() {
               className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
             >
               full services page
+            </Link>
+            {" "}or the{" "}
+            <Link
+              href="/service-areas"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              service areas page
             </Link>
             .
           </p>
@@ -323,7 +330,7 @@ export default function HomePage() {
               is the right investment. We also help clients in Williamsburg, Queens, and
               {" "}
               <Link
-                href="/services#manhattan-electrician"
+                href="/service-areas#manhattan-electrician"
                 className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 Manhattan
@@ -486,7 +493,7 @@ export default function HomePage() {
               {" "}
               |{" "}
               <Link
-                href="/services#service-areas"
+                href="/service-areas"
                 className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 Explore NYC service areas

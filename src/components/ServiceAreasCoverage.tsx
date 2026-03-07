@@ -3,27 +3,27 @@ import Link from "next/link";
 const groups = [
   {
     title: "Manhattan",
-    href: "/services#manhattan-electrician",
+    href: "/service-areas#manhattan-electrician",
     areas: ["Upper East Side", "Upper West Side", "Harlem", "Midtown", "Financial District"],
   },
   {
     title: "Brooklyn",
-    href: "/services#brooklyn-electrician",
+    href: "/service-areas#brooklyn-electrician",
     areas: ["Williamsburg", "Park Slope", "Bushwick", "Bed-Stuy", "Downtown Brooklyn"],
   },
   {
     title: "Queens",
-    href: "/services#queens-electrician",
+    href: "/service-areas#queens-electrician",
     areas: ["Astoria", "Long Island City", "Flushing", "Forest Hills", "Jackson Heights"],
   },
   {
     title: "Staten Island",
-    href: "/services#staten-island-electrician",
+    href: "/service-areas#staten-island-electrician",
     areas: ["St. George", "New Dorp", "Great Kills", "Tottenville", "Port Richmond"],
   },
   {
     title: "Long Island (Select Areas)",
-    href: "/services#long-island-electrician",
+    href: "/service-areas#long-island-electrician",
     areas: ["Project-based availability", "Scope-dependent scheduling", "Call to confirm coverage"],
   },
 ] as const;
@@ -38,7 +38,7 @@ export function ServiceAreasCoverage({ currentArea }: ServiceAreasCoverageProps)
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-2xl font-semibold tracking-tight text-white">Service Areas Coverage</h2>
         <Link
-          href="/services#service-areas"
+          href="/service-areas"
           className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
         >
           Open service areas hub
