@@ -242,7 +242,9 @@ export default function HomePage() {
             description="NYC homeowners and business owners cite clear communication, tidy work, and on-time follow-through."
             action={<CallCTA label={`Call ${business.phone}`} />}
           />
-          <TestimonialStrip items={testimonials} mode="home" />
+          <div className="rounded-2xl border border-[var(--border)] bg-[rgba(255,255,255,0.02)] p-4 shadow-[0_16px_46px_-34px_rgba(0,0,0,0.8)]">
+            <TestimonialStrip items={testimonials} mode="home" />
+          </div>
         </div>
       </Section>
 

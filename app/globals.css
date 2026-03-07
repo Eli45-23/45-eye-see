@@ -3,10 +3,10 @@
 
 :root {
   color-scheme: dark;
-  --bg: #060910;
-  --surface: #0d141f;
-  --card: #131c2a;
-  --border: rgba(148, 163, 184, 0.16);
+  --bg: #05070e;
+  --surface: #0b111c;
+  --card: #111a28;
+  --border: rgba(148, 163, 184, 0.18);
   --text: #eef2f7;
   --muted: #a9b6c7;
   --accent: #74a9ff;
@@ -38,9 +38,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background:
-    radial-gradient(circle at 10% 6%, rgba(116, 169, 255, 0.09), transparent 42%),
-    radial-gradient(circle at 90% -8%, rgba(116, 169, 255, 0.06), transparent 45%),
-    linear-gradient(180deg, rgba(9, 14, 22, 0.96), rgba(7, 11, 18, 1)),
+    radial-gradient(circle at 12% 8%, rgba(116, 169, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 84% -6%, rgba(116, 169, 255, 0.08), transparent 46%),
+    linear-gradient(185deg, rgba(6, 11, 20, 0.96), rgba(4, 7, 14, 1)),
     var(--bg);
   color: var(--text);
 }
@@ -116,7 +116,8 @@ body {
 
   .card-surface {
     background:
-      linear-gradient(165deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 35%),
+      linear-gradient(150deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 42%),
+      radial-gradient(120% 120% at 10% 10%, rgba(116, 169, 255, 0.07), transparent 50%),
       var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);

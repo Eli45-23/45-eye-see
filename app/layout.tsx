@@ -66,19 +66,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={geist.variable}>
       <body className="font-[var(--font-sans)] antialiased">
-        <header className="sticky top-0 z-50 border-b border-[rgba(148,163,184,0.2)] bg-[color:var(--surface)]/92 backdrop-blur-xl">
+        <header className="sticky top-0 z-50 border-b border-[rgba(148,163,184,0.24)] bg-[color:var(--surface)]/92 shadow-[0_14px_44px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl">
           <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
             <Link href="/" className="flex min-w-0 items-center gap-3">
               <Image
                 src="/brand/logo-45-eye.png"
                 alt={`${business.brandName} logo`}
-                width={180}
-                height={120}
-                className="h-12 w-[84px] rounded-lg border border-[rgba(116,169,255,0.22)] bg-[#0d1320] object-contain p-1 shadow-[0_12px_28px_-18px_rgba(4,12,22,0.95)] transition will-change-[transform] sm:h-14 sm:w-[92px] lg:h-[3.9rem] lg:w-[102px]"
-                sizes="(max-width: 640px) 72px, (max-width: 1024px) 78px, 92px"
+                width={210}
+                height={140}
+                className="h-14 w-[98px] rounded-xl border border-[rgba(116,169,255,0.28)] bg-[#0d1320] object-contain p-1.5 shadow-[0_16px_38px_-22px_rgba(4,12,22,0.9)] transition will-change-[transform] sm:h-16 sm:w-[110px] lg:h-[4.3rem] lg:w-[122px]"
+                sizes="(max-width: 640px) 88px, (max-width: 1024px) 104px, 122px"
               />
               <div className="min-w-0">
-                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.16em] text-[var(--text)] sm:text-sm">
+                <p className="truncate text-[13px] font-semibold uppercase tracking-[0.18em] text-[var(--text)] sm:text-sm">
                   45 EYE Electrical Solutions
                 </p>
                 <p className="truncate text-[12px] font-medium text-[var(--muted)] sm:text-[13px]">
@@ -88,11 +88,12 @@ export default function RootLayout({
             </Link>
 
             <nav
-              className="hidden items-center gap-7 text-[13px] font-semibold tracking-[0.02em] text-[var(--muted)] md:flex"
+              className="hidden items-center gap-8 text-[13px] font-semibold tracking-[0.04em] text-[var(--muted)] md:flex"
               aria-label="Primary"
             >
               <Link href="/" className="transition hover:text-[var(--text)]">Home</Link>
               <Link href="/services" className="transition hover:text-[var(--text)]">Services</Link>
+              <Link href="/projects" className="transition hover:text-[var(--text)]">Projects</Link>
               <Link href="/contact" className="transition hover:text-[var(--text)]">Contact</Link>
             </nav>
 
