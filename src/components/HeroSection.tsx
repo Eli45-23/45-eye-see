@@ -19,16 +19,15 @@ export function HeroSection() {
       <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
         <div className="flex flex-col justify-center text-white">
           <h1 className="type-h1">
-            Licensed &amp; insured NYC electrician
+            Trusted NYC electrician for homes and businesses
           </h1>
           <p className="mt-5 text-lg font-semibold tracking-tight text-[var(--text)] sm:text-xl">
-            Trusted, owner-operated electrical service for NYC homes and businesses.
+            Reliable electrical solutions across Manhattan, Brooklyn, Queens, and Staten Island.
           </p>
           <p className="mt-4 text-measure text-[16px] leading-relaxed text-[var(--muted)] sm:text-[17px]">
-            10+ years of hands-on electrical experience, dependable troubleshooting and
-            installation work, and same-day availability when scheduling allows. Every service
-            call is handled with clear communication, clean workmanship, and a safety-first
-            approach.
+            Backed by 10+ years of practical field experience, Eli brings calm, code-aware
+            guidance to troubleshooting, panel upgrades, and EV-ready installations. Every job is
+            planned with clear communication, clean execution, and safety at the center.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">

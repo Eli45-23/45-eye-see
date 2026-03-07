@@ -12,20 +12,20 @@ export type GalleryItem = {
 export const workGallery: readonly GalleryItem[] = [
   {
     src: "/gallery/upright/work-01-upright.jpg",
-    title: "Meter and panel upgrade",
-    description: "Residential service equipment update with organized conduit and meter routing.",
+    title: "Residential panel upgrade planning",
+    description: "Service equipment upgrade with organized meter routing and clean conduit alignment in a NYC residential context.",
     alt: "NYC residential electrical panel and dual meter upgrade mounted with organized conduit routing.",
   },
   {
     src: "/gallery/upright/work-02-upright.jpg",
-    title: "Brick-wall panel rough-in",
-    description: "Conduit and branch-circuit rough-in staged for a panel build-out in NYC.",
+    title: "Conduit rough-in for panel expansion",
+    description: "Branch-circuit conduit rough-in staged for future service integration in occupied NYC buildings.",
     alt: "NYC brick townhouse panel rough-in for electrical upgrade with conduit branch routing.",
   },
   {
     src: "/gallery/upright/work-03-upright.jpg",
-    title: "Commercial fit-out lighting",
-    description: "Restaurant interior electrical installation with pendant and recessed lighting points.",
+    title: "Commercial lighting fit-out",
+    description: "Interior electrical installation with pendant and recessed lighting sequencing for tenant-ready spaces.",
     alt: "NYC restaurant commercial electrical fit-out with pendant and recessed lighting points.",
   },
   {

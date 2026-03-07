@@ -69,17 +69,17 @@ const serviceIcons: readonly ServiceIcon[] = [
 
 const serviceMicrocopy: Partial<Record<ServiceBucket["name"], string>> = {
   "Electrical Troubleshooting & Repairs":
-    "Includes breaker diagnostics, partial power-loss tracing, and targeted repair recommendations.",
+    "Breaker diagnostics, targeted power-loss tracing, and practical repair guidance before any replacement.",
   "Panel Upgrades & Service Changes":
-    "Including 100-amp to 200-amp upgrades and load capacity planning.",
+    "Load planning with right-sized upgrades, from 100-amp to 200-amp service changes.",
   "Dedicated Circuits":
-    "Built for high-demand appliances, office equipment, and code-aware load distribution.",
+    "Designed for high-demand appliances, office equipment, and cleaner load distribution.",
   "Outlet, Switch & GFCI Upgrades":
-    "Kitchen, bath, and living-area device updates with safer modern protection.",
+    "Kitchen, bath, and living-space updates with modern protection and safer access.",
   "Lighting Installation & Upgrades":
-    "From recessed lighting layouts to fixture swaps and dimmer control improvements.",
+    "From layout planning to fixture updates and practical dimming and control integration.",
   "EV Charger Installation":
-    "Level 2 setup planning with panel capacity checks and dedicated circuit installation.",
+    "Level 2 planning that starts with panel capacity review and dedicated-circuit design.",
 };
 
 const serviceAreaLinks = [
@@ -143,25 +143,25 @@ export function ServiceGrid({ items }: ServiceGridProps) {
                 href={`/services#${serviceAnchor}`}
                 className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
               >
-                View this service scope
+                See the full scope
               </Link>
               <Link
                 href="/services"
                 className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
               >
-                Service hub
+                View service hub
               </Link>
               <Link
                 href="/contact#contact-request"
                 className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
               >
-                Call and schedule
+                Call and schedule now
               </Link>
               <Link
                 href={`/services#${areaLink.slug}`}
                 className="inline-flex text-sm font-semibold text-[var(--accent)] underline-offset-4 group-hover:text-[#60a5fa] group-hover:underline"
               >
-                {areaLink.label} service coverage
+                {areaLink.label} coverage
               </Link>
             </div>
           </article>
