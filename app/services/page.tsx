@@ -201,7 +201,7 @@ export default function ServicesPage() {
   const serviceAreasSchema = getBreadcrumbSchema(serviceAreasBreadCrumbs);
   const serviceBusinessSchema = getLocalBusinessSchema("/services");
   const serviceAreaBusinessSchemas = localAreaPages.map((area) =>
-    getLocalAreaElectricianSchema(area.areaName, `/service-areas#${area.slug}`)
+    getLocalAreaElectricianSchema(area.areaName, area.slug === "long-island-electrician" ? `/service-areas#${area.slug}` : `/${area.slug}`)
   );
   const serviceAreaBreadcrumbSchemas = localAreaPages.map((area) =>
     getBreadcrumbSchema(getBoroughBreadcrumb(area.slug, area.areaName))
@@ -319,7 +319,7 @@ export default function ServicesPage() {
                       Next service section
                     </Link>
                     <Link
-                      href={`/service-areas#${coverageArea.slug}`}
+                      href={coverageArea.slug === "long-island-electrician" ? "/service-areas#long-island-electrician" : `/${coverageArea.slug}`}
                       className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
                     >
                       {coverageArea.label} coverage

@@ -3,12 +3,16 @@ import { SITE_URL } from "@/src/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: Array<
-    "/" | "/services" | "/contact" | "/service-areas" | "/projects" | `/projects/${string}`
+    "/" | "/services" | "/contact" | "/service-areas" | "/projects" | `/projects/${string}` | "/manhattan-electrician" | "/brooklyn-electrician" | "/queens-electrician" | "/staten-island-electrician"
   > = [
     "/",
     "/services",
     "/contact",
     "/service-areas",
+    "/manhattan-electrician",
+    "/brooklyn-electrician",
+    "/queens-electrician",
+    "/staten-island-electrician",
     "/projects",
     "/projects/brooklyn-brownstone-200-amp-upgrade",
     "/projects/manhattan-office-partial-power-troubleshooting",

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { BoroughLandingPage } from "@/src/components/BoroughLandingPage";
+import { FAQAccordion } from "@/src/components/FAQAccordion";
+import { faqs } from "@/src/content/faqs";
 import { getLocalAreaPage } from "@/src/content/localAreaPages";
 import { JsonLd } from "@/src/components/JsonLd";
 import { createBoroughMetadata } from "@/src/lib/seo";
 import { getBreadcrumbSchema, getLocalAreaElectricianSchema } from "@/src/lib/schema";
 
 const area = getLocalAreaPage("manhattan-electrician");
-const trimmedArea = { ...area, landingSections: area.landingSections.slice(0, 5) };
+const displaySections = area.landingSections.slice(0, 9);
 
 export const metadata: Metadata = createBoroughMetadata({
   borough: "Manhattan",
@@ -64,7 +66,7 @@ export default function ManhattanElectricianPage() {
   return (
     <div className="space-y-10">
       <BoroughLandingPage
-        content={trimmedArea}
+        content={area}
         heroLead={heroLead}
         localTrust={localTrust}
         propertyTypes={propertyTypes}
@@ -72,7 +74,73 @@ export default function ManhattanElectricianPage() {
         serviceLinks={serviceLinks}
         cityContext={cityContext}
         ctaHeadline="Call 646-710-0134 to coordinate a Manhattan service call with board-aware scheduling and clear documentation."
+        landingSections={displaySections}
       />
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Manhattan service FAQs</h2>
+        <FAQAccordion items={faqs.slice(0, 5)} />
+      </section>
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Manhattan building and access realities</h2>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+          Co-ops in Midtown and condos on the Upper East Side often require coordinated shutdowns with building staff and written scope notes for board files. We schedule panels and riser work around elevator and freight access, keep common areas protected, and provide status updates for supers and property managers.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+          Lower Manhattan and SoHo lofts can include mixed-generation wiring and partial documentation. We map circuits, label clearly, and stage panel upgrades so life-safety loads remain online. Offices in Flatiron and Midtown get phased troubleshooting to keep IT and life-safety circuits prioritized.
+        </p>
+      </section>
+
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Featured Manhattan services</h2>
+        <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
+          <li>
+            <Link href="/services#electrical-troubleshooting-and-repairs" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Electrical troubleshooting & repairs
+            </Link>{" "}
+            for intermittent power loss in offices and co-ops.
+          </li>
+          <li>
+            <Link href="/services#panel-upgrades-and-service-changes" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Panel upgrades & service changes
+            </Link>{" "}
+            sized for renovation-heavy condos and commercial suites.
+          </li>
+          <li>
+            <Link href="/services#ev-charger-installation" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              EV charger installation
+            </Link>{" "}
+            with load review for garage and valet setups.
+          </li>
+          <li>
+            <Link href="/services#commercial-electrical-service-calls" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Commercial service calls
+            </Link>{" "}
+            for retail and office fit-outs with tight uptime windows.
+          </li>
+        </ul>
+      </section>
+
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-sm sm:p-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">Plan your next Manhattan electrical step</h2>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">
+          Whether you need breaker relief in a Midtown office, GFCI and lighting upgrades in a Tribeca loft, or service capacity for a remodeled Upper West Side kitchen, start with a call. We align permits, shutdown windows, and clean execution so occupied spaces stay protected.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <CallCTA label="Call 646-710-0134" />
+          <Link
+            href="/contact#contact-request"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Request a callback
+          </Link>
+          <Link
+            href="/services"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            View services
+          </Link>
+        </div>
+      </section>
       <JsonLd id="schema-manhattan-breadcrumbs" data={breadcrumbSchema} />
       <JsonLd id="schema-manhattan-business" data={businessSchema} />
     </div>

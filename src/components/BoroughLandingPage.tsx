@@ -18,6 +18,7 @@ type BoroughLandingPageProps = {
   serviceLinks: readonly ServiceLink[];
   cityContext: readonly string[];
   ctaHeadline: string;
+  landingSections?: LocalAreaPageContent["landingSections"];
 };
 
 function ParagraphList({ items }: { items: readonly string[] }) {
@@ -73,7 +74,10 @@ export function BoroughLandingPage({
   serviceLinks,
   cityContext,
   ctaHeadline,
+  landingSections,
 }: BoroughLandingPageProps) {
+  const displaySections = landingSections ?? content.landingSections;
+
   return (
     <div className="space-y-8">
       <section className="space-y-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 ui-shadow-md sm:p-8">
@@ -169,6 +173,7 @@ export function BoroughLandingPage({
       </section>
 
       {content.landingSections.map((section) => (
+      {displaySections.map((section) => (
         <section key={section.heading} className="rounded-3xl border border-[var(--border)] p-6 ui-shadow-md sm:p-8">
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">{section.heading}</h2>
           <ParagraphList items={section.paragraphs} />

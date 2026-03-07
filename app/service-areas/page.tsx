@@ -78,12 +78,15 @@ export default function ServiceAreasPage() {
   const breadcrumbSchema = getBreadcrumbSchema(areaBreadcrumbItems);
   const localBusinessSchema = getLocalBusinessSchema("/service-areas");
   const areaSchemas = localAreaPages.map((area) =>
-    getLocalAreaElectricianSchema(area.areaName, `/service-areas#${area.slug}`)
+    getLocalAreaElectricianSchema(
+      area.areaName,
+      area.slug === "long-island-electrician" ? `/service-areas#${area.slug}` : `/${area.slug}`
+    )
   );
   const areaBreadcrumbSchemas = localAreaPages.map((area) =>
     getBreadcrumbSchema([
       ...areaBreadcrumbItems,
-      { name: `${area.areaName} electrician`, path: `/service-areas#${area.slug}` },
+      { name: `${area.areaName} electrician`, path: area.slug === "long-island-electrician" ? `/service-areas#${area.slug}` : `/${area.slug}` },
     ])
   );
 
@@ -203,10 +206,10 @@ export default function ServiceAreasPage() {
                   Request callback
                 </Link>
                 <Link
-                  href={`/services#${area.slug}`}
+                  href={area.slug === "long-island-electrician" ? "/service-areas#long-island-electrician" : `/${area.slug}`}
                   className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
                 >
-                  Open full {area.areaName} service section
+                  Open {area.areaName} page
                 </Link>
               </div>
             </article>

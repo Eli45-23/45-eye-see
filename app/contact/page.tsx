@@ -131,10 +131,10 @@ export default function ContactPage() {
               {business.mustMentionNeighborhoods.map((area) => {
                 const areaAnchor =
                   area === "Williamsburg"
-                    ? "service-areas#brooklyn-electrician"
+                    ? "brooklyn-electrician"
                     : area === "Queens"
-                      ? "service-areas#queens-electrician"
-                      : "service-areas#manhattan-electrician";
+                      ? "queens-electrician"
+                      : "manhattan-electrician";
 
                 return (
                   <li

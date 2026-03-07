@@ -144,8 +144,8 @@ export default function RootLayout({
                     area === "Select Long Island areas"
                       ? "/service-areas#long-island-electrician"
                       : area === "Staten Island"
-                        ? "/service-areas#staten-island-electrician"
-                        : `/service-areas#${area.toLowerCase()}-electrician`;
+                        ? "/staten-island-electrician"
+                        : `/${area.toLowerCase()}-electrician`;
 
                   return (
                     <li key={area} className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">

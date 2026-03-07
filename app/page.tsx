@@ -54,10 +54,10 @@ export default function HomePage() {
   const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
   const serviceAreaLinks = [
-    { name: "Manhattan", href: "/service-areas#manhattan-electrician" },
-    { name: "Brooklyn", href: "/service-areas#brooklyn-electrician" },
-    { name: "Queens", href: "/service-areas#queens-electrician" },
-    { name: "Staten Island", href: "/service-areas#staten-island-electrician" },
+    { name: "Manhattan", href: "/manhattan-electrician" },
+    { name: "Brooklyn", href: "/brooklyn-electrician" },
+    { name: "Queens", href: "/queens-electrician" },
+    { name: "Staten Island", href: "/staten-island-electrician" },
     { name: "Long Island", href: "/service-areas#long-island-electrician" },
   ];
 
@@ -162,8 +162,8 @@ export default function HomePage() {
                 area === "Select Long Island areas"
                   ? "/service-areas#long-island-electrician"
                   : area === "Staten Island"
-                    ? "/service-areas#staten-island-electrician"
-                    : `/service-areas#${area.toLowerCase()}-electrician`;
+                    ? "/staten-island-electrician"
+                    : `/${area.toLowerCase()}-electrician`;
 
               return (
                 <li
@@ -351,7 +351,7 @@ export default function HomePage() {
               is the right investment. We also help clients in Williamsburg, Queens, and
               {" "}
               <Link
-                href="/service-areas#manhattan-electrician"
+                href="/manhattan-electrician"
                 className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 Manhattan
