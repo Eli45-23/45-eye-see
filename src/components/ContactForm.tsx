@@ -15,8 +15,6 @@ type FormValues = {
 type FieldName = keyof FormValues;
 type FormErrors = Partial<Record<FieldName, string>>;
 
-const PLACEHOLDER_ENDPOINT = "https://example.com/api/contact-request";
-
 const initialValues: FormValues = {
   name: "",
   phone: "",
@@ -109,8 +107,6 @@ export function ContactForm() {
       className="section-elevated rounded-3xl border border-[var(--border)] p-5 ui-shadow-sm sm:p-7"
       onSubmit={onSubmit}
       noValidate
-      action={submitState === "idle" ? PLACEHOLDER_ENDPOINT : undefined}
-      method="post"
     >
       <p className="mb-4 text-sm leading-relaxed text-[var(--muted)]">
         Required fields are marked. Add outage details, affected rooms, and ideal callback times to help us respond faster.
