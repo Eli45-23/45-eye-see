@@ -51,30 +51,53 @@ export default function ContactPage() {
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact", isCurrent: true }]} />
         <SectionHeader
           eyebrow="Contact"
-          title="Book your NYC electrical service call"
+          title="Contact 45 EYE Electrical Solutions"
           headingLevel={1}
-          description="Call first for fastest scheduling, then use the callback form if preferred."
+          description="Call first for the fastest scheduling; the callback form is available if you prefer to write details."
         />
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div className="space-y-4">
             <CallCTA label={`Call ${business.phone}`} />
-            <p className="text-sm text-muted">Prefer not to call right away? Use the callback form.</p>
+            <p className="text-sm text-muted">Calling is best for urgent issues. For planned work, the form helps us capture details.</p>
             <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
               <p className="text-sm font-semibold text-[var(--text)]">Response time</p>
               <p className="mt-1 text-sm text-muted">
-                Fast response during business hours. Same-day availability when possible.
+                Fast response during business hours. Same-day or after-hours slots may be available for outages or safety concerns when scheduling allows.
               </p>
             </div>
             <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
               <p className="text-sm font-semibold text-[var(--text)]">What to include in your request</p>
               <ul className="mt-3 space-y-2 text-sm text-[var(--muted)]">
                 <li>Phone number and contact name</li>
-                <li>Borough or neighborhood, and building type</li>
-                <li>Which equipment has an issue and where it is located</li>
-                <li>Best callback window and any urgency notes</li>
+                <li>Borough or neighborhood, and building type (co-op, condo, brownstone, storefront, office, detached home)</li>
+                <li>Issue details: breakers tripping, flicker, outlets, panel heat, EV charger request, or planned remodel scope</li>
+                <li>Best callback window, site access notes, and any urgency or shutdown limits</li>
                 <li>Any relevant photos (if possible)</li>
               </ul>
+            </div>
+            <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
+              <p className="text-sm font-semibold text-[var(--text)]">Service areas</p>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Manhattan, Brooklyn, Queens, Staten Island, and selective Long Island coverage. Frequent routes include Williamsburg, Lower Manhattan, Midtown, and Queens hubs.
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Link href="/service-areas" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  View service areas
+                </Link>
+                <Link href="/manhattan-electrician" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  Manhattan
+                </Link>
+                <Link href="/brooklyn-electrician" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  Brooklyn
+                </Link>
+                <Link href="/queens-electrician" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  Queens
+                </Link>
+                <Link href="/staten-island-electrician" className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  Staten Island
+                </Link>
+              </div>
             </div>
             <ul className="space-y-2 text-sm text-[var(--muted)]">
               {business.mustMentionNeighborhoods.map((area) => {
@@ -121,7 +144,7 @@ export default function ContactPage() {
         <SectionHeader
           eyebrow="FAQs"
           title="Questions before booking"
-          description="Answers about response times, service areas, and what to expect."
+          description="Answers about service areas, timing, permits, and how we stage work."
         />
         <FAQAccordion items={faqs} />
         <div className="flex flex-wrap gap-3">
@@ -144,6 +167,12 @@ export default function ContactPage() {
           >
             View service area options
           </Link>
+          <Link
+            href="/service-areas"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2.5 text-sm font-semibold tracking-wide text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Open service areas hub
+          </Link>
         </div>
       </section>
 
@@ -158,6 +187,26 @@ export default function ContactPage() {
           <li>
             <Link href="/service-areas" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
               Review local service areas
+            </Link>
+          </li>
+          <li>
+            <Link href="/manhattan-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Manhattan electrician details
+            </Link>
+          </li>
+          <li>
+            <Link href="/brooklyn-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Brooklyn electrician details
+            </Link>
+          </li>
+          <li>
+            <Link href="/queens-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Queens electrician details
+            </Link>
+          </li>
+          <li>
+            <Link href="/staten-island-electrician" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+              Staten Island electrician details
             </Link>
           </li>
           <li>
