@@ -3,22 +3,22 @@ import Link from "next/link";
 const groups = [
   {
     title: "Manhattan",
-    href: "/service-areas#manhattan-electrician",
+    href: "/manhattan-electrician",
     areas: ["Upper East Side", "Upper West Side", "Harlem", "Midtown", "Financial District"],
   },
   {
     title: "Brooklyn",
-    href: "/service-areas#brooklyn-electrician",
+    href: "/brooklyn-electrician",
     areas: ["Williamsburg", "Park Slope", "Bushwick", "Bed-Stuy", "Downtown Brooklyn"],
   },
   {
     title: "Queens",
-    href: "/service-areas#queens-electrician",
+    href: "/queens-electrician",
     areas: ["Astoria", "Long Island City", "Flushing", "Forest Hills", "Jackson Heights"],
   },
   {
     title: "Staten Island",
-    href: "/service-areas#staten-island-electrician",
+    href: "/staten-island-electrician",
     areas: ["St. George", "New Dorp", "Great Kills", "Tottenville", "Port Richmond"],
   },
   {

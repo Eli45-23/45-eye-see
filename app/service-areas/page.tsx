@@ -160,7 +160,11 @@ export default function ServiceAreasPage() {
               <Breadcrumbs
                 items={[
                   ...areaBreadcrumbItems,
-                  { name: `${area.areaName} electrician`, isCurrent: false, path: `/service-areas#${area.slug}` },
+                  {
+                    name: `${area.areaName} electrician`,
+                    isCurrent: false,
+                    path: area.slug === "long-island-electrician" ? `/service-areas#${area.slug}` : `/${area.slug}`,
+                  },
                 ]}
               />
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--text)]">NYC electrician in {area.areaName}</h2>

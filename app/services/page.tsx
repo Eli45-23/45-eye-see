@@ -180,12 +180,13 @@ const serviceSupportMap: Record<string, ServiceSupport> = {
   },
 };
 
-function getBoroughBreadcrumb(slug: string, name: string) {
+function getBoroughBreadcrumb(slug: string, name: string): { name: string; path: `/${string}` }[] {
+  const path = slug === "long-island-electrician" ? "/service-areas" : (`/${slug}` as `/${string}`);
   return [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "Service Areas", path: "/service-areas" },
-    { name, path: `/service-areas#${slug}` },
+    { name, path },
   ] as const;
 }
 
@@ -458,12 +459,12 @@ export default function ServicesPage() {
                 >
                   EV charger installation
                 </Link>
-                <Link
-                  href={`/service-areas#${area.slug}`}
-                  className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
-                >
-                  {area.areaName} area section
-                </Link>
+                  <Link
+                    href={area.slug === "long-island-electrician" ? "/service-areas#long-island-electrician" : `/${area.slug}`}
+                    className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+                  >
+                    {area.areaName} area section
+                  </Link>
               </div>
             </article>
           );

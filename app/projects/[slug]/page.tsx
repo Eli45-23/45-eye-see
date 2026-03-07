@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             View services
           </Link>
           <Link
-            href={`/service-areas#${project.borough.toLowerCase()}-electrician`}
+            href={`/${project.borough.toLowerCase()}-electrician`}
             className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
           >
             {project.borough} coverage
