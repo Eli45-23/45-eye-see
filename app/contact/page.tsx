@@ -113,6 +113,20 @@ export default function ContactPage() {
                 Leave a Google Review
               </Link>
             </div>
+            <div className="section-elevated rounded-2xl border border-[var(--border)] p-4 ui-shadow-sm">
+              <p className="text-sm font-semibold text-[var(--text)]">Find us on Google Maps</p>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Need directions or want to verify service coverage? Check the Google listing for route and service info.
+              </p>
+              <Link
+                href="https://maps.app.goo.gl/Em8vxRDsrcMmg3Xz5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+              >
+                View us on Google Maps
+              </Link>
+            </div>
             <ul className="space-y-2 text-sm text-[var(--muted)]">
               {business.mustMentionNeighborhoods.map((area) => {
                 const areaAnchor =

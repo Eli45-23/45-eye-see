@@ -246,14 +246,22 @@ export default function HomePage() {
             <TestimonialStrip items={testimonials} mode="home" />
           </div>
           <div className="flex flex-wrap items-center gap-3 text-sm">
-            <p className="text-[var(--muted)]">Happy with your service call? Share a quick note for others.</p>
+            <p className="text-[var(--muted)]">See what clients are saying or leave a review on Google.</p>
+            <Link
+              href="https://share.google/o9OYY0QfX99jh1UKC"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+            >
+              Read Reviews on Google
+            </Link>
             <Link
               href="https://g.page/r/CWTdV7IkHlXoEAI/review"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
             >
-              Read or Leave a Google Review
+              Leave a Google Review
             </Link>
           </div>
         </div>

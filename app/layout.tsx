@@ -174,6 +174,14 @@ export default function RootLayout({
             >
               Leave a Google Review
             </Link>
+            <Link
+              href="https://maps.app.goo.gl/Em8vxRDsrcMmg3Xz5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-[var(--muted)] underline-offset-4 hover:text-[var(--accent-soft)] hover:underline"
+            >
+              View us on Google Maps
+            </Link>
           </div>
         </footer>
 
