@@ -5,6 +5,7 @@ import Link from "next/link";
 import { business } from "@/src/content/business";
 import { Button } from "@/src/components/Button";
 import { CallCTA } from "@/src/components/CallCTA";
+import { FloatingCallbackStrip } from "@/src/components/FloatingCallbackStrip";
 import { SITE_URL, buildSeoDescription, buildSeoTitle } from "@/src/lib/seo";
 import "./globals.css";
 
@@ -161,6 +162,8 @@ export default function RootLayout({
             <CallCTA label={`Call ${business.phone}`} />
           </div>
         </footer>
+
+        <FloatingCallbackStrip />
       </body>
     </html>
   );
