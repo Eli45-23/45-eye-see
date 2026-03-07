@@ -37,7 +37,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function HomePage() {
   const homeReviewsSchema = getHomeReviewsSchema();
-  const homeFaqSchema = getFaqPageSchema(faqs.slice(0, 6));
+  const homeFaqSchema = getFaqPageSchema(faqs);
   const homeBusinessSchema = getLocalBusinessSchema("/");
   const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
@@ -238,7 +238,7 @@ export default function HomePage() {
             title="Common questions before scheduling"
             description="Clear answers about service timing, coverage, and what to expect during your visit."
           />
-          <FAQAccordion items={faqs.slice(0, 6)} mode="home" />
+          <FAQAccordion items={faqs} mode="home" />
           <p className="text-measure-tight text-sm leading-relaxed text-[var(--muted)]">
             In Manhattan and Brooklyn, clients often request{" "}
             <Link
@@ -274,71 +274,230 @@ export default function HomePage() {
 
       <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
         <div className="card-surface space-y-4">
-          <h2 className="type-h2">Professional Electrical Services Across NYC</h2>
+          <h2 className="type-h2">Authority SEO Guide for NYC Electrical Service</h2>
           <div className="text-measure text-sm leading-relaxed text-[var(--muted)] sm:text-[15px]">
             <p>
-              Finding the right NYC electrician is often about more than getting power back on.
-              Property owners and managers usually need someone who can diagnose the root issue,
-              explain what is happening in plain language, and complete work that is safe,
-              code-aware, and practical for the building. As a licensed electrician in NYC, 45 EYE
-              Electrical Solutions focuses on clear scope, clean execution, and repair decisions
-              that match real operating needs. The goal is dependable electrical performance, not
-              temporary patches that create repeat calls.
+              Finding the right NYC electrician is less about “who has a fast response” and more
+              about who understands urban electrical systems as living infrastructure. Older wiring
+              routes, shared service paths, occupancy-driven upgrades, and mixed-use spaces can turn
+              a simple symptom into a layered condition. In Brooklyn brownstones, Lower Manhattan
+              commercial condos, Midtown retail units, and Queens residential portfolios, the highest
+              value outcome comes from combining practical troubleshooting with code-aware execution.
+              For many projects across Manhattan, Brooklyn, Queens, Staten Island, and selected Long
+              Island communities, 45 EYE Electrical Solutions starts with clear diagnostics and
+              scopes tied to realistic use, then moves to corrective electrical work with minimal
+              disruption and documented recommendations.
             </p>
-            <p className="mt-4">
-              Day-to-day service work includes apartments, brownstones, co-ops, retail storefronts,
-              and office spaces where conditions vary by age, layout, and existing wiring quality.
-              Many requests start with{" "}
+
+            <h3 className="mt-7 text-lg font-semibold tracking-tight text-[var(--text)]">
+              Why Electrical Work in NYC Requires Experience
+            </h3>
+            <p className="mt-2">
+              NYC buildings are rarely uniform. A single neighborhood can have multiple vintages of
+              electrical architecture within a few blocks. In that context, the experienced electrician
+              does more than replace parts: they interpret old panel logic, assess load patterns, and
+              keep safety-first priorities consistent while adapting to access constraints, noise
+              sensitivity, and property management expectations.
+            </p>
+            <p className="mt-3">
+              Experience is especially valuable when evaluating where a{" "}
               <Link
                 href="/services#electrical-troubleshooting-and-repairs"
                 className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
-                electrical troubleshooting
+                repair path
               </Link>{" "}
-              because nuisance outages, flickering circuits, and recurring trips can have multiple
-              causes. A troubleshooting-first approach helps identify whether the right fix is
-              targeted circuit breaker repair, a corrected connection, or a broader system update.
-              That method supports both residential service calls and complex light commercial
-              electrical work where downtime and safety are critical concerns.
-            </p>
-            <p className="mt-4">
-              Service planning also accounts for borough-specific realities across Manhattan,
-              Brooklyn, Queens, and Staten Island, where infrastructure and load expectations can
-              differ from one property to the next. In older buildings, fuse box replacement and
-              wiring upgrades are common when systems can no longer support modern appliances or
-              business equipment reliably. In newer renovations, the need is often capacity and
-              distribution strategy, including{" "}
+              can fix a problem versus where a partial or full
               <Link
                 href="/services#panel-upgrades-and-service-changes"
+                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                panel upgrade
+              </Link>
+              is the right investment. They also help clients in Williamsburg, Queens, and
+              <Link
+                href="/services#manhattan-electrician"
+                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                Manhattan
+              </Link>
+              neighborhoods by translating technical findings into clear scheduling decisions.
+            </p>
+            <p className="mt-3">
+              In co-op and multi-unit environments, this expertise includes coordinating around
+              building conditions so work can happen safely without creating avoidable tenant downtime.
+              The best outcome is rarely the loudest or fastest option; it is the option that keeps
+              occupants safe, meets requirements, and stays practical for the building’s ongoing use.
+            </p>
+
+            <h3 className="mt-7 text-lg font-semibold tracking-tight text-[var(--text)]">
+              When to Upgrade Your Electrical Panel in NYC
+            </h3>
+            <p className="mt-2">
+              A panel upgrade becomes the right move when current capacity no longer supports modern
+              loads. Frequent indicators include repeated trips under normal use, warm breaker behavior
+              after kitchen appliance use, repeated temporary fixes, and mismatch between circuit layout
+              and modern electrical demand. In Manhattan high-rise and Brooklyn apartments, these
+              symptoms often surface after remodels, added equipment, or tenant changes.
+            </p>
+            <p className="mt-3">
+              Older properties may still operate on legacy panels that were never designed for
+              continuous modern loads. In practical terms, this is where a licensed electrician helps
+              compare immediate electrical repair options against longer-term reliability upgrades.
+              Browse the full scope in
+              <Link
+                href="/services#panel-upgrades-and-service-changes"
+                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                service change and panel upgrade
+              </Link>
+              planning before any equipment commitment.
+            </p>
+            <p className="mt-3">
+              For owners in Queens and Staten Island balancing active occupancy with upgrades,
+              timing and staging often matter as much as hardware selection. A clear work plan usually
+              includes temporary safety management, permit review when required, and scope notes for
+              future projects.
+            </p>
+
+            <h3 className="mt-7 text-lg font-semibold tracking-tight text-[var(--text)]">
+              Signs You Need a Licensed NYC Electrician
+            </h3>
+            <p className="mt-2">
+              Not every task belongs to DIY channels, especially in dense urban buildings. You should
+              get professional support when breaker trips become repetitive, when outlets fail in a
+              pattern, or when you notice burning smell, unusual panel heat, or intermittent power
+              loss. These are not timing windows for guesswork.
+            </p>
+            <p className="mt-3">
+              Licensed professionals are required for situations where code interpretation, inspection
+              readiness, and long-term reliability are part of the outcome. In Williamsburg and
+              Midtown Manhattan, this often includes safety review before major remodels, tenant
+              turnovers, and commercial handover windows. For a practical scope check, connect
+              first with our trusted routes in{" "}
+              <Link
+                href="/services#electrical-troubleshooting-and-repairs"
                 className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
-                panel upgrades
+                troubleshooting
               </Link>{" "}
-              and service changes that improve stability, safety, and future flexibility.
+              and{" "}
+              <Link
+                href="/services#outlet-switch-and-gfci-upgrades"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                outlet and GFCI upgrades
+              </Link>
+              .
             </p>
-            <p className="mt-4">
-              Electrical projects increasingly include dedicated charging infrastructure as well.
-              For property owners evaluating{" "}
+            <p className="mt-3">
+              The advantage is straightforward: decisions become documented, compliant, and reversible,
+              not improvised.
+            </p>
+
+            <h3 className="mt-7 text-lg font-semibold tracking-tight text-[var(--text)]">
+              EV Charger Installation in NYC Buildings
+            </h3>
+            <p className="mt-2">
+              EV infrastructure is now a normal part of household and small commercial planning in
+              NYC. In practice, charger work is part upgrade, part load-management exercise. The best
+              route starts with load review and service alignment for the specific building profile.
+              That is why projects often pair electrical capacity checks with dedicated circuit
+              planning and manufacturer-compatible hardware decisions.
+            </p>
+            <p className="mt-3">
+              On service-intensive corridors where parking constraints and mixed use are common, a
+              strong electrical strategy avoids under-sized installs and future rework. Explore the full
+              path in the EV section and review related power planning options for dedicated
+              equipment support:
               <Link
                 href="/services#ev-charger-installation"
-                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="ml-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 EV charger installation
               </Link>
-              , the process should include load review, equipment suitability, and installation
-              details that align with manufacturer requirements and local standards. The same
-              discipline applies to electrical inspection requests before renovations, tenant
-              turnovers, or occupancy changes. Verifying system condition before major work reduces
-              avoidable surprises and supports better decisions on repair versus replacement.
+              {" "}&
+              <Link
+                href="/services#dedicated-circuits"
+                className="ml-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                dedicated circuits
+              </Link>
+              , especially in Queens and Brooklyn.
+            </p>
+            <p className="mt-3">
+              Where coverage depends on building-specific utility coordination, early conversation with
+              Eli is faster than a large scope. We align installation options to practical usage and
+              expected daily load patterns.
+            </p>
+
+            <h3 className="mt-7 text-lg font-semibold tracking-tight text-[var(--text)]">
+              Emergency vs Non-Emergency Electrical Calls
+            </h3>
+            <p className="mt-2">
+              Emergencies require immediate safety focus: no power to key rooms, active sparking,
+              hot panel signs, or hazardous conditions after flooding or weather events. In these
+              cases the first action is diagnosis, isolation, and safe stabilization.
+            </p>
+            <p className="mt-3">
+              Non-emergency work benefits from planned sequencing. Renovation support, panel tuning,
+              routine inspections, and upgrades for service quality usually gain from early scheduling
+              because they depend on building coordination and material planning. For clients in
+              Staten Island, Queens, Brooklyn, and Manhattan, this usually improves outcome quality
+              and reduces repeated access constraints.
+            </p>
+            <p className="mt-3">
+              Use the services page as your practical decision map:{" "}
+              <Link
+                href="/services#electrical-troubleshooting-and-repairs"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                troubleshooting
+              </Link>
+              ,{" "}
+              <Link
+                href="/services#commercial-electrical-service-calls"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                commercial response
+              </Link>
+              , and{" "}
+              <Link
+                href="/services#code-corrections-and-safety-improvements"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                safety corrections
+              </Link>
+              to match urgency and scope.
+            </p>
+            <p className="mt-6">
+              From Midtown Manhattan to Long Island-area projects, the most reliable route is a clear
+              first call and one coordinated plan. Call now when you need immediate triage, or review
+              the right scope first and contact for scheduling.
             </p>
             <p className="mt-4">
-              When urgent issues appear, an emergency electrician response in NYC should prioritize
-              immediate safety first, then controlled restoration of essential circuits. A reliable
-              process means isolating hazards, documenting findings, and recommending next steps
-              based on condition rather than assumptions. This is how 45 EYE Electrical Solutions
-              approaches service calls across both homes and business properties: diagnose
-              thoroughly, communicate clearly, and complete code-conscious work that holds up under
-              daily use.
+              <Link
+                href="/services"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                Browse all services
+              </Link>
+              {" "}
+              |{" "}
+              <Link
+                href="/services#service-areas"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                Explore NYC service areas
+              </Link>
+              {" "}
+              |{" "}
+              <Link
+                href="/contact#contact-request"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                Contact Eli
+              </Link>
             </p>
           </div>
         </div>

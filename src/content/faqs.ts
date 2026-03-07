@@ -62,4 +62,44 @@ export const faqs: readonly FaqItem[] = [
       business.email +
       ". Sharing your neighborhood, issue details, and urgency helps us schedule the right service window.",
   },
+  {
+    question: "What permits are usually needed for electrician work in NYC?",
+    answer:
+      "Permit requirements vary by borough and scope. Minor troubleshooting work may be handled as maintenance in some cases, while panel upgrades, new circuits, and major rewiring often require permit review through city process. We confirm permit expectations early and help keep scope and documentation aligned before major changes begin.",
+  },
+  {
+    question: "How long does panel upgrade scheduling usually take in NYC?",
+    answer:
+      "Timeline depends on permit requirements, parts availability, building coordination, and weather or access constraints. Simple diagnostics can often be done quickly, while bigger upgrades may need longer lead time for inspections, material staging, and access approvals.",
+  },
+  {
+    question: "What warning signs suggest my NYC home has aging wiring?",
+    answer:
+      "Frequent breaker trips, warm receptacles, intermittent flicker, buzzing switches, or unexplained outages can indicate worn wiring paths. If you also notice old-looking fuse systems, damaged insulation, or recurrent device failures, a diagnostic electrician visit is the right next step.",
+  },
+  {
+    question: "How do you assess legacy fuse boxes in older NYC buildings?",
+    answer:
+      "Legacy fuse systems are reviewed for safety and capacity first. In many cases, replacement planning includes load mapping, service disconnect safety checks, and staged recommendations so owners understand whether repair, fuse-to-breaker conversion, or panel-level upgrades are most appropriate.",
+  },
+  {
+    question: "Do you handle co-op board or super access for NYC apartments?",
+    answer:
+      "Yes. For co-ops and managed properties, we work around access rules, board requirements, and schedule windows so electrical work stays organized and compliant. We provide practical status updates as each phase is completed.",
+  },
+  {
+    question: "Are pricing estimates based on service type and property conditions?",
+    answer:
+      "Yes, pricing is driven by actual scope, urgency, and building conditions such as age of wiring, access restrictions, and required testing. We provide a clear scope and estimate framework before additional work, and we do not proceed with major upgrades without approval.",
+  },
+  {
+    question: "What determines whether you recommend repair, partial upgrade, or panel replacement?",
+    answer:
+      "The decision is based on load condition, safety risk, equipment age, and expected service pattern. We compare options transparently so you can choose practical fixes where appropriate or plan larger updates when they improve reliability and long-term safety.",
+  },
+  {
+    question: "Can you service electrical issues in Williamsburg, Lower Manhattan, and Midtown?",
+    answer:
+      "Yes. We regularly support Williamsburg, Lower Manhattan, and Midtown Manhattan neighborhoods as part of our core NYC service footprint. We also support related requests in Brooklyn, Queens, Staten Island, and select Long Island areas.",
+  },
 ];
