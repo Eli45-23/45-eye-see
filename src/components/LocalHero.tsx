@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CallCTA } from "@/src/components/CallCTA";
+import { HOME_HERO_IMAGE_SRC } from "@/src/content/images";
 
 type LocalHeroProps = {
   areaName: string;
@@ -43,12 +44,13 @@ export function LocalHero({ areaName, supportingSentence, neighborhoodLine }: Lo
         <div className="relative min-h-[280px] border-t border-white/10 lg:min-h-[460px] lg:border-l lg:border-t-0">
           {/* Keep this image compressed around 250-400KB for fast LCP while preserving detail. */}
           <Image
-            src="/images/hero-emt.jpg"
-            alt={`Clean EMT electrical installation in ${areaName}`}
+            src={HOME_HERO_IMAGE_SRC}
+            alt={`${areaName} residential and commercial electrical work with pendant and recessed lighting layout in NYC`}
             fill
-            priority
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"
+            decoding="async"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/75 via-[var(--bg)]/25 to-transparent lg:bg-gradient-to-l lg:from-[var(--bg)]/20 lg:via-[var(--bg)]/45 lg:to-[var(--bg)]/80" />
         </div>

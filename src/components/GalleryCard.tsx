@@ -38,7 +38,8 @@ export function GalleryCard({ item }: GalleryCardProps) {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             loading="lazy"
-            quality={75}
+            quality={82}
+            decoding="async"
             onError={() => {
               if (!useFallbackImage) {
                 setUseFallbackImage(true);

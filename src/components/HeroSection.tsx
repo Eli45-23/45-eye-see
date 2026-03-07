@@ -53,11 +53,12 @@ export function HeroSection() {
         <div className="relative min-h-[260px] overflow-hidden rounded-2xl border border-[rgba(116,169,255,0.28)] shadow-lg shadow-black/25 ring-1 ring-black/40 lg:min-h-[420px]">
           <Image
             src={HOME_HERO_IMAGE_SRC}
-            alt="Commercial pendant and recessed lighting installation in progress at an NYC interior"
+            alt="NYC electrical panel upgrade with organized conduit routing and pendant installation staging"
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 42vw"
             className="scale-[1.02] object-cover"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(116,169,255,0.08)] via-transparent to-transparent" />
