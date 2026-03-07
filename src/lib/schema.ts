@@ -11,6 +11,47 @@ type BreadcrumbItem = {
   path: `/${string}`;
 };
 
+type BusinessService = (typeof serviceBuckets)[number];
+
+const businessAreaServed = [
+  "Manhattan",
+  "Brooklyn",
+  "Queens",
+  "Staten Island",
+  "Select Long Island areas",
+];
+
+const businessPaymentMethods = ["Card", "Zelle", "Cash"];
+
+const ownerPerson = {
+  "@type": "Person",
+  name: "Eli",
+};
+
+const baseBusinessDescription =
+  "Licensed & insured electrician servicing residential and light commercial properties across NYC. Same-day scheduling when possible.";
+
+function getAreaServed() {
+  return businessAreaServed.map((area) => ({
+    "@type": "AdministrativeArea",
+    name: area,
+  }));
+}
+
+function buildServiceAreaList(services = serviceBuckets) {
+  return services.map((service) => ({
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.description,
+    areaServed: getAreaServed(),
+    provider: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}#business`,
+    },
+  }));
+}
+
 export function getLocalBusinessSchema(path: `/${string}` = "/") {
   const pageUrl = new URL(path, SITE_URL).toString();
 
@@ -23,42 +64,42 @@ export function getLocalBusinessSchema(path: `/${string}` = "/") {
     url: pageUrl,
     telephone: normalizedPhone,
     email: business.email,
-    description:
-      "Licensed and insured, owner-operated by Eli, providing residential and light commercial electrical service across NYC.",
-    areaServed: [
-      "Manhattan",
-      "Brooklyn",
-      "Queens",
-      "Staten Island",
-      "Select Long Island areas",
-    ].map((area) => ({
-      "@type": "AdministrativeArea",
-      name: area,
-    })),
+    description: baseBusinessDescription,
+    owner: ownerPerson,
+    areaServed: getAreaServed(),
+    paymentAccepted: businessPaymentMethods,
+    serviceType: ["Residential electrical service", "Light commercial electrical service"],
   };
 }
 
-export function getServiceListSchema() {
+export function getServiceSchema(service: BusinessService, position: number) {
+  return {
+    "@type": "ListItem",
+    position,
+    item: {
+      "@type": "Service",
+      name: service.name,
+      serviceType: service.name,
+      description: service.description,
+      provider: {
+        "@id": `${SITE_URL}#business`,
+      },
+      areaServed: getAreaServed(),
+      serviceOutput: service.commonJobs.map((job) => job),
+    },
+  };
+}
+
+export function getServiceListSchema(services: readonly BusinessService[] = serviceBuckets) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: serviceBuckets.map((service, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Service",
-        name: service.name,
-        serviceType: service.name,
-        description: service.description,
-        provider: {
-          "@id": `${SITE_URL}#business`,
-        },
-        areaServed: business.serviceAreas.map((area) => ({
-          "@type": "AdministrativeArea",
-          name: area,
-        })),
-      },
-    })),
+    itemListElement: services.map((service, index) => getServiceSchema(service, index + 1)),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "45 EYE Electrical Services",
+      itemListElement: buildServiceAreaList(services),
+    },
   };
 }
 
@@ -118,10 +159,15 @@ export function getLocalAreaElectricianSchema(areaName: string, path: `/${string
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "Electrician"],
+    "@id": `${SITE_URL}#business`,
     name: business.brandName,
     telephone: normalizedPhone,
     email: business.email,
     url: new URL(path, SITE_URL).toString(),
-    areaServed: [areaName, "Manhattan", "Brooklyn", "Queens", "Staten Island", "Select Long Island areas"],
+    owner: ownerPerson,
+    description: baseBusinessDescription,
+    paymentAccepted: businessPaymentMethods,
+    areaServed: [{ "@type": "AdministrativeArea", name: areaName }, ...getAreaServed().filter((area) => area.name !== areaName)],
+    serviceType: ["Residential electrical service", "Light commercial electrical service"],
   };
 }

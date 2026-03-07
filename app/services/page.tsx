@@ -10,7 +10,12 @@ import { JsonLd } from "@/src/components/JsonLd";
 import { TrustBadges } from "@/src/components/TrustBadges";
 import { SectionHeader } from "@/src/components/SectionHeader";
 import { createPageMetadata } from "@/src/lib/seo";
-import { getBreadcrumbSchema, getServiceListSchema } from "@/src/lib/schema";
+import {
+  getBreadcrumbSchema,
+  getLocalAreaElectricianSchema,
+  getLocalBusinessSchema,
+  getServiceListSchema,
+} from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
 
 export const metadata = createPageMetadata({
@@ -63,6 +68,13 @@ export default function ServicesPage() {
   const serviceListSchema = getServiceListSchema();
   const breadcrumbSchema = getBreadcrumbSchema(serviceBreadCrumbs);
   const serviceAreasSchema = getBreadcrumbSchema(serviceAreasBreadCrumbs);
+  const serviceBusinessSchema = getLocalBusinessSchema("/services");
+  const serviceAreaBusinessSchemas = localAreaPages.map((area) =>
+    getLocalAreaElectricianSchema(area.areaName, `/services#${area.slug}`)
+  );
+  const serviceAreaBreadcrumbSchemas = localAreaPages.map((area) =>
+    getBreadcrumbSchema(getBoroughBreadcrumb(area.slug, area.areaName))
+  );
 
   return (
     <div className="space-y-9">
@@ -287,8 +299,23 @@ export default function ServicesPage() {
       </section>
 
       <JsonLd id="schema-services-list" data={serviceListSchema} />
+      <JsonLd id="schema-services-business" data={serviceBusinessSchema} />
       <JsonLd id="schema-services-breadcrumbs" data={breadcrumbSchema} />
       <JsonLd id="schema-services-areas-breadcrumbs" data={serviceAreasSchema} />
+      {serviceAreaBusinessSchemas.map((schema, index) => (
+        <JsonLd
+          key={`schema-services-area-business-${index}`}
+          id={`schema-services-area-business-${index}`}
+          data={schema}
+        />
+      ))}
+      {serviceAreaBreadcrumbSchemas.map((schema, index) => (
+        <JsonLd
+          key={`schema-services-area-breadcrumbs-${index}`}
+          id={`schema-services-area-breadcrumbs-${index}`}
+          data={schema}
+        />
+      ))}
     </div>
   );
 }
