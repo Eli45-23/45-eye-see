@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 import { projects } from "@/src/content/projects";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
@@ -11,11 +11,15 @@ import { JsonLd } from "@/src/components/JsonLd";
 import { getBreadcrumbSchema } from "@/src/lib/schema";
 
 type ProjectPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: ProjectPageProps): Metadata {
-  const project = projects.find((item) => item.slug === params.slug);
+export async function generateMetadata(
+  { params }: ProjectPageProps,
+  _parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
 
   return createPageMetadata({
@@ -26,8 +30,9 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
   });
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((item) => item.slug === params.slug);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projects.find((item) => item.slug === slug);
   if (!project) {
     notFound();
   }
