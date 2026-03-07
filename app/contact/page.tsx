@@ -13,16 +13,27 @@ import { createPageMetadata } from "@/src/lib/seo";
 import { getBreadcrumbSchema, getFaqPageSchema, getLocalBusinessSchema } from "@/src/lib/schema";
 
 export const metadata = createPageMetadata({
-  title: "Contact NYC Electrician",
+  title: "Contact 45 EYE Electrical Solutions | Licensed Electrician NYC",
   description:
-    "Contact Eli the Electrician for licensed electrician NYC service requests. Fast response, same-day availability when possible, and coverage across core NYC boroughs.",
+    "Contact a licensed electrician NYC for service coordination. Reach Eli the Electrician for troubleshooting, panel upgrades NYC requests, EV charger installation NYC planning, and emergency triage guidance.",
   path: "/contact",
+  keywords: [
+    "NYC electrician",
+    "licensed electrician NYC",
+    "Manhattan electrician",
+    "Brooklyn electrician",
+    "Queens electrician",
+    "Staten Island electrician",
+    "electrical troubleshooting NYC",
+    "panel upgrades NYC",
+    "EV charger installation NYC",
+  ],
   ogTitle: "Contact 45 EYE Electrical Solutions | NYC Electrician",
   ogDescription:
-    "Book residential or commercial electrical service with an NYC-based licensed and insured electrician. Call 646-710-0134.",
+    "Book your NYC electrician service request with 45 EYE Electrical Solutions. Call first for scheduling, then follow up through the callback form.",
   twitterTitle: "Contact Eli the Electrician",
   twitterDescription:
-    "Request NYC electrician service by phone or callback form. Licensed electrician NYC support across key boroughs.",
+    "Request NYC electrician service by phone or callback form. 45 EYE supports Manhattan, Brooklyn, Queens, and Staten Island service requests.",
 });
 
 export default function ContactPage() {

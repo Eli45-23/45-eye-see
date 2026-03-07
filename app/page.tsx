@@ -24,16 +24,27 @@ import {
 } from "@/src/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "NYC Electrician Home",
+  title: "NYC Electrician in Manhattan, Brooklyn, Queens & Staten Island | 45 EYE Electrical Solutions",
   description:
-    "NYC electrician services from Eli the Electrician at 45 EYE Electrical Solutions. Licensed electrician NYC support for troubleshooting, upgrades, and same-day availability when possible.",
+    "Licensed electrician NYC for residential and small commercial properties. 45 EYE covers Manhattan, Brooklyn, Queens, and Staten Island with electrical troubleshooting NYC expertise, panel upgrades NYC planning, and EV charger installation NYC guidance.",
   path: "/",
-  ogTitle: "NYC Electrician | Licensed Electrician NYC",
+  keywords: [
+    "NYC electrician",
+    "licensed electrician NYC",
+    "Manhattan electrician",
+    "Brooklyn electrician",
+    "Queens electrician",
+    "Staten Island electrician",
+    "electrical troubleshooting NYC",
+    "panel upgrades NYC",
+    "EV charger installation NYC",
+  ],
+  ogTitle: "Licensed NYC Electrician | Manhattan, Brooklyn, Queens, Staten Island",
   ogDescription:
-    "45 EYE Electrical Solutions delivers licensed, insured NYC electrician service for homes and businesses across Manhattan, Queens, Brooklyn, and Staten Island.",
+    "45 EYE Electrical Solutions is a licensed electrician NYC serving Manhattan, Brooklyn, Queens, Staten Island, and selective Long Island areas for repairs, panel upgrades, and EV charging support.",
   twitterTitle: "NYC Electrician | 45 EYE Electrical Solutions",
   twitterDescription:
-    "Call 646-710-0134 for licensed electrician NYC service and same-day scheduling when available.",
+    "Call 646-710-0134 for responsive NYC electrician service and electrical troubleshooting support across Manhattan, Brooklyn, Queens, and Staten Island.",
 });
 
 export default function HomePage() {

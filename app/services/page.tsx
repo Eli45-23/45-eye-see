@@ -14,11 +14,22 @@ import { getBreadcrumbSchema, getServiceListSchema } from "@/src/lib/schema";
 import { slugify } from "@/src/lib/slug";
 
 export const metadata = createPageMetadata({
-  title: "Electrical Services NYC",
+  title: "Electrical Services in NYC | Licensed Electrician NYC | 45 EYE Electrical Solutions",
   description:
-    "Explore NYC electrician services from troubleshooting and repairs to panel upgrades, lighting, and safety improvements from a licensed electrician NYC team.",
+    "Explore NYC electrician services led by a licensed electrician NYC. Compare scope-driven options across electrical troubleshooting NYC, panel upgrades NYC, and EV charger installation NYC in Manhattan, Brooklyn, Queens, and Staten Island.",
   path: "/services",
-  ogTitle: "Electrical Services in NYC | Licensed Electrician NYC",
+  keywords: [
+    "NYC electrician",
+    "licensed electrician NYC",
+    "electrical troubleshooting NYC",
+    "panel upgrades NYC",
+    "EV charger installation NYC",
+    "Manhattan electrician",
+    "Brooklyn electrician",
+    "Queens electrician",
+    "Staten Island electrician",
+  ],
+  ogTitle: "Electrical Services in NYC | 45 EYE Electrical Solutions",
   ogDescription:
     "Service hub for residential and light commercial electrical work across Manhattan, Queens, Brooklyn, and Staten Island. Same-day service when possible.",
   twitterTitle: "Electrical Services NYC | 45 EYE",
