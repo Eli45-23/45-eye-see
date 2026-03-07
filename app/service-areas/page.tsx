@@ -29,12 +29,6 @@ export const metadata: Metadata = createServiceAreaMetadata({
     "panel upgrades NYC",
     "EV charger installation NYC",
   ],
-  ogTitle: "NYC Electrical Service Areas | 45 EYE Electrical Solutions",
-  ogDescription:
-    "Service-area guidance for borough and local electric work across Manhattan, Brooklyn, Queens, Staten Island, and selective Long Island coverage areas.",
-  twitterTitle: "NYC Electrical Service Areas | 45 EYE Electrical Solutions",
-  twitterDescription:
-    "Explore service-focused local pages for Manhattan, Brooklyn, Queens, Staten Island, and select Long Island areas.",
 });
 
 const areaPropertyTypes: Record<LocalAreaSlug, string[]> = {
