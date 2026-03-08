@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/src/content/projects";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
@@ -14,10 +14,7 @@ type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(
-  { params }: ProjectPageProps,
-  _parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
@@ -56,6 +53,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       "@type": "WebPage",
       "@id": `https://45eyeelectricalsolutions.com/projects/${project.slug}`,
     },
+  };
+  const serviceLabelMap: Record<string, string> = {
+    "/services#electrical-troubleshooting-and-repairs": "Electrical troubleshooting",
+    "/services#panel-upgrades-and-service-changes": "Panel upgrades & service changes",
+    "/services#ev-charger-installation": "EV charger installation",
+    "/services#dedicated-circuits": "Dedicated circuits",
+    "/services#lighting-installation-and-upgrades": "Lighting installation & upgrades",
+    "/services#code-corrections-and-safety-improvements": "Code corrections & safety",
+    "/services#outlet-switch-and-gfci-upgrades": "Outlet, switch & GFCI upgrades",
+    "/services#commercial-electrical-service-calls": "Commercial electrical service calls",
   };
 
   return (
@@ -114,6 +121,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </article>
       </div>
 
+      {project.narrative ? (
+        <div className="card-surface rounded-3xl border border-[var(--border)] p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-[var(--text)]">Project notes & lessons learned</h2>
+          <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{project.narrative}</p>
+        </div>
+      ) : null}
+
       <div className="card-surface rounded-3xl border border-[var(--border)] p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-[var(--text)]">Plan a similar project</h2>
         <p className="mt-2 text-sm text-[var(--muted)]">
@@ -135,10 +149,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             View services
           </Link>
           <Link
-            href={`/${project.borough.toLowerCase()}-electrician`}
+            href={`/${project.borough.toLowerCase().replace(" ", "-")}-electrician`}
             className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
           >
             {project.borough} coverage
+          </Link>
+          {project.neighborhoodSlug ? (
+            <Link
+              href={`/${project.neighborhoodSlug}`}
+              className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+            >
+              Neighborhood page
+            </Link>
+          ) : null}
+          {project.serviceAnchors?.map((href) => (
+            <Link
+              key={href}
+              href={href}
+              className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+            >
+              {serviceLabelMap[href] ?? "Related service"}
+            </Link>
+          ))}
+          <Link
+            href="/contact#contact-request"
+            className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+          >
+            Request a callback
           </Link>
         </div>
       </div>

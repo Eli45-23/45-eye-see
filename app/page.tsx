@@ -344,15 +344,14 @@ export default function HomePage() {
               can fix a problem versus where a partial or full
               <Link
                 href="/services#panel-upgrades-and-service-changes"
-                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 panel upgrade
               </Link>
-              is the right investment. We also help clients in Williamsburg, Queens, and
-              {" "}
+              {" "}is the right investment. We also help clients in Williamsburg, Queens, and{" "}
               <Link
                 href="/manhattan-electrician"
-                className="mx-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 Manhattan
               </Link>
@@ -450,7 +449,7 @@ export default function HomePage() {
               and{" "}
               <Link
                 href="/services#dedicated-circuits"
-                className="ml-1 font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+                className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
               >
                 dedicated circuits
               </Link>

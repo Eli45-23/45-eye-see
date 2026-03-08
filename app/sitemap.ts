@@ -46,6 +46,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects/brooklyn-brownstone-200-amp-upgrade",
     "/projects/manhattan-office-partial-power-troubleshooting",
     "/projects/queens-garage-ev-charger-installation",
+    "/projects/panel-upgrade-park-slope-brownstone",
+    "/projects/troubleshooting-partial-power-loss-astoria-apartment",
+    "/projects/ev-charger-circuit-forest-hills-driveway",
+    "/projects/lighting-upgrade-williamsburg-storefront",
+    "/projects/gfcis-outlet-safety-upper-east-side-kitchen",
+    "/projects/dedicated-laundry-circuit-bay-ridge-home",
+    "/projects/service-change-lower-manhattan-mixed-use",
+    "/projects/breaker-diagnostics-midtown-office-suite",
+    "/projects/recessed-lighting-update-lic-condo",
+    "/projects/code-correction-bed-stuy-brownstone-basement",
+    "/projects/kitchen-circuit-upgrade-brooklyn-townhouse",
+    "/projects/exterior-security-lighting-staten-island-home",
   ];
 
   return routes.map((route) => ({
