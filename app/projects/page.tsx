@@ -9,6 +9,17 @@ import { createPageMetadata } from "@/src/lib/seo";
 import { JsonLd } from "@/src/components/JsonLd";
 import { getBreadcrumbSchema } from "@/src/lib/schema";
 
+const serviceLabelMap: Record<string, string> = {
+  "/services#electrical-troubleshooting-and-repairs": "Electrical troubleshooting",
+  "/services#panel-upgrades-and-service-changes": "Panel upgrades & service changes",
+  "/services#ev-charger-installation": "EV charger installation",
+  "/services#dedicated-circuits": "Dedicated circuits",
+  "/services#lighting-installation-and-upgrades": "Lighting installation & upgrades",
+  "/services#code-corrections-and-safety-improvements": "Code corrections & safety",
+  "/services#outlet-switch-and-gfci-upgrades": "Outlet, switch & GFCI upgrades",
+  "/services#commercial-electrical-service-calls": "Commercial electrical service calls",
+};
+
 export const metadata: Metadata = createPageMetadata({
   title: "NYC Electrical Projects & Case Studies | 45 EYE Electrical Solutions",
   description:
@@ -60,6 +71,17 @@ export default function ProjectsPage() {
                 <span key={kw} className="rounded-full border border-[var(--border)] px-2 py-1">
                   {kw}
                 </span>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.serviceAnchors.slice(0, 2).map((href) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="inline-flex items-center rounded-full border border-[var(--border)] px-3 py-1 text-xs font-semibold text-[var(--accent)] transition hover:bg-[rgba(255,255,255,0.05)]"
+                >
+                  {serviceLabelMap[href] ?? "Related service"}
+                </Link>
               ))}
             </div>
             <div className="mt-4 flex flex-wrap gap-3">

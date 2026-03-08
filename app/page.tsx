@@ -5,6 +5,7 @@ import { faqs } from "@/src/content/faqs";
 import { workGallery } from "@/src/content/gallery";
 import { serviceBuckets } from "@/src/content/services";
 import { testimonials } from "@/src/content/testimonials";
+import { projects } from "@/src/content/projects";
 import { CallCTA } from "@/src/components/CallCTA";
 import { FAQAccordion } from "@/src/components/FAQAccordion";
 import { HeroSection } from "@/src/components/HeroSection";
@@ -53,6 +54,36 @@ export default function HomePage() {
   const homeBusinessSchema = getLocalBusinessSchema("/");
   const homeBreadcrumbSchema = getBreadcrumbSchema([{ name: "Home", path: "/" }]);
   const homeProjectGallery = workGallery.slice(0, 3);
+  const recentProjects = [
+    {
+      project: projects.find((item) => item.slug === "panel-upgrade-park-slope-brownstone") ?? projects[0],
+      headline: "Panel upgrade in Brooklyn brownstone",
+      summary:
+        "A recent Brooklyn brownstone panel rebuild created room for modern kitchen loads, future EV capacity, and cleaner labeling for long-term maintenance.",
+    },
+    {
+      project: projects.find((item) => item.slug === "queens-garage-ev-charger-installation") ?? projects[1],
+      headline: "EV charger installation in Queens garage",
+      summary:
+        "This Queens case study shows how dedicated EV charging can be added with load planning, weather-rated equipment, and clean routing that fits occupied homes.",
+    },
+    {
+      project: projects.find((item) => item.slug === "breaker-diagnostics-midtown-office-suite") ?? projects[2],
+      headline: "Troubleshooting partial power loss in Midtown office",
+      summary:
+        "In Midtown, we traced recurring partial power issues back to overloaded shared circuits and documented the fixes so facilities staff could avoid repeat outages.",
+    },
+  ];
+  const serviceLabelMap: Record<string, string> = {
+    "/services#electrical-troubleshooting-and-repairs": "Electrical troubleshooting",
+    "/services#panel-upgrades-and-service-changes": "Panel upgrades & service changes",
+    "/services#ev-charger-installation": "EV charger installation",
+    "/services#dedicated-circuits": "Dedicated circuits",
+    "/services#lighting-installation-and-upgrades": "Lighting installation & upgrades",
+    "/services#code-corrections-and-safety-improvements": "Code corrections & safety",
+    "/services#outlet-switch-and-gfci-upgrades": "Outlet, switch & GFCI upgrades",
+    "/services#commercial-electrical-service-calls": "Commercial electrical service calls",
+  };
   const serviceAreaLinks = [
     { name: "Manhattan", href: "/manhattan-electrician" },
     { name: "Brooklyn", href: "/brooklyn-electrician" },
@@ -231,6 +262,71 @@ export default function HomePage() {
             description="Recent field photos from panel, wiring, and lighting projects in occupied properties."
           />
           <GalleryGrid items={homeProjectGallery} />
+        </div>
+      </Section>
+
+      <Section className="border-t border-[var(--border)] bg-[var(--bg)]">
+        <div className="card-surface space-y-6">
+          <SectionHeader
+            eyebrow="Recent Work"
+            title="Recent NYC electrical work"
+            description="Recent case studies connect real jobs to the service scopes homeowners, boards, and property managers are actively comparing."
+            action={
+              <Link
+                href="/projects"
+                className="text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+              >
+                Browse all projects
+              </Link>
+            }
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {recentProjects.map(({ project, headline, summary }) => (
+              <article key={project.slug} className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 ui-shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">{project.borough}</p>
+                <h3 className="mt-2 text-lg font-semibold text-[var(--text)]">
+                  <Link href={`/projects/${project.slug}`} className="hover:text-[var(--accent)]">
+                    {headline}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{summary}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text)] transition hover:bg-[rgba(255,255,255,0.05)]"
+                  >
+                    Read case study
+                  </Link>
+                  {project.serviceAnchors.slice(0, 2).map((href) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="inline-flex items-center rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-semibold text-[var(--accent)] transition hover:bg-[rgba(255,255,255,0.05)]"
+                    >
+                      {serviceLabelMap[href] ?? "Related service"}
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="text-sm text-[var(--muted)]">
+            Looking for a similar scope in your building? Review the case studies above, then compare the matching{" "}
+            <Link
+              href="/services"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              service categories
+            </Link>{" "}
+            or head to the{" "}
+            <Link
+              href="/contact#contact-request"
+              className="font-semibold text-[var(--accent)] underline-offset-4 hover:text-[#60a5fa] hover:underline"
+            >
+              contact page
+            </Link>
+            .
+          </p>
         </div>
       </Section>
 

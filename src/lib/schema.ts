@@ -22,6 +22,10 @@ const businessAreaServed = [
 ];
 
 const businessPaymentMethods = ["Card", "Zelle", "Cash"];
+const businessSameAs = [
+  "https://maps.app.goo.gl/Em8vxRDsrcMmg3Xz5",
+  "https://share.google/o9OYY0QfX99jh1UKC",
+];
 
 const ownerPerson = {
   "@type": "Person",
@@ -53,19 +57,20 @@ function buildServiceAreaList(services = serviceBuckets) {
 }
 
 export function getLocalBusinessSchema(path: `/${string}` = "/") {
-  const pageUrl = new URL(path, SITE_URL).toString();
-
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "Electrician", "Contractor"],
+    "@type": "Electrician",
     "@id": `${SITE_URL}#business`,
     name: business.brandName,
     legalName: business.businessNameLegal,
-    url: pageUrl,
+    url: SITE_URL,
     telephone: normalizedPhone,
     email: business.email,
     description: baseBusinessDescription,
     owner: ownerPerson,
+    sameAs: businessSameAs,
+    mainEntityOfPage: new URL(path, SITE_URL).toString(),
+    serviceArea: getAreaServed(),
     areaServed: getAreaServed(),
     paymentAccepted: businessPaymentMethods,
     serviceType: ["Residential electrical service", "Light commercial electrical service"],
